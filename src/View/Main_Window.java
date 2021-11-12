@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -24,6 +25,10 @@ public class Main_Window extends JFrame {
 		setTitle("Studentska sluzba");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		
+		Toolbar toolbar = new Toolbar();
+		
+		add(toolbar, BorderLayout.NORTH);
 	}
 	
 	
