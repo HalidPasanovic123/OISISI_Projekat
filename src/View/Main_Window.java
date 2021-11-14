@@ -24,6 +24,14 @@ public class Main_Window extends JFrame {
 		//Naslov prozora
 		setTitle("Studentska sluzba");
 		
+		//Centriranje prozora
+        setLocation(screenWidth/2 - screenWidth * 3/8, screenHeight/2 - screenHeight*3/8);
+        
+		//Dodavanje MenuBara na prozor
+		Menu_Bar meni = new Menu_Bar();
+		this.setJMenuBar(meni);
+
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
 		Toolbar toolbar = new Toolbar();
