@@ -17,6 +17,8 @@ public class Menu_Bar extends JMenuBar {
 
 	public Menu_Bar()
 	{
+		
+		//padajuci meniji sa mnemonicima
 		JMenu file = new JMenu("File");
 		file.setMnemonic(KeyEvent.VK_F);
 		
@@ -29,9 +31,14 @@ public class Menu_Bar extends JMenuBar {
 		JMenu open = new JMenu("Open");
 		open.setIcon(new ImageIcon("Images/open.png"));
 		
+<<<<<<< HEAD
 		CreateAction create = new CreateAction();
 		JMenuItem novi = new JMenuItem(create);
 		novi.setText("New");
+=======
+		//stavke menija sa ikonicom,mnemonikom i aceleratorom
+		JMenuItem novi = new JMenuItem("New");
+>>>>>>> main
 		novi.setIcon(new ImageIcon("Images/new.png"));
 		novi.setMnemonic(KeyEvent.VK_N);
 		novi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
@@ -90,6 +97,7 @@ public class Menu_Bar extends JMenuBar {
 		about.setMnemonic(KeyEvent.VK_A);
 		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
 		
+		//dodavanje stavki tipa JMenuItem u padajuci meni tipa JMenu
 		open.add(studenti);
 		open.add(profesori);
 		open.add(predmeti);
@@ -107,6 +115,7 @@ public class Menu_Bar extends JMenuBar {
 		help.add(help2);
 		help.add(about);
 		
+		//dodavanje padajucih menija u Menu_Bar
 		add(file);
 		add(edit);
 		add(help);

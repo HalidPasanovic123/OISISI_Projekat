@@ -1,26 +1,25 @@
 package Model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Student {
 	
 	private String ime;
 	private String prezime;
-	private LocalDate datumRodjenja;
+	private String datumRodjenja;
 	private String adresa;
 	private String kontakt;
 	private String eMail;
 	private String indeks;
-	private LocalDate godinaUpisa;
+	private String godinaUpisa;
 	private int godinaStudija;
 	private Status status;
 	private float prosecnaOcena;
 	private ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta;
 	private ArrayList<OcenaNaIspitu> nepolozeniPredmeti;
 	
-	public Student(String ime, String prezime, LocalDate datumRodjenja, String adresa, String kontakt, String eMail,
-			String indeks, LocalDate godinaUpisa, int godinaStudija, Status status, float prosecnaOcena,
+	public Student(String ime, String prezime, String datumRodjenja, String adresa, String kontakt, String eMail,
+			String indeks, String godinaUpisa, int godinaStudija, Status status, float prosecnaOcena,
 			ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta, ArrayList<OcenaNaIspitu> nepolozeniPredmeti) {
 		super();
 		this.ime = ime;
@@ -58,11 +57,11 @@ public class Student {
 		this.prezime = prezime;
 	}
 
-	public LocalDate getDatumRodjenja() {
+	public String getDatumRodjenja() {
 		return datumRodjenja;
 	}
 
-	public void setDatumRodjenja(LocalDate datumRodjenja) {
+	public void setDatumRodjenja(String datumRodjenja) {
 		this.datumRodjenja = datumRodjenja;
 	}
 
@@ -98,11 +97,11 @@ public class Student {
 		this.indeks = indeks;
 	}
 
-	public LocalDate getGodinaUpisa() {
+	public String getGodinaUpisa() {
 		return godinaUpisa;
 	}
 
-	public void setGodinaUpisa(LocalDate godinaUpisa) {
+	public void setGodinaUpisa(String godinaUpisa) {
 		this.godinaUpisa = godinaUpisa;
 	}
 
