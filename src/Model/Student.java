@@ -7,7 +7,7 @@ public class Student {
 	private String ime;
 	private String prezime;
 	private String datumRodjenja;
-	private String adresa;
+	private Adresa adresa;
 	private String kontakt;
 	private String eMail;
 	private String indeks;
@@ -18,7 +18,7 @@ public class Student {
 	private ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta;
 	private ArrayList<OcenaNaIspitu> nepolozeniPredmeti;
 	
-	public Student(String ime, String prezime, String datumRodjenja, String adresa, String kontakt, String eMail,
+	public Student(String ime, String prezime, String datumRodjenja, Adresa adresa, String kontakt, String eMail,
 			String indeks, String godinaUpisa, int godinaStudija, Status status, float prosecnaOcena,
 			ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta, ArrayList<OcenaNaIspitu> nepolozeniPredmeti) {
 		super();
@@ -65,11 +65,11 @@ public class Student {
 		this.datumRodjenja = datumRodjenja;
 	}
 
-	public String getAdresa() {
+	public Adresa getAdresa() {
 		return adresa;
 	}
 
-	public void setAdresa(String adresa) {
+	public void setAdresa(Adresa adresa) {
 		this.adresa = adresa;
 	}
 

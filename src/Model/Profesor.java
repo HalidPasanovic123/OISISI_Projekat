@@ -7,10 +7,10 @@ public class Profesor {
 	private String prezime;
 	private String ime;
 	private LocalDate datumRodjenja;
-	private String adresaStanovanja;
+	private Adresa adresaStanovanja;
 	private String kontaktTelefon;
 	private String emailAdresa;
-	private String adresaKancelarije;
+	private Adresa adresaKancelarije;
 	private int brojLicneKarte;
 	private String zvanje;
 	private int godineStaza;
@@ -22,8 +22,8 @@ public class Profesor {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Profesor(String prezime, String ime, LocalDate datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String adresaKancelarije, int brojLicneKarte, String zvanje, int godineStaza,
+	public Profesor(String prezime, String ime, LocalDate datumRodjenja, Adresa adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, Adresa adresaKancelarije, int brojLicneKarte, String zvanje, int godineStaza,
 			ArrayList<Predmet> predmeti) {
 		super();
 		this.prezime = prezime;
@@ -63,11 +63,11 @@ public class Profesor {
 		this.datumRodjenja = datumRodjenja;
 	}
 
-	public String getAdresaStanovanja() {
+	public Adresa getAdresaStanovanja() {
 		return adresaStanovanja;
 	}
 
-	public void setAdresaStanovanja(String adresaStanovanja) {
+	public void setAdresaStanovanja(Adresa adresaStanovanja) {
 		this.adresaStanovanja = adresaStanovanja;
 	}
 
@@ -87,11 +87,11 @@ public class Profesor {
 		this.emailAdresa = emailAdresa;
 	}
 
-	public String getAdresaKancelarije() {
+	public Adresa getAdresaKancelarije() {
 		return adresaKancelarije;
 	}
 
-	public void setAdresaKancelarije(String adresaKancelarije) {
+	public void setAdresaKancelarije(Adresa adresaKancelarije) {
 		this.adresaKancelarije = adresaKancelarije;
 	}
 
