@@ -6,7 +6,7 @@ public class MyApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Main_Window window = new Main_Window();
+		MainWindow window = new MainWindow();
 		window.setVisible(true);
 	}
 

@@ -7,9 +7,9 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class Main_Window extends JFrame {
+public class MainWindow extends JFrame {
 
-	public Main_Window() {
+	public MainWindow() {
 		
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
@@ -28,15 +28,18 @@ public class Main_Window extends JFrame {
         setLocation(screenWidth/2 - screenWidth * 3/8, screenHeight/2 - screenHeight*3/8);
         
 		//Dodavanje MenuBara na prozor
-		Menu_Bar meni = new Menu_Bar();
+		MenuBar meni = new MenuBar();
 		this.setJMenuBar(meni);
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
 		Toolbar toolbar = new Toolbar();
-		
 		add(toolbar, BorderLayout.NORTH);
+		
+		//Dodavanje StatusBara na prozor
+		StatusBar statusBar = new StatusBar();
+		this.add(statusBar,BorderLayout.SOUTH);
 	}
 	
 	
