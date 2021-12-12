@@ -8,9 +8,9 @@ import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
-public class Menu_Bar extends JMenuBar {
+public class MenuBar extends JMenuBar {
 
-	public Menu_Bar()
+	public MenuBar()
 	{
 		
 		//padajuci meniji sa mnemonicima
@@ -25,6 +25,7 @@ public class Menu_Bar extends JMenuBar {
 		
 		JMenu open = new JMenu("Open");
 		open.setIcon(new ImageIcon("Images/open.png"));
+		open.setMnemonic(KeyEvent.VK_O);
 		
 		//stavke menija sa ikonicom,mnemonikom i aceleratorom
 		JMenuItem novi = new JMenuItem("New");

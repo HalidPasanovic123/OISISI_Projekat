@@ -6,10 +6,10 @@ public class Katedra {
 	
 	private String sifraKatedre;
 	private String nazivKatedre;
-	private String sefKatedre;
+	private Profesor sefKatedre;
 	private ArrayList<Profesor> profesori;
 	
-	public Katedra(String sifraKatedre, String nazivKatedre, String sefKatedre, ArrayList<Profesor> profesori) {
+	public Katedra(String sifraKatedre, String nazivKatedre, Profesor sefKatedre, ArrayList<Profesor> profesori) {
 		super();
 		this.sifraKatedre = sifraKatedre;
 		this.nazivKatedre = nazivKatedre;
@@ -37,11 +37,11 @@ public class Katedra {
 		this.nazivKatedre = nazivKatedre;
 	}
 	
-	public String getSefKatedre() {
+	public Profesor getSefKatedre() {
 		return sefKatedre;
 	}
 	
-	public void setSefKatedre(String sefKatedre) {
+	public void setSefKatedre(Profesor sefKatedre) {
 		this.sefKatedre = sefKatedre;
 	}
 	
