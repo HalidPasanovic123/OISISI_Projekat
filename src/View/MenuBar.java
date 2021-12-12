@@ -5,6 +5,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
+
+import Controller.CreateAction;
+import Controller.DeleteAction;
+import Controller.ModifyAction;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
@@ -27,8 +32,14 @@ public class MenuBar extends JMenuBar {
 		open.setIcon(new ImageIcon("Images/open.png"));
 		open.setMnemonic(KeyEvent.VK_O);
 		
+<<<<<<< HEAD
+		CreateAction create = new CreateAction();
+		JMenuItem novi = new JMenuItem(create);
+		novi.setText("New");
+=======
 		//stavke menija sa ikonicom,mnemonikom i aceleratorom
 		JMenuItem novi = new JMenuItem("New");
+>>>>>>> main
 		novi.setIcon(new ImageIcon("Images/new.png"));
 		novi.setMnemonic(KeyEvent.VK_N);
 		novi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
@@ -63,12 +74,16 @@ public class MenuBar extends JMenuBar {
 		katedre.setMnemonic(KeyEvent.VK_K);
 		katedre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K,ActionEvent.CTRL_MASK));
 		
-		JMenuItem edit2 = new JMenuItem("Edit");
+		ModifyAction modify = new ModifyAction();
+		JMenuItem edit2 = new JMenuItem(modify);
+		edit2.setText("Edit");
 		edit2.setIcon(new ImageIcon("Images/edit.png"));
 		edit2.setMnemonic(KeyEvent.VK_E);
 		edit2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,ActionEvent.CTRL_MASK));
 		
-		JMenuItem delete = new JMenuItem("Delete");
+		DeleteAction del_act = new DeleteAction();
+		JMenuItem delete = new JMenuItem(del_act);
+		delete.setText("Delete");
 		delete.setIcon(new ImageIcon("Images/delete.png"));
 		delete.setMnemonic(KeyEvent.VK_D);
 		delete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,ActionEvent.CTRL_MASK));
