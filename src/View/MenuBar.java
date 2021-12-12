@@ -32,14 +32,9 @@ public class MenuBar extends JMenuBar {
 		open.setIcon(new ImageIcon("Images/open.png"));
 		open.setMnemonic(KeyEvent.VK_O);
 		
-<<<<<<< HEAD
 		CreateAction create = new CreateAction();
 		JMenuItem novi = new JMenuItem(create);
 		novi.setText("New");
-=======
-		//stavke menija sa ikonicom,mnemonikom i aceleratorom
-		JMenuItem novi = new JMenuItem("New");
->>>>>>> main
 		novi.setIcon(new ImageIcon("Images/new.png"));
 		novi.setMnemonic(KeyEvent.VK_N);
 		novi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
