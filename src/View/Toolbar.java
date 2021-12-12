@@ -12,31 +12,33 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.DimensionUIResource;
 
+import Controller.CreateAction;
+import Controller.DeleteAction;
+import Controller.ModifyAction;
+import Controller.SearchAction;
+
 public class Toolbar extends JToolBar {
 
 	public Toolbar() {
 		super(SwingConstants.HORIZONTAL);
 		
 		//Dugme za pravljenje entiteta
-		JButton createButton = new JButton();
-		createButton.setToolTipText("Napravi");
-		createButton.setIcon(new ImageIcon("Images/Toolbar_Button_1.png"));
+		CreateAction create = new CreateAction();
+		JButton createButton = new JButton(create);
 		add(createButton);
 		
 		addSeparator();
 		
 		//Dugme za menjanje oznacenog entiteta
-		JButton changeButton = new JButton();
-		changeButton.setToolTipText("Izmeni");
-		changeButton.setIcon(new ImageIcon("Images/Toolbar_Button_2.png"));
+		ModifyAction modify = new ModifyAction();
+		JButton changeButton = new JButton(modify);
 		add(changeButton);
 		
 		addSeparator();
 		
 		//Dugme za brisanje oznacenog entiteta
-		JButton removeButton = new JButton();
-		removeButton.setToolTipText("Izbrisi");
-		removeButton.setIcon(new ImageIcon("Images/Toolbar_Button_3.png"));
+		DeleteAction delete = new DeleteAction();
+		JButton removeButton = new JButton(delete);
 		add(removeButton);
 		
 		add(Box.createHorizontalGlue());
@@ -50,9 +52,8 @@ public class Toolbar extends JToolBar {
 		add(searchInput);
 		
 		//Dugme za pretragu
-		JButton searchButton = new JButton();
-		searchButton.setToolTipText("Pretrazi");
-		searchButton.setIcon(new ImageIcon("Images/Toolbar_Button_4.png"));
+		SearchAction search = new SearchAction();
+		JButton searchButton = new JButton(search);
 		add(searchButton);
 		
 		setFloatable(false);
