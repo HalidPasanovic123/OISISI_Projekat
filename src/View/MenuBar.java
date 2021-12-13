@@ -37,7 +37,6 @@ public class MenuBar extends JMenuBar {
 		novi.setText("New");
 		novi.setIcon(new ImageIcon("Images/new.png"));
 		novi.setMnemonic(KeyEvent.VK_N);
-		novi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
 		
 		JMenuItem save = new JMenuItem("Save");
 		save.setIcon(new ImageIcon("Images/save.png"));
@@ -74,14 +73,12 @@ public class MenuBar extends JMenuBar {
 		edit2.setText("Edit");
 		edit2.setIcon(new ImageIcon("Images/edit.png"));
 		edit2.setMnemonic(KeyEvent.VK_E);
-		edit2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,ActionEvent.CTRL_MASK));
 		
 		DeleteAction del_act = new DeleteAction();
 		JMenuItem delete = new JMenuItem(del_act);
 		delete.setText("Delete");
 		delete.setIcon(new ImageIcon("Images/delete.png"));
 		delete.setMnemonic(KeyEvent.VK_D);
-		delete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,ActionEvent.CTRL_MASK));
 		
 		JMenuItem help2 = new JMenuItem("Help");
 		help2.setIcon(new ImageIcon("Images/help.png"));
