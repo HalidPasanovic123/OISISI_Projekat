@@ -6,8 +6,18 @@ import java.awt.HeadlessException;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.border.Border;
 
 public class MainWindow extends JFrame {
+
+	private static MainWindow instance = null;
+
+	public static MainWindow getInstance() {
+		if (instance == null) {
+			instance = new MainWindow();
+		}
+		return instance;
+	}
 
 	public MainWindow() {
 		
@@ -31,6 +41,8 @@ public class MainWindow extends JFrame {
 		MenuBar meni = new MenuBar();
 		this.setJMenuBar(meni);
 
+		TabPanel tabs = new TabPanel();
+		add(tabs, BorderLayout.CENTER);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
