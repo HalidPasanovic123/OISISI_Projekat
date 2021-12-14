@@ -4,13 +4,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Box;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
-import javax.swing.plaf.DimensionUIResource;
 
 import Controller.CreateAction;
 import Controller.DeleteAction;

@@ -2,11 +2,9 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.border.Border;
 
 public class MainWindow extends JFrame {
 
@@ -18,11 +16,15 @@ public class MainWindow extends JFrame {
 		}
 		return instance;
 	}
+	
+	private TabPanel tabs; 
 
 	public MainWindow() {
-		
+		super();
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
+
+		setVisible(true);
 		
 		//Dobijanje dimenzija ekrana korisnika
 		int screenHeight = screenSize.height;
@@ -41,7 +43,7 @@ public class MainWindow extends JFrame {
 		MenuBar meni = new MenuBar();
 		this.setJMenuBar(meni);
 
-		TabPanel tabs = new TabPanel();
+		tabs = new TabPanel();
 		add(tabs, BorderLayout.CENTER);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
@@ -54,6 +56,8 @@ public class MainWindow extends JFrame {
 		this.add(statusBar,BorderLayout.SOUTH);
 	}
 	
-	
-	
+	public TabPanel getTabs() {
+		return tabs;
+	}
+
 }

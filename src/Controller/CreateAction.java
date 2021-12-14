@@ -7,6 +7,10 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
+import View.MainWindow;
+import View.PredmetJDialog;
+import View.ProfesorJDialog;
+
 public class CreateAction extends AbstractAction {
     
     public CreateAction(){              
@@ -17,7 +21,15 @@ public class CreateAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
+            
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
+            ProfesorJDialog profDialog = new ProfesorJDialog();
+            profDialog.setVisible(true);
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
+            PredmetJDialog preDialog = new PredmetJDialog();
+            preDialog.setVisible(true);
+        }
         
     }
 }
