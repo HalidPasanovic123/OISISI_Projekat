@@ -1,6 +1,6 @@
-package Controller;
+package Controllers;
 
-import Model.BazaPredmeta;
+import Baze.BazaPredmeta;
 import Model.Predmet;
 
 public class PredmetController {
@@ -14,9 +14,7 @@ public class PredmetController {
 		return instance;
 	}
 
-    public PredmetController(){
-
-    }
+    public PredmetController(){}
 
     public void addPredmet(Predmet Predmet){
         BazaPredmeta.getInstance().addPredmet(Predmet);

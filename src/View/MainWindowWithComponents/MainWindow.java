@@ -1,10 +1,12 @@
-package View;
+package View.MainWindowWithComponents;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+
+import AbstractTableModels.AbstractModelProfesori;
 
 public class MainWindow extends JFrame {
 
@@ -54,10 +56,17 @@ public class MainWindow extends JFrame {
 		//Dodavanje StatusBara na prozor
 		StatusBar statusBar = new StatusBar();
 		this.add(statusBar,BorderLayout.SOUTH);
+		validate();
 	}
 	
 	public TabPanel getTabs() {
 		return tabs;
+	}
+
+	public void updateShowingsOfProfesors() {
+		AbstractModelProfesori model = (AbstractModelProfesori) tabs.getTabelProfesori().getModel();
+		model.fireTableDataChanged();
+		validate();
 	}
 
 }

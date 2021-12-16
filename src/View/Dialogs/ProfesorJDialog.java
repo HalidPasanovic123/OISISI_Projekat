@@ -1,15 +1,21 @@
-package View;
+package View.Dialogs;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import AbstractActions.OdustaniAction;
+import Controllers.ProfesorController;
+import View.MainWindowWithComponents.MainWindow;
+
 import java.awt.GridBagLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ProfesorJDialog extends JDialog{
 
@@ -143,9 +149,32 @@ public class ProfesorJDialog extends JDialog{
         add(potvrdi, gridBagConstraints);
 
         //Dugme za potvrdi
-        JButton odustani = new JButton("Odustani");
+        JButton odustani = new JButton(new OdustaniAction(this));
         gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 25, 0, 0), 0, 0);
         add(odustani, gridBagConstraints);
+
+        potvrdi.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String getPrez = fieldPrez.getText();
+                String getIme = fieldIme.getText();
+                String getDatum = fieldDatum.getText();
+                String getAdresa = fieldAdresa.getText();
+                String getAdresaK = fieldAdresaK.getText();
+                String getLicna = fieldLicna.getText();
+                String getZvanje = fieldZvanje.getText();
+                String getStaz = fieldStaz.getText();
+                String getEmail = fieldEmail.getText();
+                String getKontakt = fieldKontakt.getText();
+
+                ProfesorController.getInstance().addProfesor(getPrez, getIme, getDatum, getAdresa, getAdresaK,
+                getLicna, getZvanje, getStaz, getEmail, getKontakt);
+                
+            }
+
+        });
+
     }
     
 }

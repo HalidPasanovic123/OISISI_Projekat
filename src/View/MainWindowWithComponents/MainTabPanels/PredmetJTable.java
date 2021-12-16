@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents.MainTabPanels;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -7,7 +7,7 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
-import Model.AbstractModelPredmeta;
+import AbstractTableModels.AbstractModelPredmeta;
 
 public class PredmetJTable extends JTable {
     

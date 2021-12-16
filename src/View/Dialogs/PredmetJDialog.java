@@ -1,4 +1,4 @@
-package View;
+package View.Dialogs;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,6 +8,9 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import AbstractActions.OdustaniAction;
+import View.MainWindowWithComponents.MainWindow;
 
 public class PredmetJDialog extends JDialog{
 
@@ -88,7 +91,7 @@ public class PredmetJDialog extends JDialog{
         add(potvrdi, gridBagConstraints);
 
         //Dugme za potvrdi
-        JButton odustani = new JButton("Odustani");
+        JButton odustani = new JButton(new OdustaniAction(this));
         gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 25, 0, 0), 0, 0);
         add(odustani, gridBagConstraints);
     }

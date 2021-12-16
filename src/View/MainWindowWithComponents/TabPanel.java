@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -7,9 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
+import View.MainWindowWithComponents.MainTabPanels.PredmetJTable;
+import View.MainWindowWithComponents.MainTabPanels.ProfesorJTable;
+
 public class TabPanel extends JPanel{
     
     private JTabbedPane tabs;
+    private ProfesorJTable tabelProfesori;
+    private PredmetJTable tabelPredmeti;
 
     public TabPanel(){
         super();
@@ -23,10 +28,10 @@ public class TabPanel extends JPanel{
 
         JPanel studentiTab = new JPanel();
 
-        ProfesorJTable tabelProfesori = new ProfesorJTable();
+        tabelProfesori = new ProfesorJTable();
         JScrollPane profesoriTab = new JScrollPane(tabelProfesori);
 
-        PredmetJTable tabelPredmeti = new PredmetJTable();
+        tabelPredmeti = new PredmetJTable();
         JScrollPane predmetiTab = new JScrollPane(tabelPredmeti);
 
         tabs.addTab("Studenti", studentiTab);
@@ -39,4 +44,13 @@ public class TabPanel extends JPanel{
     public JTabbedPane getJTabbedPane() {
         return tabs;
     }
+
+    public ProfesorJTable getTabelProfesori() {
+        return tabelProfesori;
+    }
+
+    public PredmetJTable getTabelPredmeti() {
+        return tabelPredmeti;
+    }
+
 }
