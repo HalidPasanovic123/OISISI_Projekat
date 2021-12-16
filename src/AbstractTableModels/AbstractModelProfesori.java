@@ -1,6 +1,8 @@
-package Model;
+package AbstractTableModels;
 
 import javax.swing.table.AbstractTableModel;
+
+import Baze.BazaProfesora;
 
 public class AbstractModelProfesori extends AbstractTableModel{
 

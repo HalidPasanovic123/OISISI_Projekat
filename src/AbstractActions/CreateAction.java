@@ -1,4 +1,4 @@
-package Controller;
+package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -7,9 +7,9 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
-import View.MainWindow;
-import View.PredmetJDialog;
-import View.ProfesorJDialog;
+import View.Dialogs.PredmetJDialog;
+import View.Dialogs.ProfesorJDialog;
+import View.MainWindowWithComponents.MainWindow;
 
 public class CreateAction extends AbstractAction {
     

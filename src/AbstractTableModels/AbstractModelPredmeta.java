@@ -1,6 +1,8 @@
-package Model;
+package AbstractTableModels;
 
 import javax.swing.table.AbstractTableModel;
+
+import Baze.BazaPredmeta;
 
 public class AbstractModelPredmeta extends AbstractTableModel {
 

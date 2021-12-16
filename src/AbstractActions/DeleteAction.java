@@ -1,4 +1,4 @@
-package Controller;
+package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

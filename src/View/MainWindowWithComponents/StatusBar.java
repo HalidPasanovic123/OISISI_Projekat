@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 
 
 public class StatusBar extends JPanel{
-	private String appName = "Studentska Služba";
+	private String appName = "Studentska Sluï¿½ba";
 	private String time;
 	JLabel appNameLabel = new JLabel(appName);
 	JLabel timeLabel = new JLabel();

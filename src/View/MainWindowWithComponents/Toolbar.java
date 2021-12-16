@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,10 +9,10 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
-import Controller.CreateAction;
-import Controller.DeleteAction;
-import Controller.ModifyAction;
-import Controller.SearchAction;
+import AbstractActions.CreateAction;
+import AbstractActions.DeleteAction;
+import AbstractActions.ModifyAction;
+import AbstractActions.SearchAction;
 
 public class Toolbar extends JToolBar {
 

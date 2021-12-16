@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -6,9 +6,9 @@ import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
-import Controller.CreateAction;
-import Controller.DeleteAction;
-import Controller.ModifyAction;
+import AbstractActions.CreateAction;
+import AbstractActions.DeleteAction;
+import AbstractActions.ModifyAction;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
