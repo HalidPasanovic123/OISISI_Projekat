@@ -55,7 +55,7 @@ public class DeleteAction extends AbstractAction {
             if (temp != -1) {
                 int reply=JOptionPane.showOptionDialog(parent, 
 			        "Da li ste sigurni da želite da obrišete profesora?", 
-			        "Brisanje studenta", 
+			        "Brisanje profesora", 
 			        JOptionPane.OK_CANCEL_OPTION, 
 			        JOptionPane.INFORMATION_MESSAGE, 
 			        null, 
