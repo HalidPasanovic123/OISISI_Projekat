@@ -19,7 +19,12 @@ import java.awt.event.ActionListener;
 
 public class ProfesorJDialog extends JDialog{
 
-    public ProfesorJDialog() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ProfesorJDialog() {
         super(MainWindow.getInstance());
 
         Toolkit kit = Toolkit.getDefaultToolkit();

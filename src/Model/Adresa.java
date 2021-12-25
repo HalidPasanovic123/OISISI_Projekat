@@ -40,6 +40,12 @@ public class Adresa {
 		this.drzava = drzava;
 	}
 	
+	public Adresa(String ulica) 
+	{
+		super();
+		this.ulica = ulica;
+	}
+	
 	public Adresa() {
 		super();
 	}

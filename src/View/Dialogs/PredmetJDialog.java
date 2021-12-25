@@ -14,7 +14,12 @@ import View.MainWindowWithComponents.MainWindow;
 
 public class PredmetJDialog extends JDialog{
 
-    public PredmetJDialog() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PredmetJDialog() {
         Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
         

@@ -7,9 +7,15 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import AbstractTableModels.AbstractModelProfesori;
+import AbstractTableModels.AbstractTableModelStudent;
 
 public class MainWindow extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private static MainWindow instance = null;
 
 	public static MainWindow getInstance() {
@@ -42,7 +48,7 @@ public class MainWindow extends JFrame {
         setLocation(screenWidth/2 - screenWidth * 3/8, screenHeight/2 - screenHeight*3/8);
         
 		//Dodavanje MenuBara na prozor
-		MenuBar meni = new MenuBar();
+		MenuBar meni = new MenuBar(this);
 		this.setJMenuBar(meni);
 
 		tabs = new TabPanel();
@@ -50,13 +56,15 @@ public class MainWindow extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
-		Toolbar toolbar = new Toolbar();
+		Toolbar toolbar = new Toolbar(this);
 		add(toolbar, BorderLayout.NORTH);
 		
 		//Dodavanje StatusBara na prozor
 		StatusBar statusBar = new StatusBar();
 		this.add(statusBar,BorderLayout.SOUTH);
-		validate();
+		validate(); 
+		
+
 	}
 	
 	public TabPanel getTabs() {
@@ -67,6 +75,19 @@ public class MainWindow extends JFrame {
 		AbstractModelProfesori model = (AbstractModelProfesori) tabs.getTabelProfesori().getModel();
 		model.fireTableDataChanged();
 		validate();
+	}
+	
+	public void updateShowingOfStudent(String akcija, int vrednost) {
+		AbstractTableModelStudent model = (AbstractTableModelStudent) tabs.getTableStudent().getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
+	
+	public void setStatusBar(String s)
+	{
+		StatusBar statusBar = new StatusBar(s);
+		this.add(statusBar,BorderLayout.SOUTH);
+		validate(); 
 	}
 
 }

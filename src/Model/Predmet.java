@@ -11,6 +11,14 @@ public class Predmet {
 	private ArrayList<Student> spisakPolozenih;
 	private ArrayList<Student> spisakNepolozenih;
 	
+	public Predmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija, int brojESPB) {
+		super();
+		this.sifraPredmeta = sifraPredmeta;
+		this.nazivPredmeta = nazivPredmeta;
+		this.semestar = semestar;
+		this.godinaStudija = godinaStudija;
+		this.brojESPB = brojESPB;
+	}
 	
 	public Predmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
 			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,

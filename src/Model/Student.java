@@ -16,11 +16,11 @@ public class Student {
 	private Status status;
 	private float prosecnaOcena;
 	private ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta;
-	private ArrayList<OcenaNaIspitu> nepolozeniPredmeti;
+	private ArrayList<Predmet> nepolozeniPredmeti;
 	
 	public Student(String ime, String prezime, String datumRodjenja, Adresa adresa, String kontakt, String eMail,
 			String indeks, String godinaUpisa, int godinaStudija, Status status, float prosecnaOcena,
-			ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta, ArrayList<OcenaNaIspitu> nepolozeniPredmeti) {
+			ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta, ArrayList<Predmet> nepolozeniPredmeti) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -101,8 +101,8 @@ public class Student {
 		return godinaUpisa;
 	}
 
-	public void setGodinaUpisa(String godinaUpisa) {
-		this.godinaUpisa = godinaUpisa;
+	public void setGodinaUpisa(String godina) {
+		this.godinaUpisa = godina;
 	}
 
 	public int getGodinaStudija() {
@@ -137,11 +137,11 @@ public class Student {
 		this.ocenePolozenihPredmeta = ocenePolozenihPredmeta;
 	}
 
-	public ArrayList<OcenaNaIspitu> getNepolozeniPredmeti() {
+	public ArrayList<Predmet> getNepolozeniPredmeti() {
 		return nepolozeniPredmeti;
 	}
 
-	public void setNepolozeniPredmeti(ArrayList<OcenaNaIspitu> nepolozeniPredmeti) {
+	public void setNepolozeniPredmeti(ArrayList<Predmet> nepolozeniPredmeti) {
 		this.nepolozeniPredmeti = nepolozeniPredmeti;
 	}
 
@@ -152,5 +152,10 @@ public class Student {
 				+ godinaUpisa + ", godinaStudija=" + godinaStudija + ", status=" + status + ", prosecnaOcena="
 				+ prosecnaOcena + ", ocenePolozenihPredmeta=" + ocenePolozenihPredmeta + ", nepolozeniPredmeti="
 				+ nepolozeniPredmeti + "]";
+	}
+	
+	public String ispisiAdresu()
+	{
+		return this.adresa.getUlica() + " " + this.adresa.getBroj() + "," + this.adresa.getGrad() + "," + this.adresa.getDrzava();
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.KeyStroke;
 
 import View.Dialogs.PredmetJDialog;
 import View.Dialogs.ProfesorJDialog;
+import View.Dialogs.StudentJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
 public class CreateAction extends AbstractAction {
@@ -21,8 +22,10 @@ public class CreateAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
-            
+        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) 
+        {
+        	StudentJDialog studentDialog = new StudentJDialog();
+        	studentDialog.setVisible(true);
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
             ProfesorJDialog profDialog = new ProfesorJDialog();
             profDialog.setVisible(true);

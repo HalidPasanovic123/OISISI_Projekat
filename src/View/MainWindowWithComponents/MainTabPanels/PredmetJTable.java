@@ -11,7 +11,12 @@ import AbstractTableModels.AbstractModelPredmeta;
 
 public class PredmetJTable extends JTable {
     
-    public PredmetJTable() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PredmetJTable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

@@ -4,6 +4,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 
 import AbstractActions.CreateAction;
@@ -15,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 public class MenuBar extends JMenuBar {
 
-	public MenuBar()
+	public MenuBar(final JFrame parent)
 	{
 		
 		//padajuci meniji sa mnemonicima
@@ -68,13 +69,13 @@ public class MenuBar extends JMenuBar {
 		katedre.setMnemonic(KeyEvent.VK_K);
 		katedre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K,ActionEvent.CTRL_MASK));
 		
-		ModifyAction modify = new ModifyAction();
+		ModifyAction modify = new ModifyAction(parent);
 		JMenuItem edit2 = new JMenuItem(modify);
 		edit2.setText("Edit");
 		edit2.setIcon(new ImageIcon("Images/edit.png"));
 		edit2.setMnemonic(KeyEvent.VK_E);
 		
-		DeleteAction del_act = new DeleteAction();
+		DeleteAction del_act = new DeleteAction(parent);
 		JMenuItem delete = new JMenuItem(del_act);
 		delete.setText("Delete");
 		delete.setIcon(new ImageIcon("Images/delete.png"));

@@ -37,7 +37,7 @@ public class BazaPredmeta {
         this.columns.add("Semestar");
     }
 
-    public ArrayList<Predmet> getpredmeti(){
+    public ArrayList<Predmet> getPredmeti(){
         return predmeti;
     }
 
@@ -83,6 +83,7 @@ public class BazaPredmeta {
             }
         } 
     }
+    
 
     public String getValueAt(int row, int column){
         Predmet predmet = predmeti.get(row);

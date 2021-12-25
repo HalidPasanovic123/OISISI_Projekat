@@ -11,16 +11,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import View.Dialogs.PredmetJDialog;
+import View.Dialogs.ProfesorJDialog;
+import View.Dialogs.StudentJDialog;
+import View.MainWindowWithComponents.MainWindow;
 
 
 public class StatusBar extends JPanel{
-	private String appName = "Studentska Slu�ba";
+	
+			
+	private String appName = "Studentska Slu�ba-Studenti";
 	private String time;
 	JLabel appNameLabel = new JLabel(appName);
 	JLabel timeLabel = new JLabel();
 	DateFormat timeFormat = new SimpleDateFormat("HH:mm dd.MM.yyyy. ");
 	public StatusBar()
 	{
+		
 		this.setLayout(new BorderLayout());
 		this.setBorder(new LineBorder(new Color(0)));
 		
@@ -33,6 +43,25 @@ public class StatusBar extends JPanel{
 		this.add(timeLabel,BorderLayout.EAST);
 	}
 	
+	public StatusBar(String s)
+	{
+		appName = s;
+		JLabel appNameLabel = new JLabel(appName);
+		this.setLayout(new BorderLayout());
+		this.setBorder(new LineBorder(new Color(0)));
+		
+		TimeListener t1 = new TimeListener();
+		Timer timer = new Timer(60*1000, t1);
+		timer.setInitialDelay(0);
+		timer.start();
+		
+		this.add(appNameLabel,BorderLayout.WEST);
+		this.add(timeLabel,BorderLayout.EAST);
+	}
+	public void setAppNameLabel(JLabel appNameLabel) {
+		this.appNameLabel = appNameLabel;
+	}
+
 	private class TimeListener implements ActionListener
 	{
 
@@ -42,6 +71,7 @@ public class StatusBar extends JPanel{
 			Date now = new Date();
 			time = timeFormat.format(now);
 			timeLabel.setText(time);
+			
 		}
 		
 	}
