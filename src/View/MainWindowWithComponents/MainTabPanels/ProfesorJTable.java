@@ -1,4 +1,4 @@
-package View;
+package View.MainWindowWithComponents.MainTabPanels;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -7,15 +7,15 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
-import Model.AbstractModelPredmeta;
+import AbstractTableModels.AbstractModelProfesori;
 
-public class PredmetJTable extends JTable {
+public class ProfesorJTable extends JTable{
     
-    public PredmetJTable() {
+    public ProfesorJTable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.setModel(new AbstractModelPredmeta());
+        this.setModel(new AbstractModelProfesori());
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {

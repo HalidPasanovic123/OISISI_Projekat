@@ -1,25 +1,23 @@
-package View;
+package View.MainWindowWithComponents;
 
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Box;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
-import javax.swing.plaf.DimensionUIResource;
 
-import Controller.CreateAction;
-import Controller.DeleteAction;
-import Controller.ModifyAction;
-import Controller.SearchAction;
+import AbstractActions.CreateAction;
+import AbstractActions.DeleteAction;
+import AbstractActions.ModifyAction;
+import AbstractActions.SearchAction;
 
 public class Toolbar extends JToolBar {
 
-	public Toolbar() {
+	public Toolbar(final JFrame parent) {
 		super(SwingConstants.HORIZONTAL);
 		
 		//Dugme za pravljenje entiteta
@@ -30,14 +28,14 @@ public class Toolbar extends JToolBar {
 		addSeparator();
 		
 		//Dugme za menjanje oznacenog entiteta
-		ModifyAction modify = new ModifyAction();
+		ModifyAction modify = new ModifyAction(parent);
 		JButton changeButton = new JButton(modify);
 		add(changeButton);
 		
 		addSeparator();
 		
 		//Dugme za brisanje oznacenog entiteta
-		DeleteAction delete = new DeleteAction();
+		DeleteAction delete = new DeleteAction(parent);
 		JButton removeButton = new JButton(delete);
 		add(removeButton);
 		

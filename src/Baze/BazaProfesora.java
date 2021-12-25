@@ -1,8 +1,10 @@
-package Model;
+package Baze;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
+
+import Model.Adresa;
+import Model.Profesor;
 
 public class BazaProfesora {
 
@@ -15,16 +17,16 @@ public class BazaProfesora {
         return instance;
     }
 
-    private List<Profesor> profesors;
-    private List<String> columns;
+    private ArrayList<Profesor> profesors;
+    private ArrayList<String> columns;
 
     private BazaProfesora(){
         this.columns = new ArrayList<String>();
         this.profesors = new ArrayList<Profesor>();
 
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3, new ArrayList<>()));
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3, new ArrayList<>()));
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3, new ArrayList<>()));
+        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
+        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
+        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
 
         this.columns.add("Prezime");
         this.columns.add("Ime");
@@ -32,7 +34,7 @@ public class BazaProfesora {
         this.columns.add("E-Mail adresa");
     }
 
-    public List<Profesor> getProfesors(){
+    public ArrayList<Profesor> getProfesors(){
         return profesors;
     }
 
@@ -40,7 +42,7 @@ public class BazaProfesora {
         return profesors.size();
     }
 
-    public void setProfesors(List<Profesor> profesors){
+    public void setProfesors(ArrayList<Profesor> profesors){
         this.profesors = profesors;
     }
 
@@ -69,9 +71,9 @@ public class BazaProfesora {
         }
     }
 
-    public void changeProfesor(Profesor profesor){
+    public void changeProfesor(Profesor profesor, int prethodniBrojLicne){
         for (Profesor p : profesors){
-            if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+            if(p.getBrojLicneKarte() == prethodniBrojLicne){
                 profesors.remove(p);
                 profesors.add(profesor);
                 break;

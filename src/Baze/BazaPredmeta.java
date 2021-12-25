@@ -1,7 +1,12 @@
-package Model;
+package Baze;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import Model.Predmet;
+import Model.Profesor;
+import Model.Semestar;
+import Model.Student;
+
 
 public class BazaPredmeta {
     
@@ -14,8 +19,8 @@ public class BazaPredmeta {
         return instance;
     }
 
-    private List<Predmet> predmeti;
-    private List<String> columns;
+    private ArrayList<Predmet> predmeti;
+    private ArrayList<String> columns;
 
     private BazaPredmeta(){
         this.columns = new ArrayList<String>();
@@ -32,11 +37,11 @@ public class BazaPredmeta {
         this.columns.add("Semestar");
     }
 
-    public List<Predmet> getpredmeti(){
+    public ArrayList<Predmet> getPredmeti(){
         return predmeti;
     }
 
-    public void setpredmeti(List<Predmet> predmeti){
+    public void setpredmeti(ArrayList<Predmet> predmeti){
         this.predmeti = predmeti;
     }
 
@@ -78,6 +83,7 @@ public class BazaPredmeta {
             }
         } 
     }
+    
 
     public String getValueAt(int row, int column){
         Predmet predmet = predmeti.get(row);

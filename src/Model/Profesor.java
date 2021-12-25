@@ -23,8 +23,7 @@ public class Profesor {
 	}
 	
 	public Profesor(String prezime, String ime, LocalDate datumRodjenja, Adresa adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, Adresa adresaKancelarije, int brojLicneKarte, String zvanje, int godineStaza,
-			ArrayList<Predmet> predmeti) {
+			String emailAdresa, Adresa adresaKancelarije, int brojLicneKarte, String zvanje, int godineStaza) {
 		super();
 		this.prezime = prezime;
 		this.ime = ime;
@@ -36,7 +35,7 @@ public class Profesor {
 		this.brojLicneKarte = brojLicneKarte;
 		this.zvanje = zvanje;
 		this.godineStaza = godineStaza;
-		this.predmeti = predmeti;
+		this.predmeti = new ArrayList<Predmet>();
 	}
 
 	public String getPrezime() {

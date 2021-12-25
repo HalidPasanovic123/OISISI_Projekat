@@ -1,6 +1,9 @@
-package Controller;
+package Controllers;
 
-import Model.BazaPredmeta;
+import java.util.ArrayList;
+import java.util.List;
+
+import Baze.BazaPredmeta;
 import Model.Predmet;
 
 public class PredmetController {
@@ -14,10 +17,13 @@ public class PredmetController {
 		return instance;
 	}
 
-    public PredmetController(){
+    public PredmetController(){}
 
-    }
-
+    
+	public ArrayList<Predmet> getPredmeti() {
+		return BazaPredmeta.getInstance().getPredmeti();
+	}
+	
     public void addPredmet(Predmet Predmet){
         BazaPredmeta.getInstance().addPredmet(Predmet);
     }
