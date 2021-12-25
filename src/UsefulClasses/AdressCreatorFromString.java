@@ -23,6 +23,6 @@ public class AdressCreatorFromString {
         
         stringNumber.find();
 
-        return new Adresa(strings.get(0), Integer.parseInt(stringNumber.group()), strings.get(1), strings.get(2));
+        return new Adresa(strings.get(0).trim(), Integer.parseInt(stringNumber.group()), strings.get(1).trim(), strings.get(2).trim());
     }
 }

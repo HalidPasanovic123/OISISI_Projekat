@@ -7,6 +7,9 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
+import View.Dialogs.DeleteProfesorJDialog;
+import View.MainWindowWithComponents.MainWindow;
+
 public class DeleteAction extends AbstractAction {
 
     public DeleteAction(){       
@@ -17,7 +20,17 @@ public class DeleteAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
+            
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
+            int temp = MainWindow.getInstance().getTabs().getTabelProfesori().getRowSelected();
+            if (temp != -1) {
+                DeleteProfesorJDialog deleteProfesorJDialog = new DeleteProfesorJDialog();
+                deleteProfesorJDialog.setVisible(true);
+            }
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
+            
+        }
         
     }
     

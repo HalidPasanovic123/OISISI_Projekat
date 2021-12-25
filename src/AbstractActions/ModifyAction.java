@@ -7,6 +7,11 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
+import Controllers.ProfesorController;
+import View.Dialogs.PredmetJDialog;
+import View.Dialogs.ProfesorJDialog;
+import View.MainWindowWithComponents.MainWindow;
+
 public class ModifyAction extends AbstractAction{
     
     public ModifyAction(){        
@@ -17,7 +22,17 @@ public class ModifyAction extends AbstractAction{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        
+        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
+            
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
+            int temp = MainWindow.getInstance().getTabs().getTabelProfesori().getRowSelected();
+            if (temp != -1) {
+                ProfesorJDialog profDialog = new ProfesorJDialog(ProfesorController.getInstance().getProfesorByID(temp));
+                profDialog.setVisible(true);
+            }
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
+            PredmetJDialog preDialog = new PredmetJDialog();
+            preDialog.setVisible(true);
+        }
     }
 }

@@ -21,6 +21,7 @@ public class Profesor {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	public Profesor(String prezime, String ime, LocalDate datumRodjenja, Adresa adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, Adresa adresaKancelarije, int brojLicneKarte, String zvanje, int godineStaza) {
@@ -36,6 +37,20 @@ public class Profesor {
 		this.zvanje = zvanje;
 		this.godineStaza = godineStaza;
 		this.predmeti = new ArrayList<Predmet>();
+	}
+
+	public void changeProfesor(Profesor profesor) {
+		this.prezime = profesor.getPrezime();
+		this.ime = profesor.getIme();
+		this.datumRodjenja = profesor.getDatumRodjenja();
+		this.adresaStanovanja = profesor.getAdresaStanovanja();
+		this.kontaktTelefon = profesor.getKontaktTelefon();
+		this.emailAdresa = profesor.getEmailAdresa();
+		this.adresaKancelarije = profesor.getAdresaKancelarije();
+		this.brojLicneKarte = profesor.getBrojLicneKarte();
+		this.zvanje = profesor.getZvanje();
+		this.godineStaza = profesor.getGodineStaza();
+		this.predmeti = profesor.getPredmeti();
 	}
 
 	public String getPrezime() {
