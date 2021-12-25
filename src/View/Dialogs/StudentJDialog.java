@@ -173,9 +173,9 @@ public class StudentJDialog  extends JDialog{
 					 godinaStudiranja = 1;
 				else if (combo.getSelectedItem().toString().equals("II (druga)"))
 					 godinaStudiranja = 2;
-				else if (combo.getSelectedItem().toString().equals("III (treca)"))
+				else if (combo.getSelectedItem().toString().equals("III (treÄ‡a)"))
 					 godinaStudiranja = 3;
-				else if (combo.getSelectedItem().toString().equals("IV (cetvrta)"))
+				else if (combo.getSelectedItem().toString().equals("IV (ÄŤetvrta)"))
 					 godinaStudiranja = 4;
 				else godinaStudiranja = 5;
 				
@@ -224,7 +224,7 @@ public class StudentJDialog  extends JDialog{
 				StudentController.getInstance().dodajStudenta(ime, prezime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, (float)0, null, null);;
 				}
 				
-		
+				dispose();
 			}
 		});
 		btnOdustani.addActionListener(new ActionListener() {

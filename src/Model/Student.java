@@ -156,6 +156,23 @@ public class Student {
 	
 	public String ispisiAdresu()
 	{
-		return this.adresa.getUlica() + " " + this.adresa.getBroj() + "," + this.adresa.getGrad() + "," + this.adresa.getDrzava();
+		String s = "";
+		if(this.adresa.getUlica() != null)
+		{
+			s += this.adresa.getUlica() + " ";
+		}
+		if(this.adresa.getBroj() != 0)
+		{
+			s += this.adresa.getBroj() + " ";
+		}
+		if(this.adresa.getGrad() != null)
+		{
+			s += this.adresa.getGrad() + " ";
+		}
+		if(this.adresa.getDrzava() != null)
+		{
+			s += this.adresa.getDrzava() + " ";
+		}
+		return s;
 	}
 }

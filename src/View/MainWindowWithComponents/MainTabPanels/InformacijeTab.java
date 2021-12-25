@@ -64,15 +64,11 @@ public class InformacijeTab extends JPanel {
 		class MyDocListener implements DocumentListener
 		  {
 			
-		 
-		
-
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
 				// TODO Auto-generated method stub
 				provera();
 			}
-
 
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
@@ -179,7 +175,6 @@ public class InformacijeTab extends JPanel {
 		JLabel label9=new JLabel("Trenutna godina studija*");
 		this.add(label9,gbc);
 		
-	
 		ArrayList<String> valsGS = new ArrayList<String>();
 		valsGS.add("I (prva)");
 		valsGS.add("II (druga)");
@@ -236,8 +231,11 @@ public class InformacijeTab extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String prezime=txtField2.getText();
 				String ime=txtField1.getText();
-				String format;
-				Adresa adresaStanovanja= new Adresa(txtField4.getText());
+				String format = txtField3.getText();
+				Adresa adresaStanovanja= new Adresa();
+				adresaStanovanja.setGrad(txtField4.getText());
+				System.out.println(txtField4.getText());
+				System.out.println(adresaStanovanja.toString());
 				String brojTelefona=txtField5.getText();
 				
 				String emailAdresa=txtField6.getText();
@@ -256,14 +254,6 @@ public class InformacijeTab extends JPanel {
 					 godinaStudiranja = 4;
 				else godinaStudiranja = 5;
 				
-				
-				boolean postoji = false;
-				for (Student s : StudentController.getInstance().getStudenti())
-				{
-					if (s.getIndeks().equals(brojIndeksa) && !s.getIndeks().equals(student.getIndeks()) )
-						postoji = true;
-				}
-				
 
 				Status status;
 				if (combo2.getSelectedItem().toString().equals("BudĹľet"))
@@ -271,14 +261,13 @@ public class InformacijeTab extends JPanel {
 				else
 					status = Status.S;
 				{
-				format = txtField3.getText();
-				
-				
+
 				StudentController.getInstance().editStudent(prezime ,ime, format, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, row);
 				provera();
 				}
 				
-		
+				JDialog parent1 = (JDialog) SwingUtilities.getWindowAncestor(si);
+				parent1.dispose();
 			}
 		});
 		btnOdustani.addActionListener(new ActionListener() {
@@ -295,9 +284,10 @@ public class InformacijeTab extends JPanel {
 	}
 	
 	public void provera() {
+		btnPotvrdi.setEnabled(true);
 		String prezime=txtField2.getText();
 		String ime=txtField1.getText();
-		String adresaStanovanja=txtField4.getText();
+		Adresa adresaStanovanja=new Adresa(txtField4.getText());
 		String brojTelefona=txtField5.getText();
 		
 		String emailAdresa=txtField6.getText();
@@ -310,17 +300,18 @@ public class InformacijeTab extends JPanel {
 				postoji = true;
 		}
 		
-		if((Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
+		if(!(Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
 			&& (Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime))
 			&&(Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText()))
-			&&(Pattern.matches("([\\wĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]+)+[0-9]+[\\s]*,[\\s]*([\\wĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", adresaStanovanja))
+			&&(Pattern.matches("([\\wĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]+)+[0-9]+[\\s]*,[\\s]*([\\wĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", (CharSequence) adresaStanovanja))
 			&&(Pattern.matches("[0-9]{3}[/][0-9]+[-][0-9]+", brojTelefona))
 			&&(Pattern.matches("^(.+)@(.+)$", emailAdresa))
 			&&(Pattern.matches("[0-9]{4}", txtField8.getText())) && !postoji)
 		{
-			btnPotvrdi.setEnabled(true);
-		}else {
 			btnPotvrdi.setEnabled(false);
+		}
+		else {
+			btnPotvrdi.setEnabled(true);
 		}
 	}
 

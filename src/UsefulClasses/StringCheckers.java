@@ -5,11 +5,11 @@ import java.util.regex.Pattern;
 public class StringCheckers {
 
     public static boolean checkAdresa(String adresa) {
-        return Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]+[,][\\s]*([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[,][\\s]*([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", adresa);
+        return Pattern.matches("([a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*)+[0-9]+[,][\\s]*([a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*)+[,][\\s]*([a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*)+", adresa);
     }
 
     public static boolean checkImeOrPrezime(String ime_or_prezime) {
-        return Pattern.matches("[a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*", ime_or_prezime);
+        return Pattern.matches("[a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*", ime_or_prezime);
     }
 
     public static boolean checkTelefon(String telefon) {
@@ -21,7 +21,7 @@ public class StringCheckers {
     }
 
     public static boolean checkZvanje(String zvanje) {
-        return Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", zvanje);
+        return Pattern.matches("([a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*)+", zvanje);
     }
     
 }
