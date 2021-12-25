@@ -12,6 +12,8 @@ import javax.swing.KeyStroke;
 import Controllers.StudentController;
 import Model.Student;
 import View.MainWindowWithComponents.*;
+import View.Dialogs.DeleteProfesorJDialog;
+import View.MainWindowWithComponents.MainWindow;
 
 public class DeleteAction extends AbstractAction {
 
