@@ -36,9 +36,9 @@ public class ModifyAction extends AbstractAction{
         	    studentDialog.setVisible(true);
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
-            int temp = MainWindow.getInstance().getTabs().getTabelProfesori().getRowSelected();
+            int temp = MainWindow.getInstance().getTabs().getTabelProfesori().getSelectedRow();
             if (temp != -1) {
-                ProfesorJDialog profDialog = new ProfesorJDialog(ProfesorController.getInstance().getProfesorByID(temp));
+                ProfesorJDialog profDialog = new ProfesorJDialog(ProfesorController.getInstance().getProfesorByID(MainWindow.getInstance().getTabs().getTabelProfesori().convertRowIndexToModel(temp)));
                 profDialog.setVisible(true);
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){

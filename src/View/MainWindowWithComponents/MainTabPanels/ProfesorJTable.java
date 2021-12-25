@@ -13,20 +13,12 @@ import AbstractTableModels.AbstractModelProfesori;
 
 public class ProfesorJTable extends JTable{
     
-    int rowSelected = -1;
 
     public ProfesorJTable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.setModel(new AbstractModelProfesori());
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                JTable tempTable = (JTable) e.getComponent();
-                rowSelected = tempTable.convertRowIndexToModel(tempTable.getSelectedRow());
-            }
-        });
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
@@ -37,9 +29,5 @@ public class ProfesorJTable extends JTable{
             c.setBackground(Color.WHITE);
         }
         return c;
-    }
-
-    public int getRowSelected() {
-        return rowSelected;
     }
 }

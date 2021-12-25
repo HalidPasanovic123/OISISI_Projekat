@@ -24,9 +24,9 @@ public class BazaProfesora {
         this.columns = new ArrayList<String>();
         this.profesors = new ArrayList<Profesor>();
 
-        profesors.add(new Profesor("Pasanovic", "Halid", LocalDate.now(),  new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), "12345", "halidpasanovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 65, "Profesor", 3));
-        profesors.add(new Profesor("Spasojevic", "Aleksa", LocalDate.now(),  new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), "12345", "halidpasanovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 66, "Profesor", 3));
-        profesors.add(new Profesor("Pasanovic", "David", LocalDate.now(),  new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), "12345", "halidpasanovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 67, "Profesor", 3));
+        profesors.add(new Profesor("Ivanovic", "Ivan", LocalDate.now(),  new Adresa("Brace ribnikara", 44, "Novi Sad", "Srbija"), "12345", "ivanovicivan1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 65, "Profesor", 3));
+        profesors.add(new Profesor("Petrovic", "Petar", LocalDate.now(),  new Adresa("Simeuna Divca", 44, "Novi Sad", "Srbija"), "12345", "petrovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 66, "Profesor", 3));
+        profesors.add(new Profesor("Milicevic", "Jadranka", LocalDate.now(),  new Adresa("Bulevar Cara Lazara", 44, "Novi Sad", "Srbija"), "12345", "milicevic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 67, "Profesor", 3));
         
 
         this.columns.add("Prezime");
