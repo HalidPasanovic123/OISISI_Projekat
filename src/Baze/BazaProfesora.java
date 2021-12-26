@@ -24,9 +24,10 @@ public class BazaProfesora {
         this.columns = new ArrayList<String>();
         this.profesors = new ArrayList<Profesor>();
 
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
-        profesors.add(new Profesor("prezime", "ime", LocalDate.now(), new Adresa(), "kontaktTelefon", "emailAdresa", new Adresa(), 65, "zvanje", 3));
+        profesors.add(new Profesor("Ivanovic", "Ivan", LocalDate.now(),  new Adresa("Brace ribnikara", 44, "Novi Sad", "Srbija"), "12345", "ivanovicivan1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 65, "Profesor", 3));
+        profesors.add(new Profesor("Petrovic", "Petar", LocalDate.now(),  new Adresa("Simeuna Divca", 44, "Novi Sad", "Srbija"), "12345", "petrovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 66, "Profesor", 3));
+        profesors.add(new Profesor("Milicevic", "Jadranka", LocalDate.now(),  new Adresa("Bulevar Cara Lazara", 44, "Novi Sad", "Srbija"), "12345", "milicevic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 67, "Profesor", 3));
+        
 
         this.columns.add("Prezime");
         this.columns.add("Ime");
@@ -36,6 +37,10 @@ public class BazaProfesora {
 
     public ArrayList<Profesor> getProfesors(){
         return profesors;
+    }
+
+    public Profesor getProfesorByID(int id) {
+        return profesors.get(id);
     }
 
     public int getRowCount(){
@@ -74,8 +79,7 @@ public class BazaProfesora {
     public void changeProfesor(Profesor profesor, int prethodniBrojLicne){
         for (Profesor p : profesors){
             if(p.getBrojLicneKarte() == prethodniBrojLicne){
-                profesors.remove(p);
-                profesors.add(profesor);
+                p.changeProfesor(profesor);
                 break;
             }
         } 

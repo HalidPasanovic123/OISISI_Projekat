@@ -49,4 +49,8 @@ public class Adresa {
 	public Adresa() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return ulica + " " + broj + "," + grad + "," + drzava;
+	}
 }

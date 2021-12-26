@@ -10,6 +10,9 @@ import javax.swing.KeyStroke;
 
 import View.Dialogs.StudentJDialog;
 import View.Dialogs.StudentEditDialog.StudentEditDialog;
+import Controllers.ProfesorController;
+import View.Dialogs.PredmetJDialog;
+import View.Dialogs.ProfesorJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
 public class ModifyAction extends AbstractAction{
@@ -26,10 +29,21 @@ public class ModifyAction extends AbstractAction{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-    	if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0 &&  MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow() != -1) {
-        	StudentEditDialog studentDialog = new StudentEditDialog(parent,"Edit");
-        	studentDialog.setVisible(true);
-    	}
+        if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
+            int temp = MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow();
+            if (temp != -1) {
+                StudentEditDialog studentDialog = new StudentEditDialog(parent,"Edit");
+        	    studentDialog.setVisible(true);
+            }
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){
+            int temp = MainWindow.getInstance().getTabs().getTabelProfesori().getSelectedRow();
+            if (temp != -1) {
+                ProfesorJDialog profDialog = new ProfesorJDialog(ProfesorController.getInstance().getProfesorByID(MainWindow.getInstance().getTabs().getTabelProfesori().convertRowIndexToModel(temp)));
+                profDialog.setVisible(true);
+            }
+        } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
+            PredmetJDialog preDialog = new PredmetJDialog();
+            preDialog.setVisible(true);
+        }
     }
 }

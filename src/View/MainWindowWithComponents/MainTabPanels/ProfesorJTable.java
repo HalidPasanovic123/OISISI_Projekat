@@ -2,6 +2,8 @@ package View.MainWindowWithComponents.MainTabPanels;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -11,6 +13,7 @@ import AbstractTableModels.AbstractModelProfesori;
 
 public class ProfesorJTable extends JTable{
     
+
     public ProfesorJTable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
