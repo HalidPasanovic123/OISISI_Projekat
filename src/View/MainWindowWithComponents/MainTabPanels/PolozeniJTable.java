@@ -7,27 +7,23 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
-import AbstractTableModels.AbstractTableModelStudent;
+import AbstractTableModels.AbstractTableModelPolozeniPredmeti;
+import Controllers.StudentController;
+import Model.Student;
 import View.MainWindowWithComponents.MainWindow;
+import View.MainWindowWithComponents.TabPanel;
 
-public class StudentJTable extends JTable {
+public class PolozeniJTable extends JTable{
 
-	private static StudentJTable instance = null;
-
-	public static StudentJTable getInstance() {
-		if (instance == null) {
-			instance = new StudentJTable();
-		}
-		return instance;
-	}
-	
-	public StudentJTable() {
+	public PolozeniJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.setModel(new AbstractTableModelStudent());
-	}
-	
+		int row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
+		Student s=StudentController.getInstance().GetStudentFromRow(row);
+		this.setModel(new AbstractTableModelPolozeniPredmeti(s));
+		}
+
 	public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
 		Component c = super.prepareRenderer(renderer, row, column);
 		if (isRowSelected(row)) {
@@ -37,5 +33,8 @@ public class StudentJTable extends JTable {
 		}
 		return c;
 	}
-
+	public void azuriraj() {
+		AbstractTableModelPolozeniPredmeti model = (AbstractTableModelPolozeniPredmeti) this.getModel();
+		model.fireTableDataChanged();
+	}
 }
