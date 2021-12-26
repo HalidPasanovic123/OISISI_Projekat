@@ -16,6 +16,14 @@ public class OcenaNaIspitu {
 		this.ocena = ocena;
 	}
 	
+	public OcenaNaIspitu(Predmet predmet,Ocena ocena,String datum)
+	{
+		super();
+		this.predmet = predmet;
+		this.ocena = ocena;
+		this.datumPolaganja = datum;
+	}
+	
 	
 	public OcenaNaIspitu() {
 		super();

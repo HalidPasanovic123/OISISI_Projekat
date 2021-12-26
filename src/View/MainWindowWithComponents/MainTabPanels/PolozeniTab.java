@@ -21,12 +21,13 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import View.Dialogs.StudentEditDialog.StudentEditTabbedPane;
+import View.MainWindowWithComponents.MainTabPanels.*;
 
-public class PolozeniTab extends JPanel{
-	private static JButton ponistiO;
-	private static JLabel prosekL;
-	private static JLabel espbL;
+public class PolozeniTab extends JPanel
+{
 	
+	private static JButton ponistiButton;
+	private  PolozeniJTable polozeniJTable;
 	
 	
 	public PolozeniTab(int row, StudentEditTabbedPane parent)
@@ -36,7 +37,12 @@ public class PolozeniTab extends JPanel{
 		setLayout(gb);
 				
 		GridBagConstraints gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
-		ponistiO = new JButton("Poništi ocenu");
-		this.add(ponistiO,gbc);
+		ponistiButton = new JButton("Poništi ocenu");
+		this.add(ponistiButton,gbc);
+		
+		gbc=new GridBagConstraints(0, 1, 6, 6, 100, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(30, 30, 0, 30), 0, 0);
+		polozeniJTable= parent.getPolozeniJTable();
+		JScrollPane scrollPane = new JScrollPane(polozeniJTable);
+		this.add(scrollPane,gbc);
 	}
 }
