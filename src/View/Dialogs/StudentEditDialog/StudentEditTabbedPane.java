@@ -30,7 +30,6 @@ public class StudentEditTabbedPane extends JTabbedPane {
 		this.add(Polozeni, "Položeni");
 		Polozeni.add(new PolozeniTab(row, this));
 		
-		
 		NepolozeniTab nepolozeniTab=new NepolozeniTab(row, this);
 		Nepolozeni.setLayout(new BorderLayout());
 		this.add(nepolozeniTab, "Nepoloženi");

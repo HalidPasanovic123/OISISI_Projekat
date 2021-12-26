@@ -34,21 +34,9 @@ public class PolozeniTab extends JPanel{
 		
 		GridBagLayout gb=new GridBagLayout();
 		setLayout(gb);
-		
-		Student student = BazaStudenata.getInstance().getRow(row);
-		
-		//tabOcena = OcenaJTable.getInstance();
-		//JScrollPane sPane = new JScrollPane(tabOcena);
-		
-		
-		
+				
 		GridBagConstraints gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
 		ponistiO = new JButton("Poništi ocenu");
 		this.add(ponistiO,gbc);
-		
-		
-		gbc=new GridBagConstraints(0, 1, 1, 1, 100, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(30, 30, 10, 30), 0, 0);
-
-		//this.add(sPane,gbc);
 	}
 }
