@@ -43,11 +43,9 @@ public class ProfesorJDialog extends JDialog{
 
         setTitle("Dodavanje novog profesora");
 
-        Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
         
         setModalityType(ModalityType.APPLICATION_MODAL);
-        setSize(screenSize.width / 5 , screenSize.height *35 / 100);
+        setSize(500,500);
         setLocationRelativeTo(MainWindow.getInstance());
 
         GridBagLayout gridBag = new GridBagLayout();
@@ -400,13 +398,10 @@ public class ProfesorJDialog extends JDialog{
         setTrue();
 
         int prethodniBrojLicne = profesor.getBrojLicneKarte();
-
-        Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
         
         setTitle("Izmena postojeceg profesora");
         setModalityType(ModalityType.APPLICATION_MODAL);
-        setSize(screenSize.width / 5 , screenSize.height *35 / 100);
+        setSize(500,500);
         setLocationRelativeTo(MainWindow.getInstance());
 
         GridBagLayout gridBag = new GridBagLayout();

@@ -40,8 +40,6 @@ public class StudentJDialog  extends JDialog{
 		setSize(500, 500);
 		setLocationRelativeTo(MainWindow.getInstance());
 		
-		
-		
 		GridBagLayout gb=new GridBagLayout();
 		setLayout(gb);
 		GridBagConstraints gbc;
@@ -70,7 +68,6 @@ public class StudentJDialog  extends JDialog{
 		txtField3.setToolTipText("dd.mm.yyyy.");
 		gbc=new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField3,gbc);
-		
 
 		gbc=new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label4=new JLabel("Adresa stanovanja*");
@@ -118,7 +115,6 @@ public class StudentJDialog  extends JDialog{
 		JLabel label9=new JLabel("Trenutna godina studija*");
 		this.add(label9,gbc);
 		
-	
 		ArrayList<String> valsGS = new ArrayList<String>();
 		valsGS.add("I (prva)");
 		valsGS.add("II (druga)");
@@ -129,8 +125,6 @@ public class StudentJDialog  extends JDialog{
 		gbc=new GridBagConstraints(1, 8, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 140, 0);
 		this.add(combo,gbc);
 		
-		
-		
 		gbc=new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label10=new JLabel("Nacin finansiranja*");
 		this.add(label10,gbc);
@@ -138,7 +132,6 @@ public class StudentJDialog  extends JDialog{
 		ArrayList<String> valsStatus = new ArrayList<String>();
 		valsStatus.add("Budzet");
 		valsStatus.add("Samofinansiranje");
-		
 		
 		final JComboBox<String> combo2 = new JComboBox(valsStatus.toArray());
 		gbc=new GridBagConstraints(1, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 103, 0);
@@ -157,8 +150,10 @@ public class StudentJDialog  extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String prezime=txtField2.getText();
+				
 				String ime=txtField1.getText();
+				String prezime=txtField2.getText();
+				String datum = txtField3.getText();
 				Adresa adresaStanovanja = new Adresa();
 				adresaStanovanja.setGrad(txtField5.getText());
 				String brojTelefona=txtField5.getText();
@@ -170,69 +165,87 @@ public class StudentJDialog  extends JDialog{
 				
 				int godinaStudiranja;
 				if (combo.getSelectedItem().toString().equals("I (prva)"))
-					 godinaStudiranja = 1;
+				{
+					godinaStudiranja = 1;
+				}	 
 				else if (combo.getSelectedItem().toString().equals("II (druga)"))
-					 godinaStudiranja = 2;
+				{
+					godinaStudiranja = 2;
+				}
 				else if (combo.getSelectedItem().toString().equals("III (treca)"))
-					 godinaStudiranja = 3;
+				{
+					godinaStudiranja = 3;
+				}
 				else if (combo.getSelectedItem().toString().equals("IV (cetvrta)"))
-					 godinaStudiranja = 4;
-				else godinaStudiranja = 5;
-				
+				{
+					godinaStudiranja = 4;
+				}
+				else 
+				{
+					godinaStudiranja = 5;
+				}
+
+				Status status;
+				if (combo2.getSelectedItem().toString().equals("BudĹľet"))
+				{
+					status = Status.B;
+				}
+				else
+				{
+					status = Status.S;
+				}
 				
 				boolean postoji = false;
 				for (Student s : StudentController.getInstance().getStudenti())
 				{
 					if (s.getIndeks().equals(brojIndeksa))
+					{
 						postoji = true;
+					}
+						
 				}
-				
-
-				Status status;
-				if (combo2.getSelectedItem().toString().equals("BudĹľet"))
-					status = Status.B;
-				else
-					status = Status.S;
-				
-				btnPotvrdi.setEnabled(false);
-				if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) {
+					
+				if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravno uneto ime!");
-					btnPotvrdi.setEnabled(false);
 				} 
-				else if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime)) {
+				else if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime)) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravno uneto prezime!");
-					btnPotvrdi.setEnabled(false);
 				} 
-				else if(!Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText())) {
+				else if(!Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText())) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravan datum!\n Format: dd.mm.yyyy.");
-					btnPotvrdi.setEnabled(false);
-				} else if(!Pattern.matches("[+]?[0-9]+", brojTelefona)) {
+				} 
+				else if(!Pattern.matches("[+]?[0-9]+", brojTelefona)) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravno unet broj telefona!");
-					btnPotvrdi.setEnabled(false);
-				} else if(!Pattern.matches("^(.+)@(.+)$", emailAdresa)) {
+				} 
+				else if(!Pattern.matches("^(.+)@(.+)$", emailAdresa)) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravno uneta email adresa!");
-					btnPotvrdi.setEnabled(false);
-				} else if (postoji) {
+				} 
+				else if (postoji)
+				{
 					JOptionPane.showMessageDialog(null, "Broj indeksa veÄ‡ postoji!");
-					btnPotvrdi.setEnabled(false);
 				}
-					else if(!Pattern.matches("[0-9]{4}", godinaUpisa)) {
+				else if(!Pattern.matches("[0-9]{4}", godinaUpisa)) 
+				{
 					JOptionPane.showMessageDialog(null, "Neispravno uneta godina upisa!");
-					btnPotvrdi.setEnabled(false);
-				} else {
-				String datum = txtField3.getText();
+				} 
+				else 
+				{
 				StudentController.getInstance().dodajStudenta(ime, prezime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, (float)0, null, null);;
+				dispose();
 				}
-				
-		
 			}
 		});
+		
 		btnOdustani.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				
 			}
 		});
 	}

@@ -20,11 +20,9 @@ public class PredmetJDialog extends JDialog{
 	private static final long serialVersionUID = 1L;
 
 	public PredmetJDialog() {
-        Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
         
         setModalityType(ModalityType.APPLICATION_MODAL);
-        setSize(screenSize.width / 6 , screenSize.height *25 / 100);
+        setSize(500,500);
         setLocationRelativeTo(MainWindow.getInstance());
 
         GridBagLayout gridBag = new GridBagLayout();

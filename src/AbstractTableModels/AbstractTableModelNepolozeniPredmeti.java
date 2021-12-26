@@ -20,7 +20,8 @@ public class AbstractTableModelNepolozeniPredmeti extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return bazaNepolozenih.getPredmeti().size();
+		//return bazaNepolozenih.getPredmeti().size();
+		return 0;
 	}
 	
 	public String getColumnName(int column) {
