@@ -75,7 +75,6 @@ public class TabPanel extends JPanel{
             }
         });
             
-
         add(tabs);
     }
 

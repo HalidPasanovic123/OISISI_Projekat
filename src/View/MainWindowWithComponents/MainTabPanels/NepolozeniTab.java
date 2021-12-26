@@ -18,7 +18,6 @@ import View.Dialogs.StudentEditDialog.StudentEditTabbedPane;
 import javax.swing.JPanel;
 
 public class NepolozeniTab extends JPanel {
-	private NepolozeniTab nt = this;
 	private NepolozeniJTable nepolozeniJTable;
 
 	public NepolozeniTab(int row, StudentEditTabbedPane parent) {

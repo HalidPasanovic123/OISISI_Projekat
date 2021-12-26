@@ -14,6 +14,7 @@ import View.MainWindowWithComponents.MainTabPanels.*;
 public class StudentEditTabbedPane extends JTabbedPane {
 
 	NepolozeniJTable NepolozeniPredmeti = new NepolozeniJTable();
+	PolozeniJTable PolozeniPredmeti = new PolozeniJTable();
 	
 	public StudentEditTabbedPane() {
 		JPanel Informacije = new JPanel();
@@ -38,6 +39,10 @@ public class StudentEditTabbedPane extends JTabbedPane {
 	
 	public NepolozeniJTable getNepolozeniJTable() {
 		return NepolozeniPredmeti;
+	}
+	
+	public PolozeniJTable getPolozeniJTable() {
+		return PolozeniPredmeti;
 	}
 	
 }
