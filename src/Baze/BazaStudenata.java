@@ -9,6 +9,8 @@ import Model.Student;
 import Model.Adresa;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
+import Model.Profesor;
+import Model.Semestar;
 
 
 public class BazaStudenata {
@@ -44,15 +46,21 @@ public class BazaStudenata {
 	private void initStudente() {
 		this.studenti = new ArrayList<Student>();
 		Adresa adresa =  new Adresa("ulica",32,"grad","drzava");
+
+		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+
+		predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
 		
 		studenti.add(new Student("Ime", "Prezime", "01.02.2002.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, new ArrayList<OcenaNaIspitu>(), predmeti));
 		
 		studenti.add(new Student("Ime", "Prezime", "11.05.2001.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), predmeti));
 		
 		studenti.add(new Student("Ime", "Prezime", "13.12.2000.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), predmeti));
 	}
 	
 	

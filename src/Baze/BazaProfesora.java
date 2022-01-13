@@ -101,4 +101,14 @@ public class BazaProfesora {
         }
     }
 
+    public String getValueAtDodaj(int row, int column){
+        Profesor profesor = profesors.get(row);
+        switch (column){
+            case 0:
+                return profesor.getPrezime() + profesor.getIme();
+            default:
+                return null;
+        }
+    }
+
 }

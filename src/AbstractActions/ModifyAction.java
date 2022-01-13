@@ -12,6 +12,7 @@ import View.Dialogs.ProfesorEditDialog.ProfesorEditJDialog;
 import View.Dialogs.StudentEditDialog.StudentEditDialog;
 import Controllers.ProfesorController;
 import View.Dialogs.PredmetJDialog;
+import View.Dialogs.PredmetEditDialog.PredmetEditJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
 public class ModifyAction extends AbstractAction{
@@ -41,7 +42,7 @@ public class ModifyAction extends AbstractAction{
                 profDialog.setVisible(true);
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
-            PredmetJDialog preDialog = new PredmetJDialog();
+            PredmetEditJDialog preDialog = new PredmetEditJDialog();
             preDialog.setVisible(true);
         }
     }

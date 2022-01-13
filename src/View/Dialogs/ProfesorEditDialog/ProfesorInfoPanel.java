@@ -43,12 +43,12 @@ public class ProfesorInfoPanel extends JPanel{
 
         int gridy = 0;
         //Labela za Prezime
-        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel prez = new JLabel("Prezime*");
         add(prez, gridBagConstraints);
 
         //TextField za Prezime
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldPrez = new JTextField();
         fieldPrez.setText(profesor.getPrezime());
         fieldPrez.addFocusListener(new FocusListener() {
@@ -72,12 +72,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Ime
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel ime = new JLabel("Ime*");
         add(ime, gridBagConstraints);
 
         //TextField za Ime
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldIme = new JTextField();
         fieldIme.setText(profesor.getIme());
         fieldIme.addFocusListener(new FocusListener() {
@@ -101,12 +101,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Datum Rodjenja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel datum = new JLabel("Datum*");
         add(datum, gridBagConstraints);
         
         //TextField za Datum Rodjenja
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldDatum = new JTextField();
         fieldDatum.setText(profesor.getDatumRodjenja().toString());
         fieldDatum.addFocusListener(new FocusListener() {
@@ -131,12 +131,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Adresu Stanovanja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresa = new JLabel("Adresa*");
         add(adresa, gridBagConstraints);
 
         //TextField za Adresu Stanovanja
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldAdresa = new JTextField();
         fieldAdresa.setText(profesor.getAdresaStanovanja().toString());
         fieldAdresa.addFocusListener(new FocusListener() {
@@ -160,12 +160,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Adresu Kancelarije
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresaK = new JLabel("Adresa Kancelarije*");
         add(adresaK, gridBagConstraints);
 
         //TextField za Adresu Kancelarije
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldAdresaK = new JTextField();
         fieldAdresaK.setText(profesor.getAdresaKancelarije().toString());
         fieldAdresaK.addFocusListener(new FocusListener() {
@@ -189,12 +189,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Broj Licne Karte
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel licna = new JLabel("Broj Lične Karte*");
         add(licna, gridBagConstraints);
 
         //TextField za Broj Licne Karte
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldLicna = new JTextField();
         fieldLicna.setText(Integer.toString(profesor.getBrojLicneKarte()));
         fieldLicna.addFocusListener(new FocusListener() {
@@ -228,12 +228,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Zvanje
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel zvanje = new JLabel("Zvanje*");
         add(zvanje, gridBagConstraints);
 
         //TextField za Zvanje
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldZvanje = new JTextField();
         fieldZvanje.setText(profesor.getZvanje());
         fieldZvanje.addFocusListener(new FocusListener() {
@@ -257,12 +257,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Godine Staza
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel staz = new JLabel("Godine Staža*");
         add(staz, gridBagConstraints);
 
         //TextField za Godine Staza
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldStaz = new JTextField();
         fieldStaz.setText(Integer.toString(profesor.getGodineStaza()));
         fieldStaz.addFocusListener(new FocusListener() {
@@ -288,12 +288,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za E-mail Adresu
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel email = new JLabel("E-Mail Adresa");
         add(email, gridBagConstraints);
 
         //TextField za E-mail Adresu
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldEmail = new JTextField();
         fieldEmail.setText(profesor.getEmailAdresa());
         fieldEmail.addFocusListener(new FocusListener() {
@@ -317,12 +317,12 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Kontakt Telefon
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel kontakt = new JLabel("Kontakt Telefon");
         add(kontakt, gridBagConstraints);
 
         //TextField za Kontakt Telefon
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         JTextField fieldKontakt = new JTextField();
         fieldKontakt.setText(profesor.getKontaktTelefon());
         fieldKontakt.addFocusListener(new FocusListener() {

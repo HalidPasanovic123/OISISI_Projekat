@@ -60,15 +60,15 @@ public class TabPanel extends JPanel{
             	
               if(tabs.getSelectedIndex() == 0)
               {
-            		MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Studenti");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Studenti");
               }
               else if(tabs.getSelectedIndex() == 1)
               {
-            	  MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Profesori");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Profesori");
               }
               else
               {
-            	  MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Predmeti");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Predmeti");
               }
 
             }
