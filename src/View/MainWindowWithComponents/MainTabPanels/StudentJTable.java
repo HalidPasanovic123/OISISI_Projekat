@@ -8,7 +8,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
 import AbstractTableModels.AbstractTableModelStudent;
-import View.MainWindowWithComponents.MainWindow;
 
 public class StudentJTable extends JTable {
 

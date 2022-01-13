@@ -5,13 +5,11 @@ import java.util.List;
 
 import Baze.BazaStudenata;
 import Model.Adresa;
-import Model.Ocena;
 import Model.Status;
 import Model.Student;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
 import View.MainWindowWithComponents.MainWindow;
-import View.MainWindowWithComponents.MainTabPanels.NepolozeniJTable;
 
 public class StudentController {
 	

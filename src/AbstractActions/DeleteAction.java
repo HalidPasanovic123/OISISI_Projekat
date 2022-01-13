@@ -9,14 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import Controllers.PredmetController;
 import Controllers.ProfesorController;
 import Controllers.StudentController;
+import Model.Predmet;
 import Model.Profesor;
 import Model.Student;
 import View.MainWindowWithComponents.*;
-import View.Dialogs.DeleteProfesorJDialog;
 import View.MainWindowWithComponents.MainWindow;
-import View.MainWindowWithComponents.MainTabPanels.ProfesorJTable;
 
 public class DeleteAction extends AbstractAction {
 
@@ -68,7 +68,22 @@ public class DeleteAction extends AbstractAction {
                 }
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
-
+            int temp = MainWindow.getInstance().getTabs().getTabelPredmeti().getSelectedRow();
+            if (temp != -1) {
+                int reply=JOptionPane.showOptionDialog(parent, 
+			        "Da li ste sigurni da želite da obrišete Predmet?", 
+			        "Brisanje predmeta", 
+			        JOptionPane.OK_CANCEL_OPTION, 
+			        JOptionPane.INFORMATION_MESSAGE, 
+			        null, 
+			        new String[]{"Da", "Ne"}, 
+			        "default");
+                if(reply==JOptionPane.YES_OPTION) {
+                    Predmet p = PredmetController.getInstance().getPredmetByID(MainWindow.getInstance().getTabs().getTabelPredmeti().convertRowIndexToModel(temp));
+                    PredmetController.getInstance().deletePredmet(p.getSifraPredmeta());
+                    MainWindow.getInstance().updateShowingsOfPredmet();
+                }
+            }
         }
     }
 }

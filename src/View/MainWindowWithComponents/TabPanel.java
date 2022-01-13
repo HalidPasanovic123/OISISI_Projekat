@@ -1,6 +1,5 @@
 package View.MainWindowWithComponents;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 

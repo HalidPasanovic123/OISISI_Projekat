@@ -1,4 +1,4 @@
-package View.MainWindowWithComponents.MainTabPanels;
+package View.Dialogs.StudentEditDialog;
 
 import java.text.DateFormat;
 import java.awt.GridBagConstraints;
@@ -6,11 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
@@ -21,12 +18,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import Baze.BazaStudenata;
 import Controllers.StudentController;

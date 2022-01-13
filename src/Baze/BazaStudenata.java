@@ -46,13 +46,13 @@ public class BazaStudenata {
 		Adresa adresa =  new Adresa("ulica",32,"grad","drzava");
 		
 		studenti.add(new Student("Ime", "Prezime", "01.02.2002.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, null, null));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
 		
 		studenti.add(new Student("Ime", "Prezime", "11.05.2001.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, null, null));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
 		
 		studenti.add(new Student("Ime", "Prezime", "13.12.2000.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, null, null));
+				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>()));
 	}
 	
 	

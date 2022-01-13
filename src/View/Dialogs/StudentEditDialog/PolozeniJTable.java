@@ -1,4 +1,4 @@
-package View.MainWindowWithComponents.MainTabPanels;
+package View.Dialogs.StudentEditDialog;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -20,7 +20,7 @@ public class PolozeniJTable extends JTable{
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		int row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
-		Student s=StudentController.getInstance().GetStudentFromRow(row);
+		Student s=StudentController.getInstance().getStudentFromRow(row);
 		this.setModel(new AbstractTableModelPolozeniPredmeti(s));
 		}
 

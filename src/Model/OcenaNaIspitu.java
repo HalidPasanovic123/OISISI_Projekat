@@ -27,7 +27,6 @@ public class OcenaNaIspitu {
 	
 	public OcenaNaIspitu() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

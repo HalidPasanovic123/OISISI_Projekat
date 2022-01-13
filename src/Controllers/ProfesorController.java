@@ -1,16 +1,13 @@
 package Controllers;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 
 import Baze.BazaProfesora;
 import Model.Adresa;
 import Model.Profesor;
 import UsefulClasses.AdressCreatorFromString;
-import UsefulClasses.StringCheckers;
 import View.MainWindowWithComponents.MainWindow;
 
 public class ProfesorController {

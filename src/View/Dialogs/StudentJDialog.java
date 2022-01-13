@@ -1,15 +1,11 @@
 package View.Dialogs;
 
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
@@ -21,7 +17,6 @@ import javax.swing.JTextField;
 
 import Model.Student;
 import View.MainWindowWithComponents.MainWindow;
-import Baze.BazaStudenata;
 import Model.Adresa;
 import Model.Status;
 import Controllers.StudentController;

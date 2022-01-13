@@ -2,33 +2,32 @@ package AbstractTableModels;
 
 import javax.swing.table.AbstractTableModel;
 
-import Baze.BazaPolozenihPredmeta;
+import Baze.BazaPredmeta;
 import Model.Student;
 
 public class AbstractTableModelPolozeniPredmeti extends AbstractTableModel{
 
-	BazaPolozenihPredmeta bazaPolozenih;
+	private Student student;
 	
 	public AbstractTableModelPolozeniPredmeti(Student s) {
-		bazaPolozenih=new BazaPolozenihPredmeta(s);
+		this.student = s;
 	}
 	@Override
 	public int getColumnCount() {
-		return bazaPolozenih.getColumnCount();
+		return BazaPredmeta.getInstance().getColumnCountPolozeni();
 	}
 
 	@Override
 	public int getRowCount() {
-		//return bazaPolozenih.getOcenePredmeta().size();
-		return 0;
+		return student.getOcenePolozenihPredmeta().size();
 	}
 	
 	public String getColumnName(int column) {
-		return bazaPolozenih.getColumnName(column);
+		return BazaPredmeta.getInstance().getColumnNamePolozeni(column);
 	}
 	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return bazaPolozenih.getValueAt(rowIndex, columnIndex);
+		return null;
 	}
 }

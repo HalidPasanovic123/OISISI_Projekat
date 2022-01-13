@@ -1,7 +1,6 @@
 package Controllers;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Baze.BazaPredmeta;
 import Model.Predmet;
@@ -30,6 +29,10 @@ public class PredmetController {
 
     public void deletePredmet(String sifraPredmeta){
         BazaPredmeta.getInstance().deletePredmet(sifraPredmeta);
+    }
+
+    public Predmet getPredmetByID(int id) {
+        return BazaPredmeta.getInstance().getPredmet(id);
     }
 
     public void changePredmet(Predmet Predmet){

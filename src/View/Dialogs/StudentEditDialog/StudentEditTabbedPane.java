@@ -3,17 +3,14 @@ package View.Dialogs.StudentEditDialog;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import java.awt.BorderLayout;
-
+import View.Dialogs.StudentEditDialog.NepolozeniTab.NepolozeniTab;
 import View.MainWindowWithComponents.MainWindow;
 import View.MainWindowWithComponents.TabPanel;
-import View.MainWindowWithComponents.MainTabPanels.InformacijeTab;
-import View.MainWindowWithComponents.MainTabPanels.NepolozeniJTable;
-import View.MainWindowWithComponents.MainTabPanels.*;
+
+import java.awt.BorderLayout;
 
 public class StudentEditTabbedPane extends JTabbedPane {
 
-	NepolozeniJTable NepolozeniPredmeti = new NepolozeniJTable();
 	PolozeniJTable PolozeniPredmeti = new PolozeniJTable();
 	
 	public StudentEditTabbedPane() {
@@ -28,17 +25,13 @@ public class StudentEditTabbedPane extends JTabbedPane {
 		Informacije.add(new InformacijeTab(row));
 		
 		Polozeni.setLayout(new BorderLayout());
-		this.add(Polozeni, "Položeni");
+		this.add(Polozeni, "Poloï¿½eni");
 		Polozeni.add(new PolozeniTab(row, this));
 		
 		NepolozeniTab nepolozeniTab=new NepolozeniTab(row, this);
 		Nepolozeni.setLayout(new BorderLayout());
-		this.add(nepolozeniTab, "Nepoloženi");
+		this.add(nepolozeniTab, "Nepoloï¿½eni");
 	
-	}
-	
-	public NepolozeniJTable getNepolozeniJTable() {
-		return NepolozeniPredmeti;
 	}
 	
 	public PolozeniJTable getPolozeniJTable() {
