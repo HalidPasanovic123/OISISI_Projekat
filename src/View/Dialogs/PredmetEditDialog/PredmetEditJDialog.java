@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import AbstractActions.OdustaniAction;
+import Model.Predmet;
+import View.Dialogs.PredmetEditDialog.DodajDialog.DodajJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
 import java.awt.GridBagLayout;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 
 public class PredmetEditJDialog extends JDialog{
 
-    public PredmetEditJDialog() {
+    public PredmetEditJDialog(Predmet predmet) {
         super(MainWindow.getInstance());
 
         setName("Izmeni Predmet");
@@ -105,6 +107,17 @@ public class PredmetEditJDialog extends JDialog{
         JButton dodaj = new JButton("+");
         gridBagConstraints = new GridBagConstraints(2, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
         add(dodaj, gridBagConstraints);
+
+        JDialog parentTemp = this;
+        dodaj.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DodajJDialog dodajDialog = new DodajJDialog(predmet, parentTemp);
+                dodajDialog.setVisible(true);
+            }
+            
+        });
 
         JButton obrisi = new JButton("-");
         gridBagConstraints = new GridBagConstraints(3, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 25, 0, 0), 0, 0);

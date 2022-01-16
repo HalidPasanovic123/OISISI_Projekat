@@ -10,6 +10,7 @@ import javax.swing.KeyStroke;
 
 import View.Dialogs.ProfesorEditDialog.ProfesorEditJDialog;
 import View.Dialogs.StudentEditDialog.StudentEditDialog;
+import Controllers.PredmetController;
 import Controllers.ProfesorController;
 import View.Dialogs.PredmetJDialog;
 import View.Dialogs.PredmetEditDialog.PredmetEditJDialog;
@@ -42,8 +43,11 @@ public class ModifyAction extends AbstractAction{
                 profDialog.setVisible(true);
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 2){
-            PredmetEditJDialog preDialog = new PredmetEditJDialog();
-            preDialog.setVisible(true);
+            int temp = MainWindow.getInstance().getTabs().getTabelPredmeti().getSelectedRow();
+            if (temp != -1) {
+                PredmetEditJDialog preDialog = new PredmetEditJDialog(PredmetController.getInstance().getPredmetByID(MainWindow.getInstance().getTabs().getTabelPredmeti().convertRowIndexToModel(temp)));
+                preDialog.setVisible(true);
+            }
         }
     }
 }

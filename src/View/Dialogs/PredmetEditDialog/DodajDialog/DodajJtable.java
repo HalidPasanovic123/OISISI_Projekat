@@ -15,6 +15,7 @@ public class DodajJtable extends JTable {
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.setModel(new ApstractDodajTableModel());
+        this.setTableHeader(null);
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {

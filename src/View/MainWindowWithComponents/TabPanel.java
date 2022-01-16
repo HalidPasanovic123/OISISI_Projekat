@@ -40,7 +40,7 @@ public class TabPanel extends JPanel{
         tabs.setPreferredSize(new Dimension(size.width * 73/100,size.height * 63/100));
         
         tableStudent = new StudentJTable();
-		JScrollPane studentiTab1 = new JScrollPane(tableStudent);
+		    JScrollPane studentiTab1 = new JScrollPane(tableStudent);
 
         tabelProfesori = new ProfesorJTable();
         JScrollPane profesoriTab = new JScrollPane(tabelProfesori);

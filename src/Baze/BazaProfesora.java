@@ -105,7 +105,7 @@ public class BazaProfesora {
         Profesor profesor = profesors.get(row);
         switch (column){
             case 0:
-                return profesor.getPrezime() + profesor.getIme();
+                return profesor.getPrezime() + " " + profesor.getIme();
             default:
                 return null;
         }

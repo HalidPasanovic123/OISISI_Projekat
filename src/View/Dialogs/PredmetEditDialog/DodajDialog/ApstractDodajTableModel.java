@@ -8,7 +8,12 @@ public class ApstractDodajTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return 5;
+        return BazaProfesora.getInstance().getRowCount();
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return "Profesor";
     }
 
     @Override
