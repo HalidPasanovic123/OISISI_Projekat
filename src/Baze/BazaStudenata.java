@@ -79,7 +79,10 @@ public class BazaStudenata {
 		return this.kolone.get(index);
 	}
 	
-	
+    public Student getStudentByID(int id) {
+        return studenti.get(id);
+    }
+    
 	public Student getRow(int rowIndex) {
 		return this.studenti.get(rowIndex);
 	}

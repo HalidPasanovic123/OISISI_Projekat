@@ -3,7 +3,12 @@ package Controllers;
 import java.util.ArrayList;
 
 import Baze.BazaPredmeta;
+import Baze.BazaProfesora;
 import Model.Predmet;
+import Model.Profesor;
+import Model.Semestar;
+import Model.Student;
+import View.MainWindowWithComponents.MainWindow;
 
 public class PredmetController {
     
@@ -35,8 +40,25 @@ public class PredmetController {
         return BazaPredmeta.getInstance().getPredmet(id);
     }
 
-    public void changePredmet(Predmet Predmet){
-        BazaPredmeta.getInstance().changePredmet(Predmet);
+    public void EditPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
+			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,
+			ArrayList<Student> spisakNepolozenih,String prethodnaSifra)
+    {
+        BazaPredmeta.getInstance().changePredmet(new Predmet(sifraPredmeta,nazivPredmeta, semestar, godinaStudija,
+			predmetniProfesor, brojESPB, spisakPolozenih,
+			spisakNepolozenih), prethodnaSifra);
+        MainWindow.getInstance().updateShowingsOfPredmet();	
     }
+    
+    public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
+			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,
+			ArrayList<Student> spisakNepolozenih)
+    {
+    	BazaPredmeta.getInstance().dodajPredmet(sifraPredmeta,  nazivPredmeta,  semestar,  godinaStudija,
+   			 predmetniProfesor,  brojESPB, spisakPolozenih, spisakNepolozenih);
+    	MainWindow.getInstance().updateShowingsOfPredmet();
+    }
+    
+
 
 }

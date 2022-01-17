@@ -39,6 +39,8 @@ public class DodajJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
+            	
+            	
                 // TODO Auto-generated method stub
                 
             }
@@ -49,6 +51,18 @@ public class DodajJDialog extends JDialog{
 
         JButton odustani = new JButton(new OdustaniAction(this));
         add(odustani, gridBagConstraints);
+        
+        odustani.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	
+            	dispose();
+                // TODO Auto-generated method stub
+                
+            }
+            
+        });
     }
     
 }
