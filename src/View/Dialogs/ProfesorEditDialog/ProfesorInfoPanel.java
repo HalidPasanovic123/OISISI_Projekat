@@ -43,7 +43,7 @@ public class ProfesorInfoPanel extends JPanel{
 
         int gridy = 0;
         //Labela za Prezime
-        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel prez = new JLabel("Prezime*");
         add(prez, gridBagConstraints);
 
@@ -72,7 +72,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Ime
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel ime = new JLabel("Ime*");
         add(ime, gridBagConstraints);
 
@@ -101,7 +101,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Datum Rodjenja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel datum = new JLabel("Datum*");
         add(datum, gridBagConstraints);
         
@@ -131,7 +131,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Adresu Stanovanja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresa = new JLabel("Adresa*");
         add(adresa, gridBagConstraints);
 
@@ -160,7 +160,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Adresu Kancelarije
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresaK = new JLabel("Adresa Kancelarije*");
         add(adresaK, gridBagConstraints);
 
@@ -189,7 +189,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Broj Licne Karte
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel licna = new JLabel("Broj Lične Karte*");
         add(licna, gridBagConstraints);
 
@@ -228,7 +228,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Zvanje
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel zvanje = new JLabel("Zvanje*");
         add(zvanje, gridBagConstraints);
 
@@ -257,7 +257,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Godine Staza
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel staz = new JLabel("Godine Staža*");
         add(staz, gridBagConstraints);
 
@@ -288,7 +288,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za E-mail Adresu
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel email = new JLabel("E-Mail Adresa");
         add(email, gridBagConstraints);
 
@@ -317,7 +317,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Labela za Kontakt Telefon
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel kontakt = new JLabel("Kontakt Telefon");
         add(kontakt, gridBagConstraints);
 
@@ -347,7 +347,7 @@ public class ProfesorInfoPanel extends JPanel{
 
         //Dugme za potvrdi
         JButton potvrdi = new JButton("Potvrdi");
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
         add(potvrdi, gridBagConstraints);
 
         //Dugme za potvrdi

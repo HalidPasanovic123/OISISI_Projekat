@@ -30,9 +30,9 @@ public class BazaPredmeta {
         this.columnsForProfesorEdit = new ArrayList<String>();
         this.columnsForStudentPolozeni = new ArrayList<String>();
 
-        predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "2", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
 
         this.columns.add("Sifra predmeta");
         this.columns.add("Naziv predmeta");
@@ -113,9 +113,9 @@ public class BazaPredmeta {
         }
     }
 
-    public void changePredmet(Predmet Predmet){
+    public void changePredmet(Predmet Predmet, String prethodnaSifra){
         for (Predmet p : predmeti){
-            if(p.getSifraPredmeta() == Predmet.getSifraPredmeta()){
+            if(p.getSifraPredmeta() == prethodnaSifra){
                 predmeti.remove(p);
                 predmeti.add(Predmet);
                 break;
@@ -156,5 +156,13 @@ public class BazaPredmeta {
             default:
                 return null;
         }
+    }
+    
+    public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
+			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,
+			ArrayList<Student> spisakNepolozenih)
+    {
+    	this.predmeti.add(new Predmet( sifraPredmeta,  nazivPredmeta,  semestar,  godinaStudija,
+    			 predmetniProfesor,  brojESPB, spisakPolozenih, spisakNepolozenih));
     }
 }
