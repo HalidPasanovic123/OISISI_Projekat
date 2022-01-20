@@ -3,6 +3,7 @@ package AbstractTableModels;
 import javax.swing.table.AbstractTableModel;
 
 import Baze.BazaPredmeta;
+import Baze.BazaStudenata;
 import Model.Student;
 
 public class AbstractTableModelPolozeniPredmeti extends AbstractTableModel{
@@ -28,6 +29,6 @@ public class AbstractTableModelPolozeniPredmeti extends AbstractTableModel{
 	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return null;
+		return BazaStudenata.getInstance().getValueAtPolozeni(rowIndex, columnIndex, student);
 	}
 }

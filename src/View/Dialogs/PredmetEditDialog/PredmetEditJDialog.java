@@ -194,9 +194,13 @@ public class PredmetEditJDialog extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 DodajJDialog dodajDialog = new DodajJDialog(predmet, parentTemp);
                 dodajDialog.setVisible(true);
-                dodaj.setEnabled(false);
-                obrisi.setEnabled(true);
-                fieldProfesor.setText(predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
+                if(predmet.getPredmetniProfesor() != null)
+                {
+                    dodaj.setEnabled(false);
+                    obrisi.setEnabled(true);
+                    fieldProfesor.setText(predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
+                }
+               
             }
             
         });

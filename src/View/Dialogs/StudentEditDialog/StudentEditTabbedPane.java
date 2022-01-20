@@ -18,6 +18,8 @@ public class StudentEditTabbedPane extends JTabbedPane {
 	PolozeniJTable PolozeniPredmeti = new PolozeniJTable();
 	StudentNepolozeniJTable NepolozeniPredmeti;
 
+	private NepolozeniTab nepolozeniTab;
+	private PolozeniTab polozeniTab;
 	private int row;
 	
 	public StudentEditTabbedPane(JDialog parent) {
@@ -35,9 +37,10 @@ public class StudentEditTabbedPane extends JTabbedPane {
 		
 		Polozeni.setLayout(new BorderLayout());
 		this.add(Polozeni, "Polo�eni");
-		Polozeni.add(new PolozeniTab(row, this));
+		polozeniTab = new PolozeniTab(row, this);
+		Polozeni.add(polozeniTab);
 		
-		NepolozeniTab nepolozeniTab=new NepolozeniTab(row, this);
+		nepolozeniTab=new NepolozeniTab(row, this);
 		this.add(nepolozeniTab, "Nepolo�eni");
 	
 	}
@@ -48,5 +51,13 @@ public class StudentEditTabbedPane extends JTabbedPane {
 
 	public Student getStudent() {
 		return StudentController.getInstance().getStudentByID(row);
+	}
+
+	public NepolozeniTab getNepolozeniTab() {
+		return nepolozeniTab;
+	}
+	
+	public PolozeniTab getPolozeniTab() {
+		return polozeniTab;
 	}
 }
