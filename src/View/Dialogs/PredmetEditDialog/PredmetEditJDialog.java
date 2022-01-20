@@ -205,7 +205,6 @@ public class PredmetEditJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 int reply=JOptionPane.showOptionDialog(parentTemp, 
 			        "Da li ste sigurni da želite da obrišete profesora?", 
 			        "Brisanje profesora", 
@@ -220,11 +219,6 @@ public class PredmetEditJDialog extends JDialog{
                     dodaj.setEnabled(true);
                     obrisi.setEnabled(false);
                 }
-=======
-
-            	predmet.setPredmetniProfesor(null);
-            	dispose();
->>>>>>> origin/develope
             }
             
         });
