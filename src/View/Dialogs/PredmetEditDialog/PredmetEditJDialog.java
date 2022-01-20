@@ -205,6 +205,7 @@ public class PredmetEditJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 int reply=JOptionPane.showOptionDialog(parentTemp, 
 			        "Da li ste sigurni da želite da obrišete profesora?", 
 			        "Brisanje profesora", 
@@ -219,6 +220,11 @@ public class PredmetEditJDialog extends JDialog{
                     dodaj.setEnabled(true);
                     obrisi.setEnabled(false);
                 }
+=======
+
+            	predmet.setPredmetniProfesor(null);
+            	dispose();
+>>>>>>> origin/develope
             }
             
         });
@@ -301,6 +307,11 @@ public class PredmetEditJDialog extends JDialog{
 				
 		}
 		
+    	if(fieldProfesor.getText() == "")
+    	{
+    		obrisi.setEnabled(false);
+    	}
+    	
 		if(!postoji &&  Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", naziv) &&
 		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{

@@ -154,6 +154,15 @@ public class BazaPredmeta {
         } 
     }
     
+    public String getValueAtDodaj(int row, int column){
+        Predmet predmet = predmeti.get(row);
+        switch (column){
+            case 0:
+                return predmet.getSifraPredmeta() + " - " + predmet.getNazivPredmeta();
+            default:
+                return null;
+        }
+    }
 
     public String getValueAt(int row, int column){
         Predmet predmet = predmeti.get(row);
