@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import AbstractActions.CreateAction;
 import AbstractActions.DeleteAction;
@@ -47,6 +49,31 @@ public class Toolbar extends JToolBar {
 		int height = temp.height;
 		int width = temp.width;
 		searchInput.setMaximumSize(new Dimension(width/6,height));
+		searchInput.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checker();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checker();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checker();
+            }
+
+            public void checker() {
+                if(searchInput.getText().length() == 0){
+                    MainWindow.getInstance().getTabs().getTabelProfesori().getSorter().setRowFilter(null);
+					MainWindow.getInstance().getTabs().getTableStudent().getSorter().setRowFilter(null);
+					MainWindow.getInstance().getTabs().getTabelPredmeti().getSorter().setRowFilter(null);
+                }
+            }
+        });
 		add(searchInput);
 		
 		//Dugme za pretragu

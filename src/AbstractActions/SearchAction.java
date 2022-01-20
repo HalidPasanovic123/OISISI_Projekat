@@ -2,12 +2,15 @@ package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 
+import AbstractTableModels.AbstractModelProfesori;
 import Model.Profesor;
 import View.MainWindowWithComponents.MainWindow;
 
@@ -35,36 +38,54 @@ public class SearchAction extends AbstractAction{
     }
 
     private void ProfesorSearch() {
-        searchInput.getDocument().addDocumentListener(new DocumentListener() {
+        if(searchInput.getText().length() == 0){
+            MainWindow.getInstance().getTabs().getTabelProfesori().getSorter().setRowFilter(null);
+        }else{
+            final Pattern regexStrings = Pattern.compile("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+");
+            final Matcher tempString = regexStrings.matcher(searchInput.getText());
 
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                pretrazi(searchInput.getText());
-            }
+            ArrayList<String> strings = new ArrayList<String>();
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                pretrazi(searchInput.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                pretrazi(searchInput.getText());
-            }
-
-            public void pretrazi(String text) {
-                if(searchInput.getText().length() == 0){
-                    MainWindow.getInstance().getTabs().getTabelProfesori().getSorter().setRowFilter(null);
-                }else{
-                    //RowFilter sorter = new 
-                }
+            while ( tempString.find() ) {
+                strings.add(tempString.group().trim());
             }
             
-        });
+            if (strings.size() == 1) {
+                MainWindow.getInstance().getTabs().getTabelProfesori().getSorter().setRowFilter(RowFilter.regexFilter(strings.get(0), 0));
+            } else if(strings.size() == 2){
+                ArrayList<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>();
+                filters.add(RowFilter.regexFilter(strings.get(0), 0));
+                filters.add(RowFilter.regexFilter(strings.get(1), 1));
+                RowFilter<Object,Object> filter = RowFilter.andFilter(filters);
+                MainWindow.getInstance().getTabs().getTabelProfesori().getSorter().setRowFilter(filter);
+            }
+        }
+            
     }
 
     private void PredmetSearch() {
+        if(searchInput.getText().length() == 0){
+            MainWindow.getInstance().getTabs().getTabelPredmeti().getSorter().setRowFilter(null);
+        }else{
+            final Pattern regexStrings = Pattern.compile("([a-zA-Z0-9čČćĆžŽđĐšŠ]+[\\s]*)+");
+            final Matcher tempString = regexStrings.matcher(searchInput.getText());
 
+            ArrayList<String> strings = new ArrayList<String>();
+
+            while ( tempString.find() ) {
+                strings.add(tempString.group().trim());
+            }
+            
+            if (strings.size() == 1) {
+                MainWindow.getInstance().getTabs().getTabelPredmeti().getSorter().setRowFilter(RowFilter.regexFilter(strings.get(0), 0));
+            } else if(strings.size() == 2){
+                ArrayList<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>();
+                filters.add(RowFilter.regexFilter(strings.get(0), 0));
+                filters.add(RowFilter.regexFilter(strings.get(1), 1));
+                RowFilter<Object,Object> filter = RowFilter.andFilter(filters);
+                MainWindow.getInstance().getTabs().getTabelPredmeti().getSorter().setRowFilter(filter);
+            }
+        }
     }
     
 }
