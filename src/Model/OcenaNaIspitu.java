@@ -52,6 +52,34 @@ public class OcenaNaIspitu {
 		this.ocena = ocena;
 	}
 
+	public int getOcenaBr(Ocena ocena)
+	{
+		if(ocena == Ocena.PET)
+		{
+			return 0;
+		}
+		if(ocena == Ocena.SEST)
+		{
+			return 6;
+		}
+		if(ocena == Ocena.SEDAM)
+		{
+			return 7;
+		}
+		if(ocena == Ocena.OSAM)
+		{
+			return 8;
+		}
+		if(ocena == Ocena.DEVET)
+		{
+			return 9;
+		}
+		else
+		{
+			return 10;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "OcenaNaIspitu [datumPolaganja=" + datumPolaganja + ", ocena=" + ocena + ", predmet=" + predmet
