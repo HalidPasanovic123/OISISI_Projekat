@@ -141,8 +141,35 @@ public class Profesor {
 		this.predmeti = predmeti;
 	}
 
+	public void setPredmet(Predmet p)
+	{
+		this.predmeti.add(p);
+	}
 
+	public void izbaciPredmet(Predmet p)
+	{
+		// ArrayList<Predmet> temp = new ArrayList<Predmet>();
 
+		// for (Predmet pp : this.predmeti)
+		// {
+		// 	if(p.getSifraPredmeta() != pp.getSifraPredmeta())
+		// 	{
+		// 		temp.add(pp);
+		// 	}
+		// }
+		// this.setPredmeti(temp);
+
+		this.predmeti.remove(p);
+	}
+
+	public void IspisiTabelu()
+	{
+		for(Predmet p: this.predmeti)
+		{
+			System.out.println("\n");
+			System.out.println(p.toString());
+		}
+	}
 	@Override
 	public String toString() {
 		return "Profesor [prezime=" + prezime + ", ime=" + ime + ", datumRodjenja=" + datumRodjenja
