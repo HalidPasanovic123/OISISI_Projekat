@@ -50,7 +50,7 @@ public class Toolbar extends JToolBar {
 		add(searchInput);
 		
 		//Dugme za pretragu
-		SearchAction search = new SearchAction();
+		SearchAction search = new SearchAction(searchInput);
 		JButton searchButton = new JButton(search);
 		add(searchButton);
 		

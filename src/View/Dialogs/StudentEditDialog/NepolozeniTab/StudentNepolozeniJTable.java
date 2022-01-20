@@ -25,4 +25,10 @@ public class StudentNepolozeniJTable extends JTable {
         }
         return c;
     }
+    
+    public void azuriraj() {
+		AbstractTableModelNepolozeni model = (AbstractTableModelNepolozeni) this.getModel();
+		model.fireTableDataChanged();
+        validate();
+	}
 }

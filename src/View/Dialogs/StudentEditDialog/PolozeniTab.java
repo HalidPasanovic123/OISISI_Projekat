@@ -1,11 +1,15 @@
 package View.Dialogs.StudentEditDialog;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -23,15 +27,40 @@ public class PolozeniTab extends JPanel
 	
 	private static JButton ponistiButton;
 	private  PolozeniJTable polozeniJTable;
-
-	private Student student;
+	
+	static JLabel prosekL;
+	static JLabel espbL;
 	
 	
 	public PolozeniTab(int row, StudentEditTabbedPane parent)
 	{
-		student = BazaStudenata.getInstance().getRow(row);
+		Student student = BazaStudenata.getInstance().getRow(row);
 				
-		ponistiButton = new JButton("Poni�ti ocenu");
+		GridBagLayout gb=new GridBagLayout();
+		setLayout(gb);
+				
+		polozeniJTable= parent.getPolozeniJTable();
+		
+		GridBagConstraints gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 0, 0);
+		ponistiButton = new JButton("Poništi ocenu");
+		this.add(ponistiButton,gbc);
+		
+		gbc=new GridBagConstraints(0, 1, 1, 1, 100, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(30, 30, 10, 30), 0, 0);
+		JScrollPane sPane = new JScrollPane(polozeniJTable);
+		this.add(sPane,gbc);
+		
+		float prosek = BazaStudenata.getInstance().getProsek(student);
+		String prosekTxt = String.format("Prosečna ocena: %.2f", prosek);
+		prosekL = new JLabel(prosekTxt);
+		gbc=new GridBagConstraints(0, 2, 3, 1, 100, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(0, 0, 0, 10), 0, 0);
+		this.add(prosekL,gbc);
+		
+		int espb = BazaStudenata.getInstance().getESPB(student.getIndeks());
+		String espbTxt = String.format("Ukupno ESPB: %d", espb);
+		espbL = new JLabel(espbTxt);
+		gbc=new GridBagConstraints(0, 3, 3, 1, 100, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(0, 0, 0, 10), 0, 0);
+		this.add(espbL,gbc);
+		
 		ponistiButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -71,11 +100,6 @@ public class PolozeniTab extends JPanel
 			}
 
 		});
-		this.add(ponistiButton, BorderLayout.NORTH);
-		
-		polozeniJTable= parent.getPolozeniJTable();
-		JScrollPane scrollPane = new JScrollPane(polozeniJTable);
-		this.add(scrollPane, BorderLayout.CENTER);
 	}
 
 	public void updateShowingOfPolozeni(){
