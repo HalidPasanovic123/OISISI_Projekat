@@ -8,16 +8,18 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
 import Model.Profesor;
+import View.Dialogs.ProfesorEditDialog.ApstractDodajTableModelPredmetProfesoru;
 
-public class ProfesorPredmetiJTable extends JTable {
-
-    public ProfesorPredmetiJTable(Profesor profesor) {
+public class DodajJtablePredmetProfesoru extends JTable{
+	
+    public DodajJtablePredmetProfesoru(Profesor p) {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.setModel(new AbstractTableModelPredmeti(profesor));
+        this.setModel(new ApstractDodajTableModelPredmetProfesoru());
+        this.setTableHeader(null);
     }
-    
+
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
         Component c = super.prepareRenderer(renderer, row, column);
         if (isRowSelected(row)) {
@@ -27,6 +29,5 @@ public class ProfesorPredmetiJTable extends JTable {
         }
         return c;
     }
-    
-    
+
 }

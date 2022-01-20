@@ -219,7 +219,7 @@ public class PredmetEditJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
+
             	predmet.setPredmetniProfesor(null);
             	dispose();
             }
@@ -284,6 +284,11 @@ public class PredmetEditJDialog extends JDialog{
 				
 		}
 		
+    	if(fieldProfesor.getText() == "")
+    	{
+    		obrisi.setEnabled(false);
+    	}
+    	
 		if(!postoji &&  Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", naziv) &&
 		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{
