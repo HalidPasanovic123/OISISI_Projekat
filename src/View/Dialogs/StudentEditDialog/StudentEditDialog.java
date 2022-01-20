@@ -9,7 +9,7 @@ public class StudentEditDialog extends JDialog {
 	public StudentEditDialog(JFrame parent, String title) {
 		super(parent, title);
 
-		setSize(500, 500);
+		setSize(573, 595);
 		setLocationRelativeTo(parent);
 		setLayout(new BorderLayout());
 		this.add(new StudentEditTabbedPane(this));

@@ -41,7 +41,7 @@ public class PolozeniTab extends JPanel
 				
 		polozeniJTable= parent.getPolozeniJTable();
 		
-		GridBagConstraints gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
+		GridBagConstraints gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 0, 0);
 		ponistiButton = new JButton("Poništi ocenu");
 		this.add(ponistiButton,gbc);
 		
