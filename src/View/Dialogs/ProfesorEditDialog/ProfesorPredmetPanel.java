@@ -45,7 +45,8 @@ public class ProfesorPredmetPanel extends JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Predmet p = PredmetController.getInstance().getPredmetByID(profpredTable.convertRowIndexToModel(profpredTable.getSelectedRow()));
+                int temp = profpredTable.getSelectedRow();
+                Predmet p = profesor.getPredmeti().get(profpredTable.convertRowIndexToModel(temp));
                 //System.out.println(p.toString());
                 profesor.izbaciPredmet(p);
                 profesor.IspisiTabelu();
