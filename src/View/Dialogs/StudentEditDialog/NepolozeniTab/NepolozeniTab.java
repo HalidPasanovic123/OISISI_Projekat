@@ -26,15 +26,13 @@ public class NepolozeniTab extends JPanel {
 		this.add(obrisi,  BorderLayout.NORTH);
 		
 		JButton polaganje=new JButton("Polaganje");
-
-		NepolozeniTab temp1 = this;
 		polaganje.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int temp = nepolozeniJTable.getSelectedRow();
 				if (temp != -1) {
-					PolaganjeJDialog polaganje = new PolaganjeJDialog(PredmetController.getInstance().getPredmetByID(nepolozeniJTable.convertRowIndexToModel(temp)), parent, temp1);
+					PolaganjeJDialog polaganje = new PolaganjeJDialog(PredmetController.getInstance().getPredmetByID(nepolozeniJTable.convertRowIndexToModel(temp)), parent);
 					polaganje.setVisible(true);
 				}
 			}

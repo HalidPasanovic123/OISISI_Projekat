@@ -3,6 +3,7 @@ package View.Dialogs.StudentEditDialog.NepolozeniTab;
 import javax.swing.table.AbstractTableModel;
 
 import Baze.BazaPredmeta;
+import Baze.BazaStudenata;
 import Controllers.StudentController;
 import Model.Student;
 
@@ -31,7 +32,7 @@ public class AbstractTableModelNepolozeni extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return  BazaPredmeta.getInstance().getValueAt(rowIndex, columnIndex);
+        return  BazaStudenata.getInstance().getValueAtNepolozeni(rowIndex, columnIndex, student);
     }
     
 }

@@ -33,7 +33,7 @@ public class PolaganjeJDialog extends JDialog {
     private JButton potvrdi;
     private Student student;
 
-    public PolaganjeJDialog(Predmet predmet, StudentEditTabbedPane parent, NepolozeniTab parent1) {
+    public PolaganjeJDialog(Predmet predmet, StudentEditTabbedPane parent) {
         student = parent.getStudent();
 
         setName("Polaganje");
@@ -113,6 +113,7 @@ public class PolaganjeJDialog extends JDialog {
         potvrdi = new JButton("Potvrdi");
         gbcl = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(10, 25, 0, 0), 0, 0);
         add(potvrdi, gbcl);
+        potvrdi.setEnabled(false);
         potvrdi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,7 +156,9 @@ public class PolaganjeJDialog extends JDialog {
                 //Dodavanje studenta u listu polozenih
                 predmet.getSpisakPolozenih().add(student);
 
-                parent1.updateShowingOfNepolozeni();
+                parent.getNepolozeniTab().updateShowingOfNepolozeni();
+
+                parent.getPolozeniTab().updateShowingOfPolozeni();
 
                 dispose();
             }

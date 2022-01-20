@@ -150,6 +150,10 @@ public class Student {
 		}
 	}
 
+	public String getValueAtPolozeni() {
+		return null;
+	}
+
 	public void setNepolozeniPredmeti(ArrayList<Predmet> nepolozeniPredmeti) {
 		this.nepolozeniPredmeti = nepolozeniPredmeti;
 	}
