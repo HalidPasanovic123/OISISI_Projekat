@@ -8,7 +8,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
 import Model.Profesor;
-import View.Dialogs.ProfesorEditDialog.ApstractDodajTableModelPredmetProfesoru;
 
 public class DodajJtablePredmetProfesoru extends JTable{
 	
