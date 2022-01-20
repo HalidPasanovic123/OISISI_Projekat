@@ -13,13 +13,15 @@ import AbstractTableModels.AbstractModelProfesori;
 
 public class ProfesorJTable extends JTable{
     
+    private TableRowSorter<TableModel> sorter;
 
     public ProfesorJTable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.setModel(new AbstractModelProfesori());
-        this.setRowSorter(new TableRowSorter<TableModel>(this.getModel()));
+        sorter = new TableRowSorter<TableModel>(this.getModel());
+        this.setRowSorter(sorter);
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
@@ -30,5 +32,9 @@ public class ProfesorJTable extends JTable{
             c.setBackground(Color.WHITE);
         }
         return c;
+    }
+
+    public TableRowSorter<TableModel> getSorter() {
+        return sorter;
     }
 }
