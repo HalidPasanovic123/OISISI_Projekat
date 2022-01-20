@@ -115,6 +115,15 @@ public class Predmet {
 		return spisakNepolozenih;
 	}
 
+	public void brisanjeIzNepolozenih(Student student) {
+		for (Student s : spisakNepolozenih){
+			if(s.getIndeks() == student.getIndeks()){
+				spisakNepolozenih.remove(s);
+				break;
+			}
+		}
+	}
+
 
 	public void setSpisakNepolozenih(ArrayList<Student> spisakNepolozenih) {
 		this.spisakNepolozenih = spisakNepolozenih;

@@ -3,15 +3,15 @@ package Controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import Baze.BazaProfesora;
 import Baze.BazaStudenata;
 import Model.Adresa;
-import Model.Ocena;
 import Model.Status;
 import Model.Student;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
+import Model.Profesor;
 import View.MainWindowWithComponents.MainWindow;
-import View.MainWindowWithComponents.MainTabPanels.NepolozeniJTable;
 
 public class StudentController {
 	
@@ -64,6 +64,10 @@ private static StudentController instance = null;
 		return BazaStudenata.getInstance().getRow(rowIndex);
 	}
 	
+    public Student getStudentByID(int id) {
+        return BazaStudenata.getInstance().getStudentByID(id);
+    }
+    
 	public void izbrisiStudent(Student s) {
 		for (Predmet p : PredmetController.getInstance().getPredmeti()) {
 			if (p != null)

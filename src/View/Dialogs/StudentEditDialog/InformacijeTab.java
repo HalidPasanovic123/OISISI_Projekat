@@ -1,4 +1,4 @@
-package View.MainWindowWithComponents.MainTabPanels;
+package View.Dialogs.StudentEditDialog;
 
 import java.text.DateFormat;
 import java.awt.GridBagConstraints;
@@ -6,27 +6,18 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import Baze.BazaStudenata;
 import Controllers.StudentController;
@@ -36,7 +27,10 @@ import Model.Student;
 
 public class InformacijeTab extends JPanel {
 	
-	DateFormat datum;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private JTextField txtField1;
 	private JTextField txtField2;
@@ -60,12 +54,40 @@ public class InformacijeTab extends JPanel {
 		setLayout(gb);
 		GridBagConstraints gbc;
 		
+		 class MyDocListener implements DocumentListener
+		  {
+			
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				// TODO Auto-generated method stub
+				provera();
+			}
+
+
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				// TODO Auto-generated method stub
+				provera();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				// TODO Auto-generated method stub
+				provera();
+			}
+		 
+		  }
+		
+		
+		DocumentListener myDocumentListener=new MyDocListener();
+		
 		gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label1 = new JLabel("Ime*");
 		this.add(label1,gbc);
 		
 		txtField1=new JTextField();
 		txtField1.setText(student.getIme());
+		txtField1.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField1,gbc);
 		
@@ -75,6 +97,7 @@ public class InformacijeTab extends JPanel {
 		
 		txtField2 = new JTextField();
 		txtField2.setText(student.getPrezime());
+		txtField2.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField2,gbc);
 		
@@ -84,8 +107,8 @@ public class InformacijeTab extends JPanel {
 		
 		txtField3=new JTextField();
 		txtField3.setToolTipText("dd.mm.yyyy.");
-		datum = new SimpleDateFormat("dd.MM.yyyy.");
 		txtField3.setText(student.getDatumRodjenja());
+		txtField3.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField3,gbc);
 		
@@ -97,6 +120,7 @@ public class InformacijeTab extends JPanel {
 		txtField4=new JTextField();
 		txtField4.setToolTipText("ulica broj, grad");
 		txtField4.setText(student.ispisiAdresu());
+		txtField4.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField4,gbc);
 		
@@ -106,6 +130,7 @@ public class InformacijeTab extends JPanel {
 		
 		txtField5=new JTextField();
 		txtField5.setText(student.getKontakt());
+		txtField5.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField5,gbc);
 		
@@ -115,6 +140,7 @@ public class InformacijeTab extends JPanel {
 		
 		txtField6=new JTextField();
 		txtField6.setText(student.geteMail());
+		txtField6.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField6,gbc);
 		
@@ -124,6 +150,7 @@ public class InformacijeTab extends JPanel {
 		
 		txtField7=new JTextField();
 		txtField7.setText(student.getIndeks());
+		txtField7.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField7,gbc);
 		
@@ -133,6 +160,7 @@ public class InformacijeTab extends JPanel {
 		
 		txtField8=new JTextField();
 		txtField8.setText(String.valueOf(student.getGodinaUpisa()));
+		txtField8.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 7, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField8,gbc);
 		
@@ -196,6 +224,7 @@ public class InformacijeTab extends JPanel {
 		btnPotvrdi=new JButton("Potvrdi");
 		gbc=new GridBagConstraints(0, 10, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(5, 0, 0, 0), 0, 0);
 		this.add(btnPotvrdi,gbc);
+		btnPotvrdi.setEnabled(true);
 		
 		JButton btnOdustani=new JButton("Odustani");
 		gbc=new GridBagConstraints(1, 10, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 0, 0);
@@ -238,17 +267,6 @@ public class InformacijeTab extends JPanel {
 					godinaStudiranja = 5;
 				}
 				
-				
-				boolean postoji = false;
-				for (Student s : StudentController.getInstance().getStudenti())
-				{
-					if (s.getIndeks().equals(brojIndeksa) && !s.getIndeks().equals(student.getIndeks()))
-					{
-						postoji = true;
-					}
-						
-				}
-				
 				Status status;
 				if (combo2.getSelectedItem().toString().equals("BudĹľet"))
 				{
@@ -258,12 +276,10 @@ public class InformacijeTab extends JPanel {
 				{
 					status = Status.S;
 				}
-				if(provera())
-				{
-					StudentController.getInstance().editStudent(prezime ,ime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, row);
-					JDialog parent1 = (JDialog) SwingUtilities.getWindowAncestor(si);
-					parent1.dispose();
-				}
+
+				StudentController.getInstance().editStudent(prezime ,ime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, row);
+				JDialog parent1 = (JDialog) SwingUtilities.getWindowAncestor(si);
+				parent1.dispose();
 						
 			}
 				
@@ -280,7 +296,7 @@ public class InformacijeTab extends JPanel {
 		});
 	}
 	
-	public Boolean provera() {
+	public void provera() {
 		
 		String prezime=txtField2.getText();
 		String ime=txtField1.getText();
@@ -295,40 +311,33 @@ public class InformacijeTab extends JPanel {
 				postoji = true;
 		}
 		
-		if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
+		if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
 		{
-			JOptionPane.showMessageDialog(null, "Neispravno uneto ime!");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
-		else if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime)) 
+		else if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime)) 
 		{
-			JOptionPane.showMessageDialog(null, "Neispravno uneto prezime!");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
 		else if(!Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText())) 
 		{
-			JOptionPane.showMessageDialog(null, "Neispravan datum!\n Format: dd.mm.yyyy.");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
 		else if(!Pattern.matches("[+]?[0-9]+", brojTelefona)) 
 		{
-			JOptionPane.showMessageDialog(null, "Neispravno unet broj telefona!");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
 		else if(!Pattern.matches("^(.+)@(.+)$", emailAdresa)) 
 		{
-			JOptionPane.showMessageDialog(null, "Neispravno uneta email adresa!");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
 		else if (postoji)
 		{
-			JOptionPane.showMessageDialog(null, "Broj indeksa veÄ‡ postoji!");
-			return false;
+			btnPotvrdi.setEnabled(false);
 		} 
 		else 
 		{
-			return true;
-			
+			btnPotvrdi.setEnabled(true);
 		}
 
 	}

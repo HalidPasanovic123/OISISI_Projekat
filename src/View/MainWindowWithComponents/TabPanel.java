@@ -1,6 +1,5 @@
 package View.MainWindowWithComponents;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -41,7 +40,7 @@ public class TabPanel extends JPanel{
         tabs.setPreferredSize(new Dimension(size.width * 73/100,size.height * 63/100));
         
         tableStudent = new StudentJTable();
-		JScrollPane studentiTab1 = new JScrollPane(tableStudent);
+		    JScrollPane studentiTab1 = new JScrollPane(tableStudent);
 
         tabelProfesori = new ProfesorJTable();
         JScrollPane profesoriTab = new JScrollPane(tabelProfesori);
@@ -61,15 +60,15 @@ public class TabPanel extends JPanel{
             	
               if(tabs.getSelectedIndex() == 0)
               {
-            		MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Studenti");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Studenti");
               }
               else if(tabs.getSelectedIndex() == 1)
               {
-            	  MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Profesori");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Profesori");
               }
               else
               {
-            	  MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Predmeti");
+            	MainWindow.getInstance().setStatusBar("Studentska Slu�ba-Predmeti");
               }
 
             }

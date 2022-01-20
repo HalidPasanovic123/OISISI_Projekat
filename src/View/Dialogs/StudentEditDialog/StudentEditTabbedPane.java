@@ -1,48 +1,63 @@
 package View.Dialogs.StudentEditDialog;
 
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import java.awt.BorderLayout;
-
+import Controllers.StudentController;
+import Model.Student;
+import View.Dialogs.StudentEditDialog.NepolozeniTab.NepolozeniTab;
+import View.Dialogs.StudentEditDialog.NepolozeniTab.StudentNepolozeniJTable;
 import View.MainWindowWithComponents.MainWindow;
 import View.MainWindowWithComponents.TabPanel;
-import View.MainWindowWithComponents.MainTabPanels.InformacijeTab;
-import View.MainWindowWithComponents.MainTabPanels.NepolozeniJTable;
-import View.MainWindowWithComponents.MainTabPanels.*;
+
+import java.awt.BorderLayout;
 
 public class StudentEditTabbedPane extends JTabbedPane {
 
-	NepolozeniJTable NepolozeniPredmeti = new NepolozeniJTable();
 	PolozeniJTable PolozeniPredmeti = new PolozeniJTable();
+	StudentNepolozeniJTable NepolozeniPredmeti;
+
+	private NepolozeniTab nepolozeniTab;
+	private PolozeniTab polozeniTab;
+	private int row;
 	
-	public StudentEditTabbedPane() {
+	public StudentEditTabbedPane(JDialog parent) {
+
+		row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
+
+		NepolozeniPredmeti = new StudentNepolozeniJTable(row);
+
 		JPanel Informacije = new JPanel();
 		JPanel Polozeni = new JPanel();
-		JPanel Nepolozeni = new JPanel();
 		
-		int row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
-
 		Informacije.setLayout(new BorderLayout());
 		this.add(Informacije, "Informacije");
 		Informacije.add(new InformacijeTab(row));
 		
 		Polozeni.setLayout(new BorderLayout());
-		this.add(Polozeni, "Položeni");
-		Polozeni.add(new PolozeniTab(row, this));
+		this.add(Polozeni, "Poloï¿½eni");
+		polozeniTab = new PolozeniTab(row, this);
+		Polozeni.add(polozeniTab);
 		
-		NepolozeniTab nepolozeniTab=new NepolozeniTab(row, this);
-		Nepolozeni.setLayout(new BorderLayout());
-		this.add(nepolozeniTab, "Nepoloženi");
+		nepolozeniTab=new NepolozeniTab(row, this);
+		this.add(nepolozeniTab, "Nepoloï¿½eni");
 	
-	}
-	
-	public NepolozeniJTable getNepolozeniJTable() {
-		return NepolozeniPredmeti;
 	}
 	
 	public PolozeniJTable getPolozeniJTable() {
 		return PolozeniPredmeti;
 	}
+
+	public Student getStudent() {
+		return StudentController.getInstance().getStudentByID(row);
+	}
+
+	public NepolozeniTab getNepolozeniTab() {
+		return nepolozeniTab;
+	}
 	
+	public PolozeniTab getPolozeniTab() {
+		return polozeniTab;
+	}
 }

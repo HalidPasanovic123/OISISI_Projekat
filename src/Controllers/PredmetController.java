@@ -1,10 +1,14 @@
 package Controllers;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Baze.BazaPredmeta;
+import Baze.BazaProfesora;
 import Model.Predmet;
+import Model.Profesor;
+import Model.Semestar;
+import Model.Student;
+import View.MainWindowWithComponents.MainWindow;
 
 public class PredmetController {
     
@@ -32,8 +36,33 @@ public class PredmetController {
         BazaPredmeta.getInstance().deletePredmet(sifraPredmeta);
     }
 
-    public void changePredmet(Predmet Predmet){
-        BazaPredmeta.getInstance().changePredmet(Predmet);
+    public Predmet getPredmetByID(int id) {
+        return BazaPredmeta.getInstance().getPredmet(id);
     }
+
+    public void EditPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija, int brojESPB, String prethodnaSifra)
+    {
+        BazaPredmeta.getInstance().changePredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija, brojESPB, prethodnaSifra);
+        MainWindow.getInstance().updateShowingsOfPredmet();	
+    }
+    
+    public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
+			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,
+			ArrayList<Student> spisakNepolozenih)
+    {
+    	BazaPredmeta.getInstance().dodajPredmet(sifraPredmeta,  nazivPredmeta,  semestar,  godinaStudija,
+   			 predmetniProfesor,  brojESPB, spisakPolozenih, spisakNepolozenih);
+    	MainWindow.getInstance().updateShowingsOfPredmet();
+    }
+
+    public void dodajProfesorNaPredmet(Predmet predmet, Profesor profesor){
+        BazaPredmeta.getInstance().dodajProfesorNaPredmet(predmet, profesor);
+    }
+
+    public void obrisiProfesoraSaPredmeta(Predmet predmet){
+        BazaPredmeta.getInstance().obrisiProfesoraSaPredmeta(predmet);
+    }
+    
+
 
 }

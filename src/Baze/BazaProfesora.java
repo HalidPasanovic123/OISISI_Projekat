@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Model.Adresa;
+import Model.Predmet;
 import Model.Profesor;
 
 public class BazaProfesora {
@@ -76,6 +77,24 @@ public class BazaProfesora {
         }
     }
 
+    public void dodajPredmetNaProfesor(Predmet predmet, Profesor profesor) {
+        for (Profesor p : profesors){
+            if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                p.getPredmeti().add(predmet);
+                break;
+            }
+        }
+    }
+
+    public void obrisiPredmetSaProfesora(Predmet predmet, Profesor profesor) {
+        for (Profesor p : profesors){
+            if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                p.brisanjePredmeta(predmet);
+                break;
+            }
+        }
+    }
+
     public void changeProfesor(Profesor profesor, int prethodniBrojLicne){
         for (Profesor p : profesors){
             if(p.getBrojLicneKarte() == prethodniBrojLicne){
@@ -96,6 +115,16 @@ public class BazaProfesora {
                 return profesor.getZvanje();
             case 3:
                 return profesor.getEmailAdresa();
+            default:
+                return null;
+        }
+    }
+
+    public String getValueAtDodaj(int row, int column){
+        Profesor profesor = profesors.get(row);
+        switch (column){
+            case 0:
+                return profesor.getPrezime() + " " + profesor.getIme();
             default:
                 return null;
         }

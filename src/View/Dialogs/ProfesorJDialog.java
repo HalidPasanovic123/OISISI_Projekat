@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import AbstractActions.OdustaniAction;
-import Baze.BazaProfesora;
 import Controllers.ProfesorController;
 import Model.Profesor;
 import UsefulClasses.StringCheckers;
@@ -14,10 +13,8 @@ import View.MainWindowWithComponents.MainWindow;
 
 import java.awt.GridBagLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -37,15 +34,15 @@ public class ProfesorJDialog extends JDialog{
     private boolean godineBool = false;
     private boolean emailBool = false;
     private boolean kontaktBool = false;
+    private JButton potvrdi;
 
     public ProfesorJDialog() {
         super(MainWindow.getInstance());
 
         setTitle("Dodavanje novog profesora");
-
         
         setModalityType(ModalityType.APPLICATION_MODAL);
-        setSize(500,500);
+        setSize(400,363);
         setLocationRelativeTo(MainWindow.getInstance());
 
         GridBagLayout gridBag = new GridBagLayout();
@@ -53,12 +50,12 @@ public class ProfesorJDialog extends JDialog{
 
         int gridy = 0;
         //Labela za Prezime
-        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel prez = new JLabel("Prezime*");
         add(prez, gridBagConstraints);
 
         //TextField za Prezime
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldPrez = new JTextField();
         fieldPrez.addFocusListener(new FocusListener() {
             @Override
@@ -67,9 +64,11 @@ public class ProfesorJDialog extends JDialog{
                     prezimeBool = false;
                     fieldPrez.setText("Neispravno prezime!");
                     fieldPrez.setForeground(Color.RED);
+                    check();
                 } else {
                     prezimeBool = true;
                     fieldPrez.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -81,12 +80,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Ime
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel ime = new JLabel("Ime*");
         add(ime, gridBagConstraints);
 
         //TextField za Ime
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldIme = new JTextField();
         fieldIme.addFocusListener(new FocusListener() {
             @Override
@@ -95,9 +94,11 @@ public class ProfesorJDialog extends JDialog{
                     imeBool = false;
                     fieldIme.setText("Neispravno ime!");
                     fieldIme.setForeground(Color.RED);
+                    check();
                 } else {
                     imeBool = true;
                     fieldIme.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -109,12 +110,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Datum Rodjenja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel datum = new JLabel("Datum*");
         add(datum, gridBagConstraints);
 
         //TextField za Datum Rodjenja
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldDatum = new JTextField();
         fieldDatum.addFocusListener(new FocusListener() {
             @Override
@@ -123,10 +124,12 @@ public class ProfesorJDialog extends JDialog{
                     LocalDate.parse(fieldDatum.getText());
                     datumBool = true;
                     fieldDatum.setForeground(Color.BLACK);
+                    check();
                 } catch (DateTimeException e1) {
                     datumBool = false;
                     fieldDatum.setText("Format mora da bude YYYY-MM-DD");
                     fieldDatum.setForeground(Color.RED);
+                    check();
                 }
             }
             @Override
@@ -138,12 +141,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Adresu Stanovanja
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresa = new JLabel("Adresa*");
         add(adresa, gridBagConstraints);
 
         //TextField za Adresu Stanovanja
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldAdresa = new JTextField();
         fieldAdresa.addFocusListener(new FocusListener() {
             @Override
@@ -152,9 +155,11 @@ public class ProfesorJDialog extends JDialog{
                     adresaBool = false;
                     fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
                     fieldAdresa.setForeground(Color.RED);
+                    check();
                 } else {
                     adresaBool = true;
                     fieldAdresa.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -166,12 +171,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Adresu Kancelarije
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel adresaK = new JLabel("Adresa Kancelarije*");
         add(adresaK, gridBagConstraints);
 
         //TextField za Adresu Kancelarije
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldAdresaK = new JTextField();
         fieldAdresaK.addFocusListener(new FocusListener() {
             @Override
@@ -180,9 +185,11 @@ public class ProfesorJDialog extends JDialog{
                     adresakBool = false;
                     fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
                     fieldAdresaK.setForeground(Color.RED);
+                    check();
                 } else {
                     adresakBool = true;
                     fieldAdresaK.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -194,12 +201,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Broj Licne Karte
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel licna = new JLabel("Broj Lične Karte*");
         add(licna, gridBagConstraints);
 
         //TextField za Broj Licne Karte
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldLicna = new JTextField();
         fieldLicna.addFocusListener(new FocusListener() {
             @Override
@@ -211,15 +218,18 @@ public class ProfesorJDialog extends JDialog{
                             brojBool = false;
                             fieldLicna.setForeground(Color.RED);
                             fieldLicna.setText("Broj Licne vec postoji u bazi!");
+                            check();
                             return;
                         }
                     }
                     brojBool = true;
                     fieldLicna.setForeground(Color.BLACK);
+                    check();
                 } catch (NumberFormatException e1) {
                     brojBool = false;
                     fieldLicna.setForeground(Color.RED);
                     fieldLicna.setText("Nije Broj licne dobro uneto! Treba da je broj");
+                    check();
                     return;
                 }
             }
@@ -232,12 +242,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Zvanje
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel zvanje = new JLabel("Zvanje*");
         add(zvanje, gridBagConstraints);
 
         //TextField za Zvanje
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldZvanje = new JTextField();
         fieldZvanje.addFocusListener(new FocusListener() {
             @Override
@@ -246,9 +256,11 @@ public class ProfesorJDialog extends JDialog{
                     zvanjeBool = false;
                     fieldZvanje.setText("Neispravno uneto zvanje!");
                     fieldZvanje.setForeground(Color.RED);
+                    check();
                 } else {
                     zvanjeBool = true;
                     fieldZvanje.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -260,12 +272,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Godine Staza
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel staz = new JLabel("Godine Staža*");
         add(staz, gridBagConstraints);
 
         //TextField za Godine Staza
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 50, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldStaz = new JTextField();
         fieldStaz.addFocusListener(new FocusListener() {
             @Override
@@ -274,10 +286,12 @@ public class ProfesorJDialog extends JDialog{
                     Integer.parseInt(fieldStaz.getText());
                     godineBool = true;
                     fieldStaz.setForeground(Color.BLACK);
+                    check();
                 } catch (NumberFormatException e1) {
                     godineBool = false;
                     fieldStaz.setForeground(Color.RED);
                     fieldStaz.setText("Nisu godine staza dobro uneto! Treba da je broj");
+                    check();
                     return;
                 }
             }
@@ -290,12 +304,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za E-mail Adresu
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
         JLabel email = new JLabel("E-Mail Adresa*");
         add(email, gridBagConstraints);
 
         //TextField za E-mail Adresu
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldEmail = new JTextField();
         fieldEmail.addFocusListener(new FocusListener() {
             @Override
@@ -304,9 +318,11 @@ public class ProfesorJDialog extends JDialog{
                     emailBool = false;
                     fieldEmail.setText("Neispravan e-mail!");
                     fieldEmail.setForeground(Color.RED);
+                    check();
                 } else {
                     emailBool = true;
                     fieldEmail.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -318,12 +334,12 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Labela za Kontakt Telefon
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
-        JLabel kontakt = new JLabel("Kontakt Telefon");
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        JLabel kontakt = new JLabel("Kontakt Telefon*");
         add(kontakt, gridBagConstraints);
 
         //TextField za Kontakt Telefon
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 10), 225, 0);
         JTextField fieldKontakt = new JTextField();
         fieldKontakt.addFocusListener(new FocusListener() {
             @Override
@@ -332,9 +348,11 @@ public class ProfesorJDialog extends JDialog{
                     kontaktBool = false;
                     fieldKontakt.setText("Neispravan kontakt telefon!");
                     fieldKontakt.setForeground(Color.RED);
+                    check();
                 } else {
                     kontaktBool = true;
                     fieldKontakt.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -346,9 +364,10 @@ public class ProfesorJDialog extends JDialog{
         gridy++;
 
         //Dugme za potvrdi
-        JButton potvrdi = new JButton("Potvrdi");
+        potvrdi = new JButton("Potvrdi");
         gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
         add(potvrdi, gridBagConstraints);
+        potvrdi.setEnabled(false);
 
         //Dugme za potvrdi
         JButton odustani = new JButton(new OdustaniAction(this));
@@ -378,6 +397,16 @@ public class ProfesorJDialog extends JDialog{
                 }
             }
         });
+    }
+
+    private void check() {
+        if (imeBool && prezimeBool && datumBool && adresaBool && adresakBool && brojBool && zvanjeBool && godineBool && emailBool && kontaktBool) {
+            potvrdi.setEnabled(true);
+        }
+        else
+        {
+            potvrdi.setEnabled(false);
+        }
     }
 
     private void setTrue() {
@@ -655,7 +684,7 @@ public class ProfesorJDialog extends JDialog{
 
         //Labela za E-mail Adresu
         gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
-        JLabel email = new JLabel("E-Mail Adresa");
+        JLabel email = new JLabel("E-Mail Adresa*");
         add(email, gridBagConstraints);
 
         //TextField za E-mail Adresu
@@ -684,7 +713,7 @@ public class ProfesorJDialog extends JDialog{
 
         //Labela za Kontakt Telefon
         gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
-        JLabel kontakt = new JLabel("Kontakt Telefon");
+        JLabel kontakt = new JLabel("Kontakt Telefon*");
         add(kontakt, gridBagConstraints);
 
         //TextField za Kontakt Telefon

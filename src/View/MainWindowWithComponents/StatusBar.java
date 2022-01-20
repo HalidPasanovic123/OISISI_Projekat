@@ -11,13 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.LineBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import View.Dialogs.PredmetJDialog;
-import View.Dialogs.ProfesorJDialog;
-import View.Dialogs.StudentJDialog;
-import View.MainWindowWithComponents.MainWindow;
 
 
 public class StatusBar extends JPanel{

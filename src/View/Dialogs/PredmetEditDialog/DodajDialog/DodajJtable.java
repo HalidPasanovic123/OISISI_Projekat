@@ -1,4 +1,5 @@
-package View.MainWindowWithComponents.MainTabPanels;
+package View.Dialogs.PredmetEditDialog.DodajDialog;
+
 
 import java.awt.Color;
 import java.awt.Component;
@@ -6,20 +7,15 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
-import AbstractTableModels.AbstractModelProfesori;
+public class DodajJtable extends JTable {
 
-public class ProfesorJTable extends JTable{
-    
-
-    public ProfesorJTable() {
+    public DodajJtable() {
         this.setRowSelectionAllowed(true);
         this.setColumnSelectionAllowed(true);
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.setModel(new AbstractModelProfesori());
-        this.setRowSorter(new TableRowSorter<TableModel>(this.getModel()));
+        this.setModel(new ApstractDodajTableModel());
+        this.setTableHeader(null);
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {

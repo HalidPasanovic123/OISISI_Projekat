@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import AbstractTableModels.AbstractModelPredmeta;
 import AbstractTableModels.AbstractModelProfesori;
 import AbstractTableModels.AbstractTableModelStudent;
 
@@ -79,6 +80,12 @@ public class MainWindow extends JFrame {
 	
 	public void updateShowingOfStudent(String akcija, int vrednost) {
 		AbstractTableModelStudent model = (AbstractTableModelStudent) tabs.getTableStudent().getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
+
+	public void updateShowingsOfPredmet() {
+		AbstractModelPredmeta model = (AbstractModelPredmeta) tabs.getTabelPredmeti().getModel();
 		model.fireTableDataChanged();
 		validate();
 	}
