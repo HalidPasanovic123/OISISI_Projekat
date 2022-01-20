@@ -6,6 +6,7 @@ import java.util.List;
 
 import Model.Status;
 import Model.Student;
+import View.Dialogs.StudentEditDialog.NepolozeniTab.StudentNepolozeniJTable;
 import Model.Adresa;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
@@ -70,7 +71,16 @@ public class BazaStudenata {
 	public List<Student> getStudenti() {
 		return studenti;
 	}
-	
+
+	public Student getStudentByIndeks(String brojIndeksa) {
+		for (Student s : studenti) 
+		{
+			if (s.getIndeks().equals(brojIndeksa))
+				return s;
+		}
+		return null;
+	}
+
 	public void setStudenti(List<Student> studenti) {
 		this.studenti = studenti;
 	}
@@ -146,6 +156,10 @@ public class BazaStudenata {
 		}
 	}
 
+	public Student findStudentByRow(int row) {
+		return studenti.get(row);
+	}
+
 	public void dodajStudenta(String ime, String prezime, String datumRodjenja, Adresa adresa, String kontakt, String eMail,
 			String indeks, String godinaUpisa, int godinaStudija, Status status, float prosecnaOcena,
 			ArrayList<OcenaNaIspitu> ocenePolozenihPredmeta, ArrayList<Predmet> nepolozeniPredmeti)  {
@@ -188,5 +202,11 @@ public class BazaStudenata {
 
 		}
 		return espb;
+	}
+
+	public void ukloniPredmet(String brojIndeksa, StudentNepolozeniJTable t) {
+		Student student=this.getStudentByIndeks(brojIndeksa);
+		int indeksPredmetaZaUk=t.convertRowIndexToModel(t.getSelectedRow());
+		student.getNepolozeniPredmeti().remove(indeksPredmetaZaUk);
 	}
 }
