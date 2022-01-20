@@ -160,4 +160,33 @@ public class BazaStudenata {
 			}
 		}
 	}
+
+	public float getProsek(Student s)
+	{
+		float prosek = 0;
+		for (OcenaNaIspitu o : s.getOcenePolozenihPredmeta())
+		{
+			prosek += o.getOcenaBr(o.getOcena());
+		}
+		if (s.getOcenePolozenihPredmeta().size() > 0)
+		{
+			prosek = prosek / s.getOcenePolozenihPredmeta().size();
+		}
+		s.setProsecnaOcena(prosek);
+		return prosek;
+	}
+
+	public int getESPB(String indeks) {
+		int espb = 0;
+		for (Student s : studenti) {
+			if (s.getIndeks().equals(indeks)) {
+				for (OcenaNaIspitu o : s.getOcenePolozenihPredmeta()) {
+					espb += o.getPredmet().getBrojESPB();
+				}
+				break;
+			}
+
+		}
+		return espb;
+	}
 }
