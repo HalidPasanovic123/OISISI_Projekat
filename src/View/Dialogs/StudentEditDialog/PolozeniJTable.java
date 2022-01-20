@@ -36,5 +36,6 @@ public class PolozeniJTable extends JTable{
 	public void azuriraj() {
 		AbstractTableModelPolozeniPredmeti model = (AbstractTableModelPolozeniPredmeti) this.getModel();
 		model.fireTableDataChanged();
+		validate();
 	}
 }

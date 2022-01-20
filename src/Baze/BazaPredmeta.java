@@ -30,9 +30,9 @@ public class BazaPredmeta {
         this.columnsForProfesorEdit = new ArrayList<String>();
         this.columnsForStudentPolozeni = new ArrayList<String>();
 
-        predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "2", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "2", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
 
         this.columns.add("Sifra predmeta");
         this.columns.add("Naziv predmeta");
@@ -103,6 +103,24 @@ public class BazaPredmeta {
     public void addPredmet(Predmet Predmet){
         this.predmeti.add(Predmet);
     }
+
+    public void dodajProfesorNaPredmet(Predmet predmet, Profesor profesor){
+        for (Predmet p : predmeti){
+            if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
+                p.setPredmetniProfesor(profesor);
+                break;
+            }
+        } 
+    }
+
+    public void obrisiProfesoraSaPredmeta(Predmet predmet){
+        for (Predmet p : predmeti){
+            if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
+                p.setPredmetniProfesor(null);
+                break;
+            }
+        }
+    }
     
     public void deletePredmet(String sifraPredmeta){
         for (Predmet p : predmeti){
@@ -118,6 +136,19 @@ public class BazaPredmeta {
             if(p.getSifraPredmeta() == prethodnaSifra){
                 predmeti.remove(p);
                 predmeti.add(Predmet);
+                break;
+            }
+        } 
+    }
+
+    public void changePredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija, int brojESPB, String prethodnaSifra){
+        for (Predmet p : predmeti){
+            if(p.getSifraPredmeta() == prethodnaSifra){
+                p.setSifraPredmeta(sifraPredmeta);
+                p.setNazivPredmeta(nazivPredmeta);
+                p.setSemestar(semestar);
+                p.setGodinaStudija(godinaStudija);
+                p.setBrojESPB(brojESPB);
                 break;
             }
         } 

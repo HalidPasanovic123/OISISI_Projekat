@@ -4,46 +4,40 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import AbstractActions.OdustaniAction;
 import Controllers.PredmetController;
-import Controllers.ProfesorController;
 import Model.Predmet;
 import Model.Semestar;
 import View.Dialogs.PredmetEditDialog.DodajDialog.DodajJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
 import java.awt.GridBagLayout;
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.time.DateTimeException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class PredmetEditJDialog extends JDialog{
 	
-	JTextField fieldSifra;
-	JTextField fieldNaziv;
-	JTextField fieldGodina;
-	JTextField fieldBodovi;
-	JTextField fieldProfesor;
+	private JTextField fieldSifra;
+	private JTextField fieldNaziv;
+	private JTextField fieldBodovi;
+	private JTextField fieldProfesor;
 	
-	JComboBox<String> comboBox1;
-	JComboBox<String> comboBox2;
+	private JComboBox<String> comboBox1;
+	private JComboBox<String> comboBox2;
 	
-	JButton dodaj;
-	JButton obrisi;
-	JButton potvrdi;
-	JButton odustani;
+	private JButton dodaj;
+	private JButton obrisi;
+	private JButton potvrdi;
+	private JButton odustani;
 	
 	String prethodnaSifra;
     public PredmetEditJDialog(Predmet predmet) {
@@ -185,18 +179,8 @@ public class PredmetEditJDialog extends JDialog{
         add(comboBox2, gridBagConstraints);
         gridy++;
 
-        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
-        JLabel profesor = new JLabel("Profesor*");
-        add(profesor, gridBagConstraints);
-
-        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
-        fieldProfesor = new JTextField();
-        fieldProfesor.setEnabled(false);
-        fieldProfesor.setText(predmet.getPredmetniProfesor().getIme());
-        add(fieldProfesor, gridBagConstraints);
-
         dodaj = new JButton("+");
-        gridBagConstraints = new GridBagConstraints(2, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(2, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 10, 0, 0), 0, 0);
         add(dodaj, gridBagConstraints);
 
         JDialog parentTemp = this;
@@ -206,25 +190,60 @@ public class PredmetEditJDialog extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 DodajJDialog dodajDialog = new DodajJDialog(predmet, parentTemp);
                 dodajDialog.setVisible(true);
+                dodaj.setEnabled(false);
+                obrisi.setEnabled(true);
+                fieldProfesor.setText(predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
             }
             
         });
 
         obrisi = new JButton("-");
-        gridBagConstraints = new GridBagConstraints(3, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 25, 0, 0), 0, 0);
+        gridBagConstraints = new GridBagConstraints(3, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 15, 0, 0), 0, 0);
         add(obrisi, gridBagConstraints);
-        gridy++;
-        
+
         obrisi.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
-            	predmet.setPredmetniProfesor(null);
-            	dispose();
+                int reply=JOptionPane.showOptionDialog(parentTemp, 
+			        "Da li ste sigurni da želite da obrišete profesora?", 
+			        "Brisanje profesora", 
+			        JOptionPane.OK_CANCEL_OPTION, 
+			        JOptionPane.INFORMATION_MESSAGE, 
+			        null, 
+			        new String[]{"Da", "Ne"}, 
+			        "default");
+                if(reply==JOptionPane.YES_OPTION) {
+                    PredmetController.getInstance().obrisiProfesoraSaPredmeta(predmet);
+                    fieldProfesor.setText("");
+                    dodaj.setEnabled(true);
+                    obrisi.setEnabled(false);
+                }
             }
+            
         });
-        
+
+        gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
+        JLabel profesor = new JLabel("Profesor*");
+        add(profesor, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(5, 25, 0, 0), 225, 0);
+        fieldProfesor = new JTextField();
+        fieldProfesor.setEditable(false);
+        if(predmet.getPredmetniProfesor() != null)
+        {
+            fieldProfesor.setText(predmet.getPredmetniProfesor().getIme() + " " +predmet.getPredmetniProfesor().getPrezime());
+            dodaj.setEnabled(false);
+            obrisi.setEnabled(true);
+        }
+        else
+        {
+            dodaj.setEnabled(true);
+            obrisi.setEnabled(false);
+        }
+        add(fieldProfesor, gridBagConstraints);
+        gridy++;
+
         //Dugme za potvrdi
         potvrdi = new JButton("Potvrdi");
         gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
@@ -239,15 +258,13 @@ public class PredmetEditJDialog extends JDialog{
             	String sifra = fieldSifra.getText();
             	String naziv = fieldNaziv.getText();
             	String godina = (String) comboBox1.getSelectedItem();
-            	String bodovi = fieldBodovi.getText();
-            	Semestar s = Semestar.LETNJI;
+            	int bodovi = Integer.parseInt(fieldBodovi.getText());
+                Semestar s = Semestar.LETNJI;
             	if(comboBox2.getSelectedIndex() == 1)
             	{
             		s= Semestar.ZIMSKI;
             	}
-            	//JTextField fieldProfesor;
-            	PredmetController.getInstance().EditPredmet(sifra, naziv,s , godina, null,
-                Integer.valueOf(bodovi), null, null,prethodnaSifra);
+            	PredmetController.getInstance().EditPredmet(sifra, naziv, s, godina, bodovi, prethodnaSifra);
             	dispose();
             }
             

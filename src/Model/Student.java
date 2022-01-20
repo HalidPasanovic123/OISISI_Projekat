@@ -141,6 +141,15 @@ public class Student {
 		return nepolozeniPredmeti;
 	}
 
+	public void brisanjeNepolozenog(Predmet predmet) {
+		for (Predmet p : nepolozeniPredmeti){
+			if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
+				nepolozeniPredmeti.remove(p);
+				break; 
+			}
+		}
+	}
+
 	public void setNepolozeniPredmeti(ArrayList<Predmet> nepolozeniPredmeti) {
 		this.nepolozeniPredmeti = nepolozeniPredmeti;
 	}

@@ -4,6 +4,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import Controllers.StudentController;
+import Model.Student;
 import View.Dialogs.StudentEditDialog.NepolozeniTab.NepolozeniTab;
 import View.Dialogs.StudentEditDialog.NepolozeniTab.StudentNepolozeniJTable;
 import View.MainWindowWithComponents.MainWindow;
@@ -15,10 +17,12 @@ public class StudentEditTabbedPane extends JTabbedPane {
 
 	PolozeniJTable PolozeniPredmeti = new PolozeniJTable();
 	StudentNepolozeniJTable NepolozeniPredmeti;
+
+	private int row;
 	
 	public StudentEditTabbedPane(JDialog parent) {
 
-		int row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
+		row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
 
 		NepolozeniPredmeti = new StudentNepolozeniJTable(row);
 
@@ -41,5 +45,8 @@ public class StudentEditTabbedPane extends JTabbedPane {
 	public PolozeniJTable getPolozeniJTable() {
 		return PolozeniPredmeti;
 	}
-	
+
+	public Student getStudent() {
+		return StudentController.getInstance().getStudentByID(row);
+	}
 }

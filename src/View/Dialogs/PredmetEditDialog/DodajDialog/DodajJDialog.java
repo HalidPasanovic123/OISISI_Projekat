@@ -11,10 +11,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
 import AbstractActions.OdustaniAction;
-
+import Controllers.PredmetController;
+import Controllers.ProfesorController;
 import Model.Predmet;
+import Model.Profesor;
 
 public class DodajJDialog extends JDialog{
+
+    private DodajJtable tableDodaj;
+    private Profesor resultat = null;
 
     public DodajJDialog(Predmet predmet, JDialog parent) {
 
@@ -27,7 +32,7 @@ public class DodajJDialog extends JDialog{
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,new Insets(5, 5, 5, 5), 0, 0);
 
-        DodajJtable tableDodaj = new DodajJtable();
+        tableDodaj = new DodajJtable();
         this.add(new JScrollPane(tableDodaj), gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 5), 0, 0);
@@ -39,10 +44,13 @@ public class DodajJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
-            	
-                // TODO Auto-generated method stub
-                
+            	int temp = tableDodaj.getSelectedRow();
+                if(temp != -1)
+                {
+                    resultat = ProfesorController.getInstance().getProfesorByID(tableDodaj.convertRowIndexToModel(temp));
+                    PredmetController.getInstance().dodajProfesorNaPredmet(predmet, resultat);
+                }
+                dispose();
             }
             
         });
@@ -56,13 +64,13 @@ public class DodajJDialog extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
             	dispose();
-                // TODO Auto-generated method stub
-                
             }
             
         });
     }
-    
+
+    public Profesor getResultat() {
+        return resultat;
+    }
 }

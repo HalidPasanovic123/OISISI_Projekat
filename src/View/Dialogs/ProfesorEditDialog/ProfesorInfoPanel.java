@@ -34,6 +34,7 @@ public class ProfesorInfoPanel extends JPanel{
     private boolean godineBool = true;
     private boolean emailBool = true;
     private boolean kontaktBool = true;
+    private JButton potvrdi;
     
     public ProfesorInfoPanel(Profesor profesor, ProfesorEditJDialog dialog) {
         int prethodniBrojLicne = profesor.getBrojLicneKarte();
@@ -58,9 +59,11 @@ public class ProfesorInfoPanel extends JPanel{
                     prezimeBool = false;
                     fieldPrez.setText("Neispravno prezime!");
                     fieldPrez.setForeground(Color.RED);
+                    check();
                 } else {
                     prezimeBool = true;
                     fieldPrez.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -87,9 +90,11 @@ public class ProfesorInfoPanel extends JPanel{
                     imeBool = false;
                     fieldIme.setText("Neispravno ime!");
                     fieldIme.setForeground(Color.RED);
+                    check();
                 } else {
                     imeBool = true;
                     fieldIme.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -116,10 +121,12 @@ public class ProfesorInfoPanel extends JPanel{
                     LocalDate.parse(fieldDatum.getText());
                     datumBool = true;
                     fieldDatum.setForeground(Color.BLACK);
+                    check();
                 } catch (DateTimeException e1) {
                     datumBool = false;
                     fieldDatum.setText("Format mora da bude YYYY-MM-DD");
                     fieldDatum.setForeground(Color.RED);
+                    check();
                 }
             }
             @Override
@@ -146,9 +153,11 @@ public class ProfesorInfoPanel extends JPanel{
                     adresaBool = false;
                     fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
                     fieldAdresa.setForeground(Color.RED);
+                    check();
                 } else {
                     adresaBool = true;
                     fieldAdresa.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -175,9 +184,11 @@ public class ProfesorInfoPanel extends JPanel{
                     adresakBool = false;
                     fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
                     fieldAdresaK.setForeground(Color.RED);
+                    check();
                 } else {
                     adresakBool = true;
                     fieldAdresaK.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -207,15 +218,18 @@ public class ProfesorInfoPanel extends JPanel{
                             brojBool = false;
                             fieldLicna.setForeground(Color.RED);
                             fieldLicna.setText("Broj Licne vec postoji u bazi!");
+                            check();
                             return;
                         }
                     }
                     brojBool = true;
                     fieldLicna.setForeground(Color.BLACK);
+                    check();
                 } catch (NumberFormatException e1) {
                     brojBool = false;
                     fieldLicna.setForeground(Color.RED);
                     fieldLicna.setText("Nije Broj licne dobro uneto! Treba da je broj");
+                    check();
                     return;
                 }
             }
@@ -243,9 +257,11 @@ public class ProfesorInfoPanel extends JPanel{
                     zvanjeBool = false;
                     fieldZvanje.setText("Neispravno uneto zvanje!");
                     fieldZvanje.setForeground(Color.RED);
+                    check();
                 } else {
                     zvanjeBool = true;
                     fieldZvanje.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -272,10 +288,12 @@ public class ProfesorInfoPanel extends JPanel{
                     Integer.parseInt(fieldStaz.getText());
                     godineBool = true;
                     fieldStaz.setForeground(Color.BLACK);
+                    check();
                 } catch (NumberFormatException e1) {
                     godineBool = false;
                     fieldStaz.setForeground(Color.RED);
                     fieldStaz.setText("Nisu godine staza dobro uneto! Treba da je broj");
+                    check();
                     return;
                 }
             }
@@ -303,9 +321,11 @@ public class ProfesorInfoPanel extends JPanel{
                     emailBool = false;
                     fieldEmail.setText("Neispravan e-mail!");
                     fieldEmail.setForeground(Color.RED);
+                    check();
                 } else {
                     emailBool = true;
                     fieldEmail.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -332,9 +352,11 @@ public class ProfesorInfoPanel extends JPanel{
                     kontaktBool = false;
                     fieldKontakt.setText("Neispravan kontakt telefon!");
                     fieldKontakt.setForeground(Color.RED);
+                    check();
                 } else {
                     kontaktBool = true;
                     fieldKontakt.setForeground(Color.BLACK);
+                    check();
                 }
             }
             @Override
@@ -346,7 +368,7 @@ public class ProfesorInfoPanel extends JPanel{
         gridy++;
 
         //Dugme za potvrdi
-        JButton potvrdi = new JButton("Potvrdi");
+        potvrdi = new JButton("Potvrdi");
         gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(10, 0, 0, 0), 0, 0);
         add(potvrdi, gridBagConstraints);
 
@@ -379,5 +401,15 @@ public class ProfesorInfoPanel extends JPanel{
             }
         });
 
+    }
+
+    private void check() {
+        if (imeBool && prezimeBool && datumBool && adresaBool && adresakBool && brojBool && zvanjeBool && godineBool && emailBool && kontaktBool) {
+            potvrdi.setEnabled(true);
+        }
+        else
+        {
+            potvrdi.setEnabled(false);
+        }
     }
 }

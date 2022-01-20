@@ -40,13 +40,9 @@ public class PredmetController {
         return BazaPredmeta.getInstance().getPredmet(id);
     }
 
-    public void EditPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija,
-			Profesor predmetniProfesor, int brojESPB, ArrayList<Student> spisakPolozenih,
-			ArrayList<Student> spisakNepolozenih,String prethodnaSifra)
+    public void EditPredmet(String sifraPredmeta, String nazivPredmeta, Semestar semestar, String godinaStudija, int brojESPB, String prethodnaSifra)
     {
-        BazaPredmeta.getInstance().changePredmet(new Predmet(sifraPredmeta,nazivPredmeta, semestar, godinaStudija,
-			predmetniProfesor, brojESPB, spisakPolozenih,
-			spisakNepolozenih), prethodnaSifra);
+        BazaPredmeta.getInstance().changePredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija, brojESPB, prethodnaSifra);
         MainWindow.getInstance().updateShowingsOfPredmet();	
     }
     
@@ -57,6 +53,14 @@ public class PredmetController {
     	BazaPredmeta.getInstance().dodajPredmet(sifraPredmeta,  nazivPredmeta,  semestar,  godinaStudija,
    			 predmetniProfesor,  brojESPB, spisakPolozenih, spisakNepolozenih);
     	MainWindow.getInstance().updateShowingsOfPredmet();
+    }
+
+    public void dodajProfesorNaPredmet(Predmet predmet, Profesor profesor){
+        BazaPredmeta.getInstance().dodajProfesorNaPredmet(predmet, profesor);
+    }
+
+    public void obrisiProfesoraSaPredmeta(Predmet predmet){
+        BazaPredmeta.getInstance().obrisiProfesoraSaPredmeta(predmet);
     }
     
 
