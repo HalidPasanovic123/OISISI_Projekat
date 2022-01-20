@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Model.Adresa;
+import Model.Predmet;
 import Model.Profesor;
 
 public class BazaProfesora {
@@ -71,6 +72,24 @@ public class BazaProfesora {
         for (Profesor p : profesors){
             if(p.getBrojLicneKarte() == brojLicneKarte){
                 profesors.remove(p);
+                break;
+            }
+        }
+    }
+
+    public void dodajPredmetNaProfesor(Predmet predmet, Profesor profesor) {
+        for (Profesor p : profesors){
+            if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                p.getPredmeti().add(predmet);
+                break;
+            }
+        }
+    }
+
+    public void obrisiPredmetSaProfesora(Predmet predmet, Profesor profesor) {
+        for (Profesor p : profesors){
+            if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                p.brisanjePredmeta(predmet);
                 break;
             }
         }

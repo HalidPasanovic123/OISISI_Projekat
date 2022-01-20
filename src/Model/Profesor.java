@@ -146,6 +146,15 @@ public class Profesor {
 		this.predmeti.add(p);
 	}
 
+	public void brisanjePredmeta(Predmet predmet) {
+		for (Predmet p : predmeti){
+			if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
+				predmeti.remove(p);
+				break; 
+			}
+		}
+	}
+
 	public void izbaciPredmet(Predmet p)
 	{
 		// ArrayList<Predmet> temp = new ArrayList<Predmet>();

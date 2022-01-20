@@ -15,13 +15,14 @@ import Controllers.PredmetController;
 import Controllers.ProfesorController;
 import Model.Predmet;
 import Model.Profesor;
+import View.Dialogs.PredmetEditDialog.PredmetEditJDialog;
 
 public class DodajJDialog extends JDialog{
 
     private DodajJtable tableDodaj;
     private Profesor resultat = null;
 
-    public DodajJDialog(Predmet predmet, JDialog parent) {
+    public DodajJDialog(Predmet predmet, PredmetEditJDialog parent) {
 
         setModalityType(ModalityType.APPLICATION_MODAL);
         setSize(500,500);
@@ -49,6 +50,7 @@ public class DodajJDialog extends JDialog{
                 {
                     resultat = ProfesorController.getInstance().getProfesorByID(tableDodaj.convertRowIndexToModel(temp));
                     PredmetController.getInstance().dodajProfesorNaPredmet(predmet, resultat);
+                    ProfesorController.getInstance().dodajPredmetNaProfesor(parent.getPredmetTemp(), resultat);
                 }
                 dispose();
             }

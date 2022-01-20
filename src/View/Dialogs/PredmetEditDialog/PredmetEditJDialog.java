@@ -11,6 +11,7 @@ import javax.swing.event.DocumentListener;
 
 import AbstractActions.OdustaniAction;
 import Controllers.PredmetController;
+import Controllers.ProfesorController;
 import Model.Predmet;
 import Model.Semestar;
 import View.Dialogs.PredmetEditDialog.DodajDialog.DodajJDialog;
@@ -38,11 +39,14 @@ public class PredmetEditJDialog extends JDialog{
 	private JButton obrisi;
 	private JButton potvrdi;
 	private JButton odustani;
+
+    private Predmet predmetTemp;
 	
 	String prethodnaSifra;
     public PredmetEditJDialog(Predmet predmet) {
         super(MainWindow.getInstance());
 
+        predmetTemp = predmet;
         setName("Izmeni Predmet");
         setModalityType(ModalityType.APPLICATION_MODAL);
         setSize(485,278);
@@ -183,7 +187,7 @@ public class PredmetEditJDialog extends JDialog{
         gridBagConstraints = new GridBagConstraints(2, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(10, 10, 0, 0), 0, 0);
         add(dodaj, gridBagConstraints);
 
-        JDialog parentTemp = this;
+        PredmetEditJDialog parentTemp = this;
         dodaj.addActionListener(new ActionListener() {
 
             @Override
@@ -214,6 +218,7 @@ public class PredmetEditJDialog extends JDialog{
 			        new String[]{"Da", "Ne"}, 
 			        "default");
                 if(reply==JOptionPane.YES_OPTION) {
+                    ProfesorController.getInstance().obrisiPredmetSaProfesora(predmet, predmet.getPredmetniProfesor());
                     PredmetController.getInstance().obrisiProfesoraSaPredmeta(predmet);
                     fieldProfesor.setText("");
                     dodaj.setEnabled(true);
@@ -316,4 +321,8 @@ public class PredmetEditJDialog extends JDialog{
 			potvrdi.setEnabled(false);
 		}
 	}
+
+    public Predmet getPredmetTemp() {
+        return predmetTemp;
+    }
 }

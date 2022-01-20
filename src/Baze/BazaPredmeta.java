@@ -182,8 +182,8 @@ public class BazaPredmeta {
         }
     }
 
-    public String getValueAtProfesor(int row, int column){
-        Predmet predmet = predmeti.get(row);
+    public String getValueAtProfesor(int row, int column, Profesor profesor){
+        Predmet predmet = profesor.getPredmeti().get(row); //predmeti.get(row);
         switch (column){
             case 0:
                 return predmet.getSifraPredmeta();

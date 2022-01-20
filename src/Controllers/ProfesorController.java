@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 
 import Baze.BazaProfesora;
+import Baze.BazaStudenata;
 import Model.Adresa;
+import Model.Predmet;
 import Model.Profesor;
 import UsefulClasses.AdressCreatorFromString;
 import View.MainWindowWithComponents.MainWindow;
@@ -42,6 +44,14 @@ public class ProfesorController {
 
     public void deleteProfesor(int brojLicneKarte){
         BazaProfesora.getInstance().deleteProfesor(brojLicneKarte);
+    }
+
+    public void dodajPredmetNaProfesor(Predmet predmet, Profesor profesor) {
+        BazaProfesora.getInstance().dodajPredmetNaProfesor(predmet, profesor);
+    }
+
+    public void obrisiPredmetSaProfesora(Predmet predmet, Profesor profesor) {
+        BazaProfesora.getInstance().obrisiPredmetSaProfesora(predmet, profesor);
     }
 
     public void changeProfesor(Profesor profesor, int prethodniBrojLicne){
