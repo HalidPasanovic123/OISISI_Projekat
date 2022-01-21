@@ -20,6 +20,8 @@ import javax.swing.event.DocumentListener;
 import Model.Student;
 import View.MainWindowWithComponents.MainWindow;
 import Model.Adresa;
+import Model.OcenaNaIspitu;
+import Model.Predmet;
 import Model.Status;
 import Controllers.StudentController;
 
@@ -240,7 +242,7 @@ public class StudentJDialog  extends JDialog{
 					status = Status.S;
 				}
 		
-				StudentController.getInstance().dodajStudenta(ime, prezime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, (float)0, null, null);;
+				StudentController.getInstance().dodajStudenta(ime, prezime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, (float)0, new ArrayList<OcenaNaIspitu>(), new ArrayList<Predmet>());;
 				dispose();
 				}
 		});

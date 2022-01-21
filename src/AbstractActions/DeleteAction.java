@@ -63,7 +63,7 @@ public class DeleteAction extends AbstractAction {
 			        "default");
                 if(reply==JOptionPane.YES_OPTION) {
                     Profesor s=ProfesorController.getInstance().getProfesorByID(MainWindow.getInstance().getTabs().getTabelProfesori().convertRowIndexToModel(temp));
-                    ProfesorController.getInstance().deleteProfesor(s.getBrojLicneKarte());
+                    ProfesorController.getInstance().deleteProfesor(s);
                     MainWindow.getInstance().updateShowingsOfProfesors();
                 }
             }
@@ -80,7 +80,7 @@ public class DeleteAction extends AbstractAction {
 			        "default");
                 if(reply==JOptionPane.YES_OPTION) {
                     Predmet p = PredmetController.getInstance().getPredmetByID(MainWindow.getInstance().getTabs().getTabelPredmeti().convertRowIndexToModel(temp));
-                    PredmetController.getInstance().deletePredmet(p.getSifraPredmeta());
+                    PredmetController.getInstance().deletePredmet(p);
                     MainWindow.getInstance().updateShowingsOfPredmet();
                 }
             }

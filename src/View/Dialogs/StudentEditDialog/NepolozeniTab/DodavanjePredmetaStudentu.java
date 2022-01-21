@@ -51,19 +51,23 @@ public class DodavanjePredmetaStudentu extends JDialog{
 			}
 			index++;
 		}
-
-		for (int i = 0; i < s.getNepolozeniPredmeti().size(); i++) {
-			for (int j = 0; j < predmetiZaDodavanje.size(); j++) {
-				if (predmetiZaDodavanje.get(j).getSifraPredmeta().equals(s.getNepolozeniPredmeti().get(i).getSifraPredmeta())) {
-					predmetiZaDodavanje.remove(j);
+		
+		if(s.getNepolozeniPredmeti() != null){
+			for (int i = 0; i < s.getNepolozeniPredmeti().size(); i++) {
+				for (int j = 0; j < predmetiZaDodavanje.size(); j++) {
+					if (predmetiZaDodavanje.get(j).getSifraPredmeta().equals(s.getNepolozeniPredmeti().get(i).getSifraPredmeta())) {
+						predmetiZaDodavanje.remove(j);
+					}
 				}
 			}
 		}
 
-		for (int i=0;i<polozeniPredmeti.size();i++) {
-			for (int j=0;j<predmetiZaDodavanje.size();j++) {
-				if (polozeniPredmeti.get(i).getSifraPredmeta().equalsIgnoreCase(predmetiZaDodavanje.get(j).getSifraPredmeta())) {
-					predmetiZaDodavanje.remove(j);
+		if(polozeniPredmeti != null){
+			for (int i=0;i<polozeniPredmeti.size();i++) {
+				for (int j=0;j<predmetiZaDodavanje.size();j++) {
+					if (polozeniPredmeti.get(i).getSifraPredmeta().equalsIgnoreCase(predmetiZaDodavanje.get(j).getSifraPredmeta())) {
+						predmetiZaDodavanje.remove(j);
+					}
 				}
 			}
 		}
@@ -112,7 +116,10 @@ public class DodavanjePredmetaStudentu extends JDialog{
 	}
 
     private ArrayList<Predmet> getPolozeniPredmeti(Student s,List<OcenaNaIspitu> ocene) {
-		ArrayList<Predmet> predmeti = new ArrayList<Predmet>(); 
+		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+		if(ocene == null){
+			return null;
+		} 
 		for (OcenaNaIspitu o : ocene) 
 		{
 			if (o.getStudentPolozio().getIndeks().equals(s.getIndeks())) 

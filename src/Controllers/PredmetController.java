@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import Baze.BazaPredmeta;
 import Baze.BazaProfesora;
+import Baze.BazaStudenata;
+import Model.Ocena;
+import Model.OcenaNaIspitu;
 import Model.Predmet;
 import Model.Profesor;
 import Model.Semestar;
@@ -32,8 +35,36 @@ public class PredmetController {
         BazaPredmeta.getInstance().addPredmet(Predmet);
     }
 
-    public void deletePredmet(String sifraPredmeta){
-        BazaPredmeta.getInstance().deletePredmet(sifraPredmeta);
+    public void deletePredmet(Predmet predmet){
+        for (Student s : BazaStudenata.getInstance().getStudenti()){
+
+            for(Predmet p : s.getNepolozeniPredmeti()){
+                if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
+                    s.getNepolozeniPredmeti().remove(p);
+                    break;
+                }
+            }
+
+            for(OcenaNaIspitu o : s.getOcenePolozenihPredmeta()){
+                if(o.getPredmet().getSifraPredmeta() == predmet.getSifraPredmeta()){
+                    s.getOcenePolozenihPredmeta().remove(o);
+                    break;
+                }
+            }
+        }
+
+        for (Profesor p : BazaProfesora.getInstance().getProfesors()){
+            for (Predmet pr : p.getPredmeti()){
+                if(pr.getSifraPredmeta() == predmet.getSifraPredmeta()){
+                    p.getPredmeti().remove(pr);
+                    break;
+                }
+            }
+        }
+
+        //BazaProfesora.getInstance().brisanjePredmeta(predmet);
+
+        BazaPredmeta.getInstance().deletePredmet(predmet);
     }
 
     public Predmet getPredmetByID(int id) {

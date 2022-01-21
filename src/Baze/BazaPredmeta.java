@@ -31,8 +31,8 @@ public class BazaPredmeta {
         this.columnsForStudentPolozeni = new ArrayList<String>();
 
         predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "2", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
+         predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
+         predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
 
         this.columns.add("Sifra predmeta");
         this.columns.add("Naziv predmeta");
@@ -122,9 +122,9 @@ public class BazaPredmeta {
         }
     }
     
-    public void deletePredmet(String sifraPredmeta){
+    public void deletePredmet(Predmet predmet){
         for (Predmet p : predmeti){
-            if(p.getSifraPredmeta() == sifraPredmeta){
+            if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
                 predmeti.remove(p);
                 break;
             }

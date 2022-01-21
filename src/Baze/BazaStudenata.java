@@ -50,21 +50,21 @@ public class BazaStudenata {
 
 		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
 
-		predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+		// predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        // predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
+        // predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
 		
-		ArrayList<Predmet> predmeti1 = (ArrayList<Predmet>) predmeti.clone();
-		ArrayList<Predmet> predmeti2 = (ArrayList<Predmet>) predmeti.clone();
+		// ArrayList<Predmet> predmeti1 = (ArrayList<Predmet>) predmeti.clone();
+		// ArrayList<Predmet> predmeti2 = (ArrayList<Predmet>) predmeti.clone();
 
-		studenti.add(new Student("Ime", "Prezime", "01.02.2002.",adresa ,
+		 studenti.add(new Student("Halid", "Pasanovic", "01.02.2002.",adresa ,
 				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, new ArrayList<OcenaNaIspitu>(), predmeti));
 		
-		studenti.add(new Student("Ime", "Prezime", "11.05.2001.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), predmeti1));
+		 studenti.add(new Student("Aleksa", "Spasojevic", "11.05.2001.",adresa ,
+		 		"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), predmeti));
 		
-		studenti.add(new Student("Ime", "Prezime", "13.12.2000.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), predmeti2));
+		 studenti.add(new Student("Haris", "Pasanovic", "13.12.2000.",adresa ,
+		 		"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), predmeti));
 	}
 	
 	
@@ -178,6 +178,9 @@ public class BazaStudenata {
 	public float getProsek(Student s)
 	{
 		float prosek = 0;
+		if (s.getOcenePolozenihPredmeta() == null) {
+			return prosek;
+		}
 		for (OcenaNaIspitu o : s.getOcenePolozenihPredmeta())
 		{
 			prosek += o.getOcenaBr(o.getOcena());
@@ -194,6 +197,9 @@ public class BazaStudenata {
 		int espb = 0;
 		for (Student s : studenti) {
 			if (s.getIndeks().equals(indeks)) {
+				if(s.getOcenePolozenihPredmeta() == null){
+					break;
+				}
 				for (OcenaNaIspitu o : s.getOcenePolozenihPredmeta()) {
 					espb += o.getPredmet().getBrojESPB();
 				}

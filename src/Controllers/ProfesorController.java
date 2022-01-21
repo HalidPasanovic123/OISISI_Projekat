@@ -3,7 +3,7 @@ package Controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
+import Baze.BazaPredmeta;
 import Baze.BazaProfesora;
 import Baze.BazaStudenata;
 import Model.Adresa;
@@ -42,8 +42,15 @@ public class ProfesorController {
         MainWindow.getInstance().updateShowingsOfProfesors();
     }
 
-    public void deleteProfesor(int brojLicneKarte){
-        BazaProfesora.getInstance().deleteProfesor(brojLicneKarte);
+    public void deleteProfesor(Profesor profesor){
+
+        for (Predmet p : BazaPredmeta.getInstance().getPredmeti()){
+            if(p.getPredmetniProfesor() == profesor){
+                p.setPredmetniProfesor(null);
+            }
+        }
+
+        BazaProfesora.getInstance().deleteProfesor(profesor);
     }
 
     public void dodajPredmetNaProfesor(Predmet predmet, Profesor profesor) {
