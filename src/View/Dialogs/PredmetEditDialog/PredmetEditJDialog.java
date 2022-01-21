@@ -156,6 +156,7 @@ public class PredmetEditJDialog extends JDialog{
         //TextField za Broj ESPB bodova
         gridBagConstraints = new GridBagConstraints(1, gridy, 3, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         fieldBodovi = new JTextField();
+        fieldSifra.setToolTipText("Sifra je oblika SlovaBrojevi(npr. pr10)\nMaksimalno 4 broja");
         fieldBodovi.setText(String.valueOf(predmet.getBrojESPB()));
         fieldBodovi.getDocument().addDocumentListener(myDocumentListener);
         add(fieldBodovi, gridBagConstraints);
@@ -312,7 +313,7 @@ public class PredmetEditJDialog extends JDialog{
 		
     	
 		if(!postoji &&  Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]*", naziv) &&
-		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
+		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb) && !Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[0-9]{1,4})", fieldSifra.getText()))
 		{
 			potvrdi.setEnabled(true);
 		}

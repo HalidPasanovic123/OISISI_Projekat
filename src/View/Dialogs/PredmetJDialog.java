@@ -86,6 +86,7 @@ public class PredmetJDialog extends JDialog{
         //TextField za Sifru Predmeta
         gridBagConstraints = new GridBagConstraints(1, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
         fieldSifra = new JTextField();
+		fieldSifra.setToolTipText("Sifra je oblika SlovaBrojevi(npr. pr10)\nMaksimalno 4 broja");
         add(fieldSifra, gridBagConstraints);
         fieldSifra.getDocument().addDocumentListener(myDocumentListener);
         gridy++;
@@ -212,8 +213,9 @@ public class PredmetJDialog extends JDialog{
 			}
 				
 		}
+
 		if(!postoji && Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]*", naziv) &&
-		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
+		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb) && Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[0-9]{1,4})", fieldSifra.getText()))
 		{
 			potvrdi.setEnabled(true);
 		}
