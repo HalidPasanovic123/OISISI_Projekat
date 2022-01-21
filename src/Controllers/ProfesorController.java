@@ -46,20 +46,27 @@ public class ProfesorController {
     public void deleteProfesor(Profesor profesor){
 
         for (Predmet p : BazaPredmeta.getInstance().getPredmeti()){
-            if(p.getPredmetniProfesor() == profesor){
-                p.setPredmetniProfesor(null);
+            if(p.getPredmetniProfesor() != null){
+                if(p.getPredmetniProfesor().getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                    p.setPredmetniProfesor(null);
+                }
             }
         }
 
         for (Katedra k : BazaKatedre.getInstance().getKatedre()) {
-            if (k.getSefKatedre().getBrojLicneKarte() == profesor.getBrojLicneKarte()) {
-                k.setSefKatedre(null);
+            if(k.getSefKatedre() != null){
+                if (k.getSefKatedre().getBrojLicneKarte() == profesor.getBrojLicneKarte()) {
+                    k.setSefKatedre(null);
+                }
             }
-
-            for (Profesor p : k.getProfesori()) {
-                if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
-                    k.getProfesori().remove(p);
-                    break;
+            if(k.getProfesori() != null){
+                for (Profesor p : k.getProfesori()) {
+                    if (p != null) {
+                        if(p == profesor){
+                            k.getProfesori().remove(p);
+                            break;
+                        }
+                    }
                 }
             }
         }

@@ -38,25 +38,31 @@ public class PredmetController {
         for (Student s : BazaStudenata.getInstance().getStudenti()){
 
             for(Predmet p : s.getNepolozeniPredmeti()){
-                if(p.getSifraPredmeta() == predmet.getSifraPredmeta()){
-                    s.getNepolozeniPredmeti().remove(p);
-                    break;
+                if(p != null){
+                    if(p.getSifraPredmeta().equals(predmet.getSifraPredmeta())){
+                        s.getNepolozeniPredmeti().remove(p);
+                        break;
+                    }
                 }
             }
 
             for(OcenaNaIspitu o : s.getOcenePolozenihPredmeta()){
-                if(o.getPredmet().getSifraPredmeta() == predmet.getSifraPredmeta()){
-                    s.getOcenePolozenihPredmeta().remove(o);
-                    break;
+                if(o != null){
+                    if(o.getPredmet().getSifraPredmeta().equals(predmet.getSifraPredmeta())){
+                        s.getOcenePolozenihPredmeta().remove(o);
+                        break;
+                    }
                 }
             }
         }
 
         for (Profesor p : BazaProfesora.getInstance().getProfesors()){
             for (Predmet pr : p.getPredmeti()){
-                if(pr.getSifraPredmeta() == predmet.getSifraPredmeta()){
-                    p.getPredmeti().remove(pr);
-                    break;
+                if(pr != null){
+                    if(pr.getSifraPredmeta().equals(predmet.getSifraPredmeta())){
+                        p.getPredmeti().remove(pr);
+                        break;
+                    }
                 }
             }
         }
