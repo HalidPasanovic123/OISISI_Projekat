@@ -252,23 +252,23 @@ public class InformacijeTab extends JPanel {
 				String godinaUpisa=txtField8.getText();
 				
 				int godinaStudiranja;
-				if (combo.getSelectedItem().toString().equals("I (prva)"))
+				if (combo.getSelectedIndex() == 0)
 				{
 					godinaStudiranja = 1;
-				} 
-				else if (combo.getSelectedItem().toString().equals("II (druga)"))
+				}	 
+				else if (combo.getSelectedIndex() == 1)
 				{
 					godinaStudiranja = 2;
-				} 
-				else if (combo.getSelectedItem().toString().equals("III (treća)"))
+				}
+				else if (combo.getSelectedIndex() == 2)
 				{
 					godinaStudiranja = 3;
 				}
-				else if (combo.getSelectedItem().toString().equals("IV (četvrta)"))
+				else if (combo.getSelectedIndex() == 3)
 				{
 					godinaStudiranja = 4;
-				}	 
-				else
+				}
+				else 
 				{
 					godinaStudiranja = 5;
 				}

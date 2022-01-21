@@ -214,19 +214,19 @@ public class StudentJDialog  extends JDialog{
 				String godinaUpisa=txtField8.getText();
 				
 				int godinaStudiranja;
-				if (comboBox1.getSelectedItem().toString().equals("I (prva)"))
+				if (comboBox1.getSelectedIndex() == 0)
 				{
 					godinaStudiranja = 1;
 				}	 
-				else if (comboBox1.getSelectedItem().toString().equals("II (druga)"))
+				else if (comboBox1.getSelectedIndex() == 1)
 				{
 					godinaStudiranja = 2;
 				}
-				else if (comboBox1.getSelectedItem().toString().equals("III (treća)"))
+				else if (comboBox1.getSelectedIndex() == 2)
 				{
 					godinaStudiranja = 3;
 				}
-				else if (comboBox1.getSelectedItem().toString().equals("IV (četvrta)"))
+				else if (comboBox1.getSelectedIndex() == 3)
 				{
 					godinaStudiranja = 4;
 				}
