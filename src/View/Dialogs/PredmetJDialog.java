@@ -158,7 +158,7 @@ public class PredmetJDialog extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				String sifra=fieldSifra.getText();
 				String naziv=fieldNaziv.getText();
-				String godina = fieldGodina.getText();
+				String godina = fieldGodina.getText().trim();
 				String espb = fieldBodovi.getText();
 				Semestar semestar = Semestar.ZIMSKI;
 				if(comboBox.getSelectedItem().equals("Letnji"))
@@ -213,7 +213,7 @@ public class PredmetJDialog extends JDialog{
 				
 		}
 		if(!postoji && Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]*", naziv) &&
-		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
+		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{
 			potvrdi.setEnabled(true);
 		}

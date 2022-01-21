@@ -203,7 +203,9 @@ public class StudentJDialog  extends JDialog{
 				String prezime=txtField2.getText();
 				String datum = txtField3.getText();
 				Adresa adresaStanovanja = new Adresa();
-				adresaStanovanja = AdressCreatorFromString.createAdresa(txtField4.getText());
+				if(!txtField4.getText().isEmpty()){
+					adresaStanovanja = AdressCreatorFromString.createAdresa(txtField4.getText());
+				}
 				String brojTelefona=txtField5.getText();
 				
 				String emailAdresa=txtField6.getText();
@@ -316,10 +318,13 @@ public class StudentJDialog  extends JDialog{
 		if(Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", ime) &&
 		Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", prezime) && 
 		Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText()) &&
-		StringCheckers.checkAdresa(txtField4.getText())	&&
 		Pattern.matches("[+]?[0-9]+", brojTelefona) && Pattern.matches("^(.+)@(.+)$", emailAdresa) &&
 		Pattern.matches("[0-9]{4}", godinaUpisa) && !postoji) 
 		{
+			btnPotvrdi.setEnabled(true);
+		}
+
+		if(!txtField4.getText().isEmpty() && StringCheckers.checkAdresa(txtField4.getText())){
 			btnPotvrdi.setEnabled(true);
 		}
 	}

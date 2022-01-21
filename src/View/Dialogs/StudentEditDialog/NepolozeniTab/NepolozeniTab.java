@@ -66,7 +66,9 @@ public class NepolozeniTab extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int temp = nepolozeniJTable.getSelectedRow();
 				if (temp != -1) {
-					PolaganjeJDialog polaganje = new PolaganjeJDialog(PredmetController.getInstance().getPredmetByID(nepolozeniJTable.convertRowIndexToModel(temp)), parent);
+					Student s = BazaStudenata.getInstance().findStudentByRow(row);
+					int tep = nepolozeniJTable.convertRowIndexToModel(temp);
+					PolaganjeJDialog polaganje = new PolaganjeJDialog(s.getNepolozeniPredmeti().get(tep), parent);
 					polaganje.setVisible(true);
 				}
 			}

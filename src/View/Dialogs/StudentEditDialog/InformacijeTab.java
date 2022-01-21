@@ -120,7 +120,9 @@ public class InformacijeTab extends JPanel {
 		
 		txtField4=new JTextField();
 		txtField4.setToolTipText("ulica broj, grad, drzava");
-		txtField4.setText(student.getAdresa().toString());
+		if(student.getAdresa().getDrzava() != null){
+			txtField4.setText(student.getAdresa().toString());
+		}
 		txtField4.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField4,gbc);
@@ -240,7 +242,10 @@ public class InformacijeTab extends JPanel {
 				String ime=txtField1.getText();
 				String prezime=txtField2.getText();
 				String datum = txtField3.getText();
-				Adresa adresaStanovanja= AdressCreatorFromString.createAdresa(txtField4.getText());
+				Adresa adresaStanovanja= new Adresa();
+				if(!txtField4.getText().isEmpty()){
+					adresaStanovanja = AdressCreatorFromString.createAdresa(txtField4.getText());
+				}
 				String brojTelefona=txtField5.getText();
 				String emailAdresa=txtField6.getText();
 				String brojIndeksa=txtField7.getText();
@@ -320,9 +325,9 @@ public class InformacijeTab extends JPanel {
 		{
 			btnPotvrdi.setEnabled(false);
 		}
-		else if (StringCheckers.checkAdresa(txtField4.getText()))
+		else if (!txtField4.getText().isEmpty() && !StringCheckers.checkAdresa(txtField4.getText()))
 		{
-
+			btnPotvrdi.setEnabled(false);
 		} 
 		else if(!Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText())) 
 		{
