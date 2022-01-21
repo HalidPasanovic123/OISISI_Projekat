@@ -23,8 +23,9 @@ public class StudentJTable extends JTable {
 		return instance;
 	}
 	
-	private static TableRowSorter<AbstractTableModelStudent> sorter;
+	private TableRowSorter<AbstractTableModelStudent> sorter;
 	private static AbstractTableModelStudent model;
+	
 	public StudentJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
@@ -54,6 +55,10 @@ public class StudentJTable extends JTable {
 			c.setBackground(Color.WHITE);
 		}
 		return c;
+	}
+
+	public TableRowSorter<AbstractTableModelStudent> getSorter() {
+		return sorter;
 	}
 
 }
