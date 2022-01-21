@@ -14,6 +14,8 @@ import AbstractActions.ModifyAction;
 import AbstractActions.SaveAction;
 import View.Dialogs.KatedraDialog;
 import View.Dialogs.StudentEditDialog.NepolozeniTab.PolaganjeButton.PolaganjeJDialog;
+import View.MainWindowWithComponents.MainTabPanels.AboutFrame;
+import View.MainWindowWithComponents.MainTabPanels.HelpFrame;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -132,8 +134,8 @@ public class MenuBar extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String message = "";
-				JOptionPane.showMessageDialog(MainWindow.getInstance(), message);
+				HelpFrame hf = new HelpFrame();
+				hf.setVisible(true);
 			}
 
 		});
@@ -145,8 +147,9 @@ public class MenuBar extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String message = "";
-				JOptionPane.showMessageDialog(MainWindow.getInstance(), message);
+
+				AboutFrame af = new AboutFrame();
+				af.setVisible(true);
 				
 			}
 
