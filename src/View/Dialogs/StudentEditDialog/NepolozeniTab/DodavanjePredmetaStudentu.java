@@ -22,54 +22,53 @@ import Model.Student;
 
 public class DodavanjePredmetaStudentu extends JDialog{
     
-    List<Predmet> predmetiZaDodavanje;
+    List<Predmet> predmetiZaDodavanje = new ArrayList<Predmet>(BazaPredmeta.getInstance().getPredmeti());;
+	ArrayList<Predmet> tmpList=new ArrayList<Predmet>(predmetiZaDodavanje);
 	private static Student s;
 
     public DodavanjePredmetaStudentu(NepolozeniTab parent, String brojIndeksa) {
 		
-		
 		super();
 		setSize(400,500);
 		setLocationRelativeTo(parent);
+		setTitle("Dodavanje predmeta");
+		setModal(true);
 		
 		s = BazaStudenata.getInstance().getStudentByIndeks(brojIndeksa);
+		ArrayList<Predmet> polozeniPredmeti = getPolozeniPredmeti(s, s.getOcenePolozenihPredmeta());
+
 		GridBagLayout gb=new GridBagLayout();
 		setLayout(gb);
-		GridBagConstraints gbc;
-		setModal(true);
-		setTitle("Dodavanje predmeta");
-		ArrayList<Predmet> polozeniPredmeti = getPolozeniPredmeti(s, s.getOcenePolozenihPredmeta());
-		predmetiZaDodavanje =new ArrayList<Predmet>(BazaPredmeta.getInstance().getPredmeti());
-		int index=0;
-		ArrayList<Predmet> tmpList=new ArrayList<Predmet>(predmetiZaDodavanje);
 		
-	
+		for (int j=0;j<predmetiZaDodavanje.size();j++) 
+		{
+			if(s.getNepolozeniPredmeti() != null)
+			{
+				for (int i = 0; i < s.getNepolozeniPredmeti().size(); i++) 
+				{
+					if (predmetiZaDodavanje.get(j).getSifraPredmeta().equals(s.getNepolozeniPredmeti().get(i).getSifraPredmeta())) {
+						predmetiZaDodavanje.remove(j);
+					}
+				}
+			}
+			if(polozeniPredmeti != null)
+			{
+				for (int i=0;i<polozeniPredmeti.size();i++) 
+				{
+					if (polozeniPredmeti.get(i).getSifraPredmeta().equalsIgnoreCase(predmetiZaDodavanje.get(j).getSifraPredmeta())) {
+						predmetiZaDodavanje.remove(j);
+					}
+				}
+			}
+		}
+		
+		int index=0;
 		for (Predmet p:tmpList) {
 			if (s.getGodinaStudija() < Integer.valueOf(p.getGodinaStudija())) {
 				predmetiZaDodavanje.remove(index);
 				index--;
 			}
 			index++;
-		}
-		
-		if(s.getNepolozeniPredmeti() != null){
-			for (int i = 0; i < s.getNepolozeniPredmeti().size(); i++) {
-				for (int j = 0; j < predmetiZaDodavanje.size(); j++) {
-					if (predmetiZaDodavanje.get(j).getSifraPredmeta().equals(s.getNepolozeniPredmeti().get(i).getSifraPredmeta())) {
-						predmetiZaDodavanje.remove(j);
-					}
-				}
-			}
-		}
-
-		if(polozeniPredmeti != null){
-			for (int i=0;i<polozeniPredmeti.size();i++) {
-				for (int j=0;j<predmetiZaDodavanje.size();j++) {
-					if (polozeniPredmeti.get(i).getSifraPredmeta().equalsIgnoreCase(predmetiZaDodavanje.get(j).getSifraPredmeta())) {
-						predmetiZaDodavanje.remove(j);
-					}
-				}
-			}
 		}
 		
 		DefaultListModel<String> lista = new DefaultListModel<>(); 
@@ -80,7 +79,7 @@ public class DodavanjePredmetaStudentu extends JDialog{
 		JList<String> list=new JList<>(lista);
 		JScrollPane scrollP=new JScrollPane(list);
 		
-		gbc=new GridBagConstraints(0, 0, 2, 1, 100, 100, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(30, 20, 40, 20), 0, 0);
+		GridBagConstraints gbc=new GridBagConstraints(0, 0, 2, 1, 100, 100, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(30, 20, 40, 20), 0, 0);
 		this.add(scrollP,gbc);
 		
 		JButton btnDodaj=new JButton("Dodaj");
