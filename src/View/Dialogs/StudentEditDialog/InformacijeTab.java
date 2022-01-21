@@ -45,11 +45,9 @@ public class InformacijeTab extends JPanel {
 	private Student student;
 	
 	
-	public InformacijeTab(int row) {
+	public InformacijeTab(Student student) {
 		super();
 		InformacijeTab si =this;
-		
-		student = BazaStudenata.getInstance().getRow(row);
 		
 		GridBagLayout gb=new GridBagLayout();
 		setLayout(gb);
@@ -82,7 +80,7 @@ public class InformacijeTab extends JPanel {
 		
 		DocumentListener myDocumentListener=new MyDocListener();
 		
-		gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label1 = new JLabel("Ime*");
 		this.add(label1,gbc);
 		
@@ -92,7 +90,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField1,gbc);
 		
-		gbc=new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label2 = new JLabel("Prezime*");
 		this.add(label2,gbc);
 		
@@ -102,7 +100,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField2,gbc);
 		
-		gbc=new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label3=new JLabel("Datum rodjenja*");
 		this.add(label3,gbc);
 		
@@ -114,7 +112,7 @@ public class InformacijeTab extends JPanel {
 		this.add(txtField3,gbc);
 		
 
-		gbc=new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label4=new JLabel("Adresa stanovanja*");
 		this.add(label4,gbc);
 		
@@ -127,7 +125,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField4,gbc);
 		
-		gbc=new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label5=new JLabel("Broj telefona*");
 		this.add(label5,gbc);
 		
@@ -137,7 +135,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField5,gbc);
 		
-		gbc=new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label6=new JLabel("E-mail adresa*");
 		this.add(label6,gbc);
 		
@@ -147,7 +145,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField6,gbc);
 		
-		gbc=new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label7=new JLabel("Broj indeksa*");
 		this.add(label7,gbc);
 		
@@ -157,7 +155,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField7,gbc);
 		
-		gbc=new GridBagConstraints(0, 7, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 7, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label8=new JLabel("Godina upisa*");
 		this.add(label8,gbc);
 		
@@ -167,7 +165,7 @@ public class InformacijeTab extends JPanel {
 		gbc=new GridBagConstraints(1, 7, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField8,gbc);
 		
-		gbc=new GridBagConstraints(0, 8, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 8, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label9=new JLabel("Trenutna godina studija*");
 		this.add(label9,gbc);
 		
@@ -179,7 +177,7 @@ public class InformacijeTab extends JPanel {
 		valsGS.add("V (peta)");
 		
 		final JComboBox<String> combo = new JComboBox(valsGS.toArray()) ;
-		gbc=new GridBagConstraints(1, 8, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 132, 0);
+		gbc=new GridBagConstraints(1, 8, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 138, 0);
 		if (student.getGodinaStudija() == 1)
 		{
 			combo.setSelectedIndex(0);
@@ -203,7 +201,7 @@ public class InformacijeTab extends JPanel {
 		}
 		this.add(combo,gbc);
 		
-		gbc=new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		gbc=new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		JLabel label10=new JLabel("Način finansiranja*");
 		this.add(label10,gbc);
 		
@@ -283,7 +281,7 @@ public class InformacijeTab extends JPanel {
 					status = Status.S;
 				}
 
-				StudentController.getInstance().editStudent(prezime ,ime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, row);
+				StudentController.getInstance().editStudent(prezime ,ime, datum, adresaStanovanja, brojTelefona, emailAdresa, brojIndeksa, godinaUpisa, godinaStudiranja, status, student);
 				JDialog parent1 = (JDialog) SwingUtilities.getWindowAncestor(si);
 				parent1.dispose();
 						

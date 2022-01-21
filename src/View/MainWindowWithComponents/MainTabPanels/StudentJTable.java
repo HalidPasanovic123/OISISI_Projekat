@@ -41,9 +41,33 @@ public class StudentJTable extends JTable {
 		sorter.setComparator(0, new Comparator<String>() {
 			public int compare(String o1, String o2)
 			{
-				String novi1 = o1.substring(3);
-				String novi2 = o2.substring(3);
-				return novi1.compareTo(novi2);
+				String smer1 = o1.substring(0,2);
+				String smer2 = o2.substring(0,2);
+				if(smer1.equals(smer2))
+				{
+				String num1 = o1.replaceAll("\\D", "");
+				String num2 = o2.replaceAll("\\D", "");
+
+				int number1 = Integer.parseInt(num1);
+				int number2 = Integer.parseInt(num2);
+				int result = number1 - number2;
+				return result;
+				}
+				else
+				{
+					return o1.compareTo(o2);
+				}
+				// String smer1 = o1.substring(0,2);
+				// String smer2 = o2.substring(0,2);
+				// if(smer1.equals(smer2))
+				// {
+				
+				// return result;
+				// }
+				// else
+				// {
+				// 	return smer1.compareTo(smer2);
+				// }
 			}
 		});
 	}
