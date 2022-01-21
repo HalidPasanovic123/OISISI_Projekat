@@ -133,9 +133,9 @@ public class Predmet implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Predmet [sifraPredmeta=" + sifraPredmeta + ", nazivPredmeta=" + nazivPredmeta + ", semestar=" + semestar
+		return "Predmet [šifraPredmeta=" + sifraPredmeta + ", nazivPredmeta=" + nazivPredmeta + ", semestar=" + semestar
 				+ ", godinaStudija=" + godinaStudija + ", predmetniProfesor=" + predmetniProfesor + ", brojESPB="
-				+ brojESPB + ", spisakPolozenih=" + spisakPolozenih + ", spisakNepolozenih=" + spisakNepolozenih + "]";
+				+ brojESPB + ", spisakPoloženih=" + spisakPolozenih + ", spisakNepoloženih=" + spisakNepolozenih + "]";
 	}
 	
 	

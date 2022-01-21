@@ -8,5 +8,5 @@ public enum Ocena {
 	private Ocena(int i) {this.ocena = i;}
 	
 	@SuppressWarnings("unused")
-	private String[] opis = {"PET","SEST","SEDAM","OSAM","DEVET","10"};
+	private String[] opis = {"PET","ŠEST","SEDAM","OSAM","DEVET","10"};
 }

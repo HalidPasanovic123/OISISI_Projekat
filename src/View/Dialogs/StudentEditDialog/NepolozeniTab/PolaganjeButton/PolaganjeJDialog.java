@@ -12,7 +12,6 @@ import Model.OcenaNaIspitu;
 import Model.Predmet;
 import Model.Student;
 import View.Dialogs.StudentEditDialog.StudentEditTabbedPane;
-import View.Dialogs.StudentEditDialog.NepolozeniTab.NepolozeniTab;
 import View.MainWindowWithComponents.MainWindow;
 
 import java.awt.GridBagLayout;
@@ -47,7 +46,7 @@ public class PolaganjeJDialog extends JDialog {
 
         GridBagConstraints gbct = new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 225, 0);
 
-        JLabel sifra = new JLabel("Sifra*");
+        JLabel sifra = new JLabel("Šifra*");
         add(sifra, gbcl);
         gbcl.gridy++;
         

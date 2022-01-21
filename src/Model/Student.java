@@ -2,7 +2,6 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Student implements Serializable{
 	
@@ -164,8 +163,8 @@ public class Student implements Serializable{
 	public String toString() {
 		return "Student [ime=" + ime + ", prezime=" + prezime + ", datumRodjenja=" + datumRodjenja + ", adresa="
 				+ adresa + ", kontakt=" + kontakt + ", eMail=" + eMail + ", indeks=" + indeks + ", godinaUpisa="
-				+ godinaUpisa + ", godinaStudija=" + godinaStudija + ", status=" + status + ", prosecnaOcena="
-				+ prosecnaOcena + ", ocenePolozenihPredmeta=" + ocenePolozenihPredmeta + ", nepolozeniPredmeti="
+				+ godinaUpisa + ", godinaStudija=" + godinaStudija + ", status=" + status + ", prosečnaOcena="
+				+ prosecnaOcena + ", ocenePoloženihPredmeta=" + ocenePolozenihPredmeta + ", nepoloženiPredmeti="
 				+ nepolozeniPredmeti + "]";
 	}
 	

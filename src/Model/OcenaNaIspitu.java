@@ -84,6 +84,6 @@ public class OcenaNaIspitu implements Serializable {
 	@Override
 	public String toString() {
 		return "OcenaNaIspitu [datumPolaganja=" + datumPolaganja + ", ocena=" + ocena + ", predmet=" + predmet
-				+ ", studentPolozio=" + studentPolozio + "]";
+				+ ", studentPoložio=" + studentPolozio + "]";
 	}
 }

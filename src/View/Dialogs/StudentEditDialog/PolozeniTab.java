@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridBagConstraints;
@@ -17,7 +16,6 @@ import javax.swing.JScrollPane;
 import AbstractTableModels.AbstractTableModelPolozeniPredmeti;
 import Baze.BazaStudenata;
 import Model.OcenaNaIspitu;
-import Model.Predmet;
 import Model.Student;
 
 

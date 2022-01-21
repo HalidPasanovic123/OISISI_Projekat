@@ -79,7 +79,7 @@ public class DodajJDialogPredmetProfesoru extends JDialog{
         }); 
 
         gridBagConstraints = new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE,new Insets(0, 5, 0, 5), 0, 0);
-		JLabel labela=new JLabel("Predmet je vec dodat!");
+		JLabel labela=new JLabel("Predmet je već dodat!");
 		this.add(labela,gridBagConstraints);
         labela.setVisible(false);
 

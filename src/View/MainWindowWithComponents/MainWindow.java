@@ -43,7 +43,7 @@ public class MainWindow extends JFrame {
 		setSize(screenWidth * 3 / 4,screenHeight * 3 / 4);
 		
 		//Naslov prozora
-		setTitle("Studentska sluzba");
+		setTitle("Studentska služba");
 		
 		//Centriranje prozora
         setLocation(screenWidth/2 - screenWidth * 3/8, screenHeight/2 - screenHeight*3/8);

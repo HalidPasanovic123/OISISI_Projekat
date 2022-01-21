@@ -151,9 +151,9 @@ public class ProfesorJDialog extends JDialog{
         fieldAdresa.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresaBool = false;
-                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresa.setForeground(Color.RED);
                     check();
                 } else {
@@ -181,9 +181,9 @@ public class ProfesorJDialog extends JDialog{
         fieldAdresaK.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresakBool = false;
-                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresaK.setForeground(Color.RED);
                     check();
                 } else {
@@ -217,7 +217,7 @@ public class ProfesorJDialog extends JDialog{
                         if(p.getBrojLicneKarte() == brojLicneKarte){
                             brojBool = false;
                             fieldLicna.setForeground(Color.RED);
-                            fieldLicna.setText("Broj Licne vec postoji u bazi!");
+                            fieldLicna.setText("Broj Lične vec postoji u bazi!");
                             check();
                             return;
                         }
@@ -228,7 +228,7 @@ public class ProfesorJDialog extends JDialog{
                 } catch (NumberFormatException e1) {
                     brojBool = false;
                     fieldLicna.setForeground(Color.RED);
-                    fieldLicna.setText("Nije Broj licne dobro uneto! Treba da je broj");
+                    fieldLicna.setText("Nije Broj lične dobro uneto! Treba da je broj");
                     check();
                     return;
                 }
@@ -290,7 +290,7 @@ public class ProfesorJDialog extends JDialog{
                 } catch (NumberFormatException e1) {
                     godineBool = false;
                     fieldStaz.setForeground(Color.RED);
-                    fieldStaz.setText("Nisu godine staza dobro uneto! Treba da je broj");
+                    fieldStaz.setText("Nisu godine staža dobro unete! Treba da je broj");
                     check();
                     return;
                 }
@@ -428,7 +428,7 @@ public class ProfesorJDialog extends JDialog{
 
         int prethodniBrojLicne = profesor.getBrojLicneKarte();
         
-        setTitle("Izmena postojeceg profesora");
+        setTitle("Izmena postojećeg profesora");
         setModalityType(ModalityType.APPLICATION_MODAL);
         setSize(500,500);
         setLocationRelativeTo(MainWindow.getInstance());
@@ -537,9 +537,9 @@ public class ProfesorJDialog extends JDialog{
         fieldAdresa.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresaBool = false;
-                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresa.setForeground(Color.RED);
                 } else {
                     adresaBool = true;
@@ -566,9 +566,9 @@ public class ProfesorJDialog extends JDialog{
         fieldAdresaK.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresakBool = false;
-                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresaK.setForeground(Color.RED);
                 } else {
                     adresakBool = true;
@@ -601,7 +601,7 @@ public class ProfesorJDialog extends JDialog{
                         if(p.getBrojLicneKarte() == brojLicneKarte && brojLicneKarte != prethodniBrojLicne){
                             brojBool = false;
                             fieldLicna.setForeground(Color.RED);
-                            fieldLicna.setText("Broj Licne vec postoji u bazi!");
+                            fieldLicna.setText("Broj Lične vec postoji u bazi!");
                             return;
                         }
                     }
@@ -610,7 +610,7 @@ public class ProfesorJDialog extends JDialog{
                 } catch (NumberFormatException e1) {
                     brojBool = false;
                     fieldLicna.setForeground(Color.RED);
-                    fieldLicna.setText("Nije Broj licne dobro uneto! Treba da je broj");
+                    fieldLicna.setText("Nije Broj lične dobro uneto! Treba da je broj");
                     return;
                 }
             }
