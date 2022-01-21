@@ -11,10 +11,13 @@ import AbstractActions.CreateAction;
 import AbstractActions.DeleteAction;
 import AbstractActions.ModifyAction;
 import AbstractActions.SaveAction;
+import View.Dialogs.KatedraDialog;
+import View.Dialogs.StudentEditDialog.NepolozeniTab.PolaganjeButton.PolaganjeJDialog;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MenuBar extends JMenuBar {
 
@@ -71,6 +74,15 @@ public class MenuBar extends JMenuBar {
 		katedre.setIcon(new ImageIcon("Images"+File.separator+"katedra.png"));
 		katedre.setMnemonic(KeyEvent.VK_K);
 		katedre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K,ActionEvent.CTRL_MASK));
+		katedre.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent ev) 
+			{
+				//System.out.println("kliknuto");
+				KatedraDialog k = new KatedraDialog();
+				k.setVisible(true);
+			}
+		});
 		
 		ModifyAction modify = new ModifyAction(parent);
 		JMenuItem edit2 = new JMenuItem(modify);
