@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
@@ -33,7 +32,7 @@ public class SefKatedreDialog extends JDialog{
         DefaultListModel<String> lista = new DefaultListModel<>(); 
         for(Profesor p : listasvihprofesora)
         {
-            if(p.getGodineStaza() >= 5 && (p.getZvanje().equals("Profesor") || p.getZvanje().equals("Vanredni")))
+            if(p.getGodineStaza() >= 5 && (p.getZvanje().equals("REDOVNI PROFESOR") || p.getZvanje().equals("VANREDNI PROFESOR")))
             {
                 String naziv = p.getIme() + "-" + p.getPrezime() + "-" + p.getBrojLicneKarte();
                 lista.addElement(naziv);
@@ -52,9 +51,15 @@ public class SefKatedreDialog extends JDialog{
             {
                 if(list.getSelectedIndex()!= -1)
                 {
-                    Profesor prof = listasvihprofesora.get(list.getSelectedIndex());
-                    kk.setSefKatedre(prof);
-                    dispose();
+                    for(Profesor p: listasvihprofesora)
+                    {
+                        String naziv = p.getIme() + "-" + p.getPrezime() + "-" + p.getBrojLicneKarte();
+                        if(naziv.equals(list.getSelectedValue()))
+                        {
+                            kk.setSefKatedre(p);
+                            dispose();
+                        }
+                    }
                 }
             }
             

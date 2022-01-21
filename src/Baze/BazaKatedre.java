@@ -36,20 +36,15 @@ public class BazaKatedre {
 	}
 
     private void initKatedre() {
-		this.katedre = new ArrayList<Katedra>();
-        Katedra kproba = new Katedra();
-        kproba.setNazivKatedre("naziv katedre");
-        kproba.setSifraKatedre("sifra katedre");
-        katedre.add(kproba);
 		try {
-           // deserialization();
+            deserialization();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 	 }
 
-     /*public void serialization() throws IOException {
+    public void serialization() throws IOException {
         File file = new File("data"+File.separator+"katedre.txt");
         ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
         try {
@@ -72,5 +67,5 @@ public class BazaKatedre {
         } finally {
             ois.close();
         }
-    }*/
+    }
 }

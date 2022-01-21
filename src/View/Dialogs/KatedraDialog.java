@@ -57,11 +57,11 @@ public class KatedraDialog extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                System.out.println(list.getSelectedIndex());
                 if(list.getSelectedIndex() != -1)
-                {                
+                {
+                    System.out.println(list.getSelectedIndex());
+
                     Katedra k = listakatedri.get(list.getSelectedIndex());
-                    //System.out.println(k.toString());
                     SefKatedreDialog s = new SefKatedreDialog(k);
                     s.setVisible(true);
                     dispose();
