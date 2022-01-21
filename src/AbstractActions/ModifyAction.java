@@ -9,10 +9,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 
+import Baze.BazaStudenata;
 import View.Dialogs.ProfesorEditDialog.ProfesorEditJDialog;
 import View.Dialogs.StudentEditDialog.StudentEditDialog;
 import Controllers.PredmetController;
 import Controllers.ProfesorController;
+import Controllers.StudentController;
 import View.Dialogs.PredmetEditDialog.PredmetEditJDialog;
 import View.MainWindowWithComponents.MainWindow;
 
@@ -33,7 +35,7 @@ public class ModifyAction extends AbstractAction{
         if (MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 0) {
             int temp = MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow();
             if (temp != -1) {
-                StudentEditDialog studentDialog = new StudentEditDialog(parent,"Edit");
+                StudentEditDialog studentDialog = new StudentEditDialog(parent,"Edit",StudentController.getInstance().getStudentByID(MainWindow.getInstance().getTabs().getTableStudent().convertRowIndexToModel(temp)));
         	    studentDialog.setVisible(true);
             }
         } else if(MainWindow.getInstance().getTabs().getJTabbedPane().getSelectedIndex() == 1){

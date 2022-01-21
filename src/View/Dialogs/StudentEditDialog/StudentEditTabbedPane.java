@@ -4,6 +4,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import Baze.BazaStudenata;
 import Controllers.StudentController;
 import Model.Student;
 import View.Dialogs.StudentEditDialog.NepolozeniTab.NepolozeniTab;
@@ -22,9 +23,11 @@ public class StudentEditTabbedPane extends JTabbedPane {
 	private PolozeniTab polozeniTab;
 	private int row;
 	
-	public StudentEditTabbedPane(JDialog parent) {
+	public StudentEditTabbedPane(JDialog parent,Student s) {
 
 		row=TabPanel.getInstance().getTableStudent().convertRowIndexToModel(MainWindow.getInstance().getTabs().getTableStudent().getSelectedRow());
+
+		//Student s = BazaStudenata.getInstance().getRow(row);
 
 		NepolozeniPredmeti = new StudentNepolozeniJTable(row);
 
@@ -33,7 +36,7 @@ public class StudentEditTabbedPane extends JTabbedPane {
 		
 		Informacije.setLayout(new BorderLayout());
 		this.add(Informacije, "Informacije");
-		Informacije.add(new InformacijeTab(row));
+		Informacije.add(new InformacijeTab(s));
 		
 		Polozeni.setLayout(new BorderLayout());
 		this.add(Polozeni, "Položeni");

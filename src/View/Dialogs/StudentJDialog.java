@@ -316,6 +316,7 @@ public class StudentJDialog  extends JDialog{
 		
 		btnPotvrdi.setEnabled(false);
 		if(Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", ime) &&
+		Pattern.matches("[A-Za-z]{2}-[0-9]{1,3}-[0-9]{4}", brojIndeksa) &&
 		Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", prezime) && 
 		Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText()) &&
 		Pattern.matches("[+]?[0-9]+", brojTelefona) && Pattern.matches("^(.+)@(.+)$", emailAdresa) &&
