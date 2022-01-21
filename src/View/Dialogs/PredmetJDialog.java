@@ -212,7 +212,7 @@ public class PredmetJDialog extends JDialog{
 			}
 				
 		}
-		if(!postoji && Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", naziv) &&
+		if(!postoji && Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]*", naziv) &&
 		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{
 			potvrdi.setEnabled(true);

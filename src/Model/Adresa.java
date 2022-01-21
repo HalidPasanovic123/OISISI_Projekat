@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Adresa implements Serializable {
 
 	private String ulica;
-	private int broj;
+	private String broj;
 	private String grad;
 	private String drzava;
 	
@@ -14,12 +14,6 @@ public class Adresa implements Serializable {
 	}
 	public void setUlica(String ulica) {
 		this.ulica = ulica;
-	}
-	public int getBroj() {
-		return broj;
-	}
-	public void setBroj(int broj) {
-		this.broj = broj;
 	}
 	public String getGrad() {
 		return grad;
@@ -34,7 +28,7 @@ public class Adresa implements Serializable {
 		this.drzava = drzava;
 	}
 	
-	public Adresa(String ulica, int broj, String grad, String drzava) {
+	public Adresa(String ulica, String broj, String grad, String drzava) {
 		super();
 		this.ulica = ulica;
 		this.broj = broj;
@@ -54,5 +48,11 @@ public class Adresa implements Serializable {
 	@Override
 	public String toString() {
 		return ulica + " " + broj + "," + grad + "," + drzava;
+	}
+	public String getBroj() {
+		return broj;
+	}
+	public void setBroj(String broj) {
+		this.broj = broj;
 	}
 }
