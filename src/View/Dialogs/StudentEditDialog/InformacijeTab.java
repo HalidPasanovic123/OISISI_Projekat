@@ -23,6 +23,8 @@ import Controllers.StudentController;
 import Model.Adresa;
 import Model.Status;
 import Model.Student;
+import UsefulClasses.AdressCreatorFromString;
+import UsefulClasses.StringCheckers;
 
 public class InformacijeTab extends JPanel {
 	
@@ -117,8 +119,8 @@ public class InformacijeTab extends JPanel {
 		this.add(label4,gbc);
 		
 		txtField4=new JTextField();
-		txtField4.setToolTipText("ulica broj, grad");
-		txtField4.setText(student.ispisiAdresu());
+		txtField4.setToolTipText("ulica broj, grad, drzava");
+		txtField4.setText(student.getAdresa().toString());
 		txtField4.getDocument().addDocumentListener(myDocumentListener);
 		gbc=new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 30, 0, 0), 225, 0);
 		this.add(txtField4,gbc);
@@ -238,7 +240,7 @@ public class InformacijeTab extends JPanel {
 				String ime=txtField1.getText();
 				String prezime=txtField2.getText();
 				String datum = txtField3.getText();
-				Adresa adresaStanovanja= new Adresa(txtField4.getText());
+				Adresa adresaStanovanja= AdressCreatorFromString.createAdresa(txtField4.getText());
 				String brojTelefona=txtField5.getText();
 				String emailAdresa=txtField6.getText();
 				String brojIndeksa=txtField7.getText();
@@ -317,6 +319,10 @@ public class InformacijeTab extends JPanel {
 		else if(!Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", prezime)) 
 		{
 			btnPotvrdi.setEnabled(false);
+		}
+		else if (StringCheckers.checkAdresa(txtField4.getText()))
+		{
+
 		} 
 		else if(!Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText())) 
 		{
