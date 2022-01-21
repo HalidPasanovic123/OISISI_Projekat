@@ -310,13 +310,9 @@ public class PredmetEditJDialog extends JDialog{
 				
 		}
 		
-    	if(fieldProfesor.getText() == "")
-    	{
-    		obrisi.setEnabled(false);
-    	}
     	
-		if(!postoji &&  Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", naziv) &&
-		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
+		if(!postoji &&  Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+[0-9]*", naziv) &&
+		Pattern.matches("[1-5]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{
 			potvrdi.setEnabled(true);
 		}
