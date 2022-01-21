@@ -3,9 +3,11 @@ package Controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import Baze.BazaKatedre;
 import Baze.BazaPredmeta;
 import Baze.BazaProfesora;
 import Model.Adresa;
+import Model.Katedra;
 import Model.Predmet;
 import Model.Profesor;
 import UsefulClasses.AdressCreatorFromString;
@@ -46,6 +48,19 @@ public class ProfesorController {
         for (Predmet p : BazaPredmeta.getInstance().getPredmeti()){
             if(p.getPredmetniProfesor() == profesor){
                 p.setPredmetniProfesor(null);
+            }
+        }
+
+        for (Katedra k : BazaKatedre.getInstance().getKatedre()) {
+            if (k.getSefKatedre().getBrojLicneKarte() == profesor.getBrojLicneKarte()) {
+                k.setSefKatedre(null);
+            }
+
+            for (Profesor p : k.getProfesori()) {
+                if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
+                    k.getProfesori().remove(p);
+                    break;
+                }
             }
         }
 
