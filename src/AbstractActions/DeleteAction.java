@@ -2,6 +2,7 @@ package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -25,7 +26,7 @@ public class DeleteAction extends AbstractAction {
     public DeleteAction(final JFrame parent) {
     	this.parent = parent;
         putValue(SHORT_DESCRIPTION, "Delete existing entity");        
-        putValue(SMALL_ICON, new ImageIcon("Images/Toolbar_Button_3.png"));        
+        putValue(SMALL_ICON, new ImageIcon("Images"+File.separator+"Toolbar_Button_3.png"));        
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
     }
 
@@ -63,7 +64,7 @@ public class DeleteAction extends AbstractAction {
 			        "default");
                 if(reply==JOptionPane.YES_OPTION) {
                     Profesor s=ProfesorController.getInstance().getProfesorByID(MainWindow.getInstance().getTabs().getTabelProfesori().convertRowIndexToModel(temp));
-                    ProfesorController.getInstance().deleteProfesor(s.getBrojLicneKarte());
+                    ProfesorController.getInstance().deleteProfesor(s);
                     MainWindow.getInstance().updateShowingsOfProfesors();
                 }
             }
@@ -80,7 +81,7 @@ public class DeleteAction extends AbstractAction {
 			        "default");
                 if(reply==JOptionPane.YES_OPTION) {
                     Predmet p = PredmetController.getInstance().getPredmetByID(MainWindow.getInstance().getTabs().getTabelPredmeti().convertRowIndexToModel(temp));
-                    PredmetController.getInstance().deletePredmet(p.getSifraPredmeta());
+                    PredmetController.getInstance().deletePredmet(p);
                     MainWindow.getInstance().updateShowingsOfPredmet();
                 }
             }

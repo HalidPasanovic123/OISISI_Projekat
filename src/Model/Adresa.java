@@ -1,6 +1,8 @@
 package Model;
 
-public class Adresa {
+import java.io.Serializable;
+
+public class Adresa implements Serializable {
 
 	private String ulica;
 	private int broj;

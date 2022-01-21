@@ -1,8 +1,9 @@
 package Model;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Profesor {
+public class Profesor implements Serializable{
 	
 	private String prezime;
 	private String ime;

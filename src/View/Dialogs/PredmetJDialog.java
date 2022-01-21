@@ -178,7 +178,7 @@ public class PredmetJDialog extends JDialog{
 						
 				}
 				
-				PredmetController.getInstance().dodajPredmet(sifra, naziv, semestar, godina, null, Integer.valueOf(espb), null, null);
+				PredmetController.getInstance().dodajPredmet(sifra, naziv, semestar, godina, null, Integer.valueOf(espb), new ArrayList<Student>(), new ArrayList<Student>());
 				provera();
 				dispose();
 			}

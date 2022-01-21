@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class OcenaNaIspitu {
+public class OcenaNaIspitu implements Serializable {
 
 	private Student studentPolozio;
 	private Predmet predmet;
