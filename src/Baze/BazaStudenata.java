@@ -1,6 +1,15 @@
 package Baze;
 
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,22 +59,13 @@ public class BazaStudenata {
 
 		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
 
-		// predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        // predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-        // predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "godinaStudija", new Profesor(), 5, new ArrayList<Student>(), new ArrayList<Student>()));
-		
-		// ArrayList<Predmet> predmeti1 = (ArrayList<Predmet>) predmeti.clone();
-		// ArrayList<Predmet> predmeti2 = (ArrayList<Predmet>) predmeti.clone();
+		try {
+            deserialization();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		 studenti.add(new Student("Halid", "Pasanovic", "01.02.2002.",adresa ,
-				"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-230-2021", "2021",1, Status.B, (float) 9.32, new ArrayList<OcenaNaIspitu>(), predmeti));
-		
-		 studenti.add(new Student("Aleksa", "Spasojevic", "11.05.2001.",adresa ,
-		 		"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-231-2020", "2020",2, Status.S, (float) 7.18, new ArrayList<OcenaNaIspitu>(), predmeti));
-		
-		 studenti.add(new Student("Haris", "Pasanovic", "13.12.2000.",adresa ,
-		 		"0634723723" ,"imenkoprezimic@gmail.com"  , "RA-232-2019", "2019",3, Status.B, (float) 10.0, new ArrayList<OcenaNaIspitu>(), predmeti));
-	}
+	 }
 	
 	
 	public List<Student> getStudenti() {
@@ -215,4 +215,29 @@ public class BazaStudenata {
 		int indeksPredmetaZaUk=t.convertRowIndexToModel(t.getSelectedRow());
 		student.getNepolozeniPredmeti().remove(indeksPredmetaZaUk);
 	}
+
+	public void serialization() throws IOException {
+        File file = new File("data"+File.separator+"studenti.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+        try {
+            oos.writeObject(studenti);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+			oos.close();
+		}
+    }
+
+	public void deserialization() throws FileNotFoundException, IOException {
+        File file = new File("data"+File.separator+"studenti.txt");
+        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+        try {
+            ArrayList<Student> inStudents = (ArrayList<Student>) ois.readObject();
+            studenti = inStudents;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ois.close();
+        }
+    }
 }

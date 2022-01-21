@@ -2,6 +2,7 @@ package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -16,7 +17,7 @@ public class CreateAction extends AbstractAction {
     
     public CreateAction(){              
         putValue(SHORT_DESCRIPTION, "Create new entity");        
-        putValue(SMALL_ICON, new ImageIcon("Images/Toolbar_Button_1.png"));        
+        putValue(SMALL_ICON, new ImageIcon("Images"+File.separator+"Toolbar_Button_1.png"));        
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));        
     }
 

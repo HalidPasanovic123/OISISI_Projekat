@@ -1,5 +1,14 @@
 package Baze;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -25,10 +34,11 @@ public class BazaProfesora {
         this.columns = new ArrayList<String>();
         this.profesors = new ArrayList<Profesor>();
 
-         profesors.add(new Profesor("Ivanovic", "Ivan", LocalDate.now(),  new Adresa("Brace ribnikara", 44, "Novi Sad", "Srbija"), "12345", "ivanovicivan1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 65, "Profesor", 3));
-         profesors.add(new Profesor("Petrovic", "Petar", LocalDate.now(),  new Adresa("Simeuna Divca", 44, "Novi Sad", "Srbija"), "12345", "petrovic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 66, "Profesor", 3));
-         profesors.add(new Profesor("Milicevic", "Jadranka", LocalDate.now(),  new Adresa("Bulevar Cara Lazara", 44, "Novi Sad", "Srbija"), "12345", "milicevic1000@gmail.com", new Adresa("Kisacka", 44, "Novi Sad", "Srbija"), 67, "Profesor", 3));
-        
+        try {
+            deserialization();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         this.columns.add("Prezime");
         this.columns.add("Ime");
@@ -120,17 +130,6 @@ public class BazaProfesora {
         }
     }
 
-    // public void brisanjePredmeta(Predmet predmet){
-    //     for (Profesor p : profesors) {
-    //         for (Predmet pr : p.getPredmeti()){
-    //             if(pr.getSifraPredmeta() == predmet.getSifraPredmeta()){
-    //                 p.getPredmeti().remove(pr);
-    //                 break;
-    //             }
-    //         }
-    //     }
-    // }
-
     public String getValueAtDodaj(int row, int column){
         Profesor profesor = profesors.get(row);
         switch (column){
@@ -138,6 +137,31 @@ public class BazaProfesora {
                 return profesor.getPrezime() + " " + profesor.getIme();
             default:
                 return null;
+        }
+    }
+
+    public void serialization() throws IOException {
+        File file = new File("data"+File.separator+"profesori.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+        try {
+            oos.writeObject(profesors);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+			oos.close();
+		}
+    }
+
+    public void deserialization() throws FileNotFoundException, IOException {
+        File file = new File("data"+File.separator+"profesori.txt");
+        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+        try {
+            ArrayList<Profesor> inProfesors = (ArrayList<Profesor>) ois.readObject();
+            profesors = inProfesors;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ois.close();
         }
     }
 

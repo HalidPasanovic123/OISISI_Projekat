@@ -1,6 +1,6 @@
 package Model;
 
-public enum Status {
+public enum Status  {
 	B, S;
 	
 	private String [] opis = {"B", "S"};

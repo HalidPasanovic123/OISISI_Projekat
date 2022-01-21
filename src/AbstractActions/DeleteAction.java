@@ -2,6 +2,7 @@ package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -25,7 +26,7 @@ public class DeleteAction extends AbstractAction {
     public DeleteAction(final JFrame parent) {
     	this.parent = parent;
         putValue(SHORT_DESCRIPTION, "Delete existing entity");        
-        putValue(SMALL_ICON, new ImageIcon("Images/Toolbar_Button_3.png"));        
+        putValue(SMALL_ICON, new ImageIcon("Images"+File.separator+"Toolbar_Button_3.png"));        
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
     }
 

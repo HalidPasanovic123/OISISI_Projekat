@@ -10,8 +10,10 @@ import javax.swing.KeyStroke;
 import AbstractActions.CreateAction;
 import AbstractActions.DeleteAction;
 import AbstractActions.ModifyAction;
+import AbstractActions.SaveAction;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 public class MenuBar extends JMenuBar {
@@ -30,64 +32,65 @@ public class MenuBar extends JMenuBar {
 		help.setMnemonic(KeyEvent.VK_H);
 		
 		JMenu open = new JMenu("Open");
-		open.setIcon(new ImageIcon("Images/open.png"));
+		open.setIcon(new ImageIcon("Images"+File.separator+"open.png"));
 		open.setMnemonic(KeyEvent.VK_O);
 		
 		CreateAction create = new CreateAction();
 		JMenuItem novi = new JMenuItem(create);
 		novi.setText("New");
-		novi.setIcon(new ImageIcon("Images/new.png"));
+		novi.setIcon(new ImageIcon("Images"+File.separator+"new.png"));
 		novi.setMnemonic(KeyEvent.VK_N);
 		
-		JMenuItem save = new JMenuItem("Save");
-		save.setIcon(new ImageIcon("Images/save.png"));
+		SaveAction saveAction = new SaveAction();
+		JMenuItem save = new JMenuItem(saveAction);
+		save.setText("Save");
+		save.setIcon(new ImageIcon("Images"+File.separator+"save.png"));
 		save.setMnemonic(KeyEvent.VK_S);
-		save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
 		
 		JMenuItem close = new JMenuItem("Close");
-		close.setIcon(new ImageIcon("Images/close.png"));
+		close.setIcon(new ImageIcon("Images"+File.separator+"close.png"));
 		close.setMnemonic(KeyEvent.VK_C);
 		close.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
 		
 		JMenuItem studenti = new JMenuItem("Studenti");
-		studenti.setIcon(new ImageIcon("Images/student.png"));
+		studenti.setIcon(new ImageIcon("Images"+File.separator+"student.png"));
 		studenti.setMnemonic(KeyEvent.VK_T);
 		studenti.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T,ActionEvent.CTRL_MASK));
 		
 		JMenuItem profesori = new JMenuItem("Profesori");
-		profesori.setIcon(new ImageIcon("Images/profesor.png"));
+		profesori.setIcon(new ImageIcon("Images"+File.separator+"profesor.png"));
 		profesori.setMnemonic(KeyEvent.VK_P);
 		profesori.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.CTRL_MASK));
 		
 		JMenuItem predmeti= new JMenuItem("Predmeti");
-		predmeti.setIcon(new ImageIcon("Images/predmet.jpg"));
+		predmeti.setIcon(new ImageIcon("Images"+File.separator+"predmet.jpg"));
 		predmeti.setMnemonic(KeyEvent.VK_R);
 		predmeti.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,ActionEvent.CTRL_MASK));
 		
 		JMenuItem katedre = new JMenuItem("Katedre");
-		katedre.setIcon(new ImageIcon("Images/katedra.png"));
+		katedre.setIcon(new ImageIcon("Images"+File.separator+"katedra.png"));
 		katedre.setMnemonic(KeyEvent.VK_K);
 		katedre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K,ActionEvent.CTRL_MASK));
 		
 		ModifyAction modify = new ModifyAction(parent);
 		JMenuItem edit2 = new JMenuItem(modify);
 		edit2.setText("Edit");
-		edit2.setIcon(new ImageIcon("Images/edit.png"));
+		edit2.setIcon(new ImageIcon("Images"+File.separator+"edit.png"));
 		edit2.setMnemonic(KeyEvent.VK_E);
 		
 		DeleteAction del_act = new DeleteAction(parent);
 		JMenuItem delete = new JMenuItem(del_act);
 		delete.setText("Delete");
-		delete.setIcon(new ImageIcon("Images/delete.png"));
+		delete.setIcon(new ImageIcon("Images"+File.separator+"delete.png"));
 		delete.setMnemonic(KeyEvent.VK_D);
 		
 		JMenuItem help2 = new JMenuItem("Help");
-		help2.setIcon(new ImageIcon("Images/help.png"));
+		help2.setIcon(new ImageIcon("Images"+File.separator+"help.png"));
 		help2.setMnemonic(KeyEvent.VK_H);
 		help2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
 		
 		JMenuItem about = new JMenuItem("About");
-		about.setIcon(new ImageIcon("Images/about.png"));
+		about.setIcon(new ImageIcon("Images"+File.separator+"about.png"));
 		about.setMnemonic(KeyEvent.VK_A);
 		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
 		

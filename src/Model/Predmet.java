@@ -1,6 +1,7 @@
 package Model;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Predmet {
+public class Predmet implements Serializable{
 
 	private String sifraPredmeta;
 	private String nazivPredmeta;

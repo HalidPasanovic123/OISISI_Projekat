@@ -1,5 +1,14 @@
 package Baze;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import Model.Predmet;
@@ -30,10 +39,12 @@ public class BazaPredmeta {
         this.columnsForProfesorEdit = new ArrayList<String>();
         this.columnsForStudentPolozeni = new ArrayList<String>();
 
-        predmeti.add(new Predmet("sifraPredmeta1", "nazivPredmeta", Semestar.LETNJI, "2", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
-         predmeti.add(new Predmet("sifraPredmeta2", "nazivPredmeta", Semestar.LETNJI, "1", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
-         predmeti.add(new Predmet("sifraPredmeta3", "nazivPredmeta", Semestar.LETNJI, "3", null, 5, new ArrayList<Student>(), new ArrayList<Student>()));
-
+        try {
+            deserialization();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         this.columns.add("Sifra predmeta");
         this.columns.add("Naziv predmeta");
         this.columns.add("Broj ESPB");
@@ -204,5 +215,30 @@ public class BazaPredmeta {
     {
     	this.predmeti.add(new Predmet( sifraPredmeta,  nazivPredmeta,  semestar,  godinaStudija,
     			 predmetniProfesor,  brojESPB, spisakPolozenih, spisakNepolozenih));
+    }
+
+    public void serialization() throws IOException {
+        File file = new File("data"+File.separator+"predmeti.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+        try {
+            oos.writeObject(predmeti);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+			oos.close();
+		}
+    }
+
+    public void deserialization() throws FileNotFoundException, IOException {
+        File file = new File("data"+File.separator+"predmeti.txt");
+        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+        try {
+            ArrayList<Predmet> inPredmeti = (ArrayList<Predmet>) ois.readObject();
+            predmeti = inPredmeti;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ois.close();
+        }
     }
 }

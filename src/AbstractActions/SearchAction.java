@@ -2,6 +2,7 @@ package AbstractActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,7 +22,7 @@ public class SearchAction extends AbstractAction{
     public SearchAction(JTextField searchInput){    
         this.searchInput = searchInput;  
         putValue(SHORT_DESCRIPTION, "Search existing entity");        
-        putValue(SMALL_ICON, new ImageIcon("Images/Toolbar_Button_4.png"));        
+        putValue(SMALL_ICON, new ImageIcon("Images"+File.separator+"Toolbar_Button_4.png"));        
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
     }
 
