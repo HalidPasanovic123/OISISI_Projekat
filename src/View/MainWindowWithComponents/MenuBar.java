@@ -3,6 +3,7 @@ package View.MainWindowWithComponents;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
@@ -16,6 +17,7 @@ import View.Dialogs.StudentEditDialog.NepolozeniTab.PolaganjeButton.PolaganjeJDi
 
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -52,21 +54,49 @@ public class MenuBar extends JMenuBar {
 		
 		JMenuItem close = new JMenuItem("Close");
 		close.setIcon(new ImageIcon("Images"+File.separator+"close.png"));
+		close.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent ev) 
+			{
+				MainWindow.getInstance().dispose();
+			}
+		});
 		close.setMnemonic(KeyEvent.VK_C);
 		close.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
 		
 		JMenuItem studenti = new JMenuItem("Studenti");
 		studenti.setIcon(new ImageIcon("Images"+File.separator+"student.png"));
+		studenti.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent ev) 
+			{
+				MainWindow.getInstance().getTabs().getJTabbedPane().setSelectedIndex(0);
+			}
+		});
 		studenti.setMnemonic(KeyEvent.VK_T);
 		studenti.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T,ActionEvent.CTRL_MASK));
 		
 		JMenuItem profesori = new JMenuItem("Profesori");
 		profesori.setIcon(new ImageIcon("Images"+File.separator+"profesor.png"));
+		profesori.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent ev) 
+			{
+				MainWindow.getInstance().getTabs().getJTabbedPane().setSelectedIndex(1);
+			}
+		});
 		profesori.setMnemonic(KeyEvent.VK_P);
 		profesori.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.CTRL_MASK));
 		
 		JMenuItem predmeti= new JMenuItem("Predmeti");
 		predmeti.setIcon(new ImageIcon("Images"+File.separator+"predmet.jpg"));
+		predmeti.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent ev) 
+			{
+				MainWindow.getInstance().getTabs().getJTabbedPane().setSelectedIndex(2);
+			}
+		});
 		predmeti.setMnemonic(KeyEvent.VK_R);
 		predmeti.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,ActionEvent.CTRL_MASK));
 		
@@ -98,10 +128,29 @@ public class MenuBar extends JMenuBar {
 		
 		JMenuItem help2 = new JMenuItem("Help");
 		help2.setIcon(new ImageIcon("Images"+File.separator+"help.png"));
+		help2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String message = "";
+				JOptionPane.showMessageDialog(MainWindow.getInstance(), message);
+			}
+
+		});
 		help2.setMnemonic(KeyEvent.VK_H);
 		help2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
 		
 		JMenuItem about = new JMenuItem("About");
+		about.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String message = "";
+				JOptionPane.showMessageDialog(MainWindow.getInstance(), message);
+				
+			}
+
+		});
 		about.setIcon(new ImageIcon("Images"+File.separator+"about.png"));
 		about.setMnemonic(KeyEvent.VK_A);
 		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
