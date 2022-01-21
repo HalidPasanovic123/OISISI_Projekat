@@ -62,7 +62,7 @@ public class ProfesorController {
             if(k.getProfesori() != null){
                 for (Profesor p : k.getProfesori()) {
                     if (p != null) {
-                        if(p == profesor){
+                        if(p.getBrojLicneKarte() == profesor.getBrojLicneKarte()){
                             k.getProfesori().remove(p);
                             break;
                         }
