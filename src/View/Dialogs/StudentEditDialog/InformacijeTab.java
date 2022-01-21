@@ -1,6 +1,5 @@
 package View.Dialogs.StudentEditDialog;
 
-import java.text.DateFormat;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -102,7 +101,7 @@ public class InformacijeTab extends JPanel {
 		this.add(txtField2,gbc);
 		
 		gbc=new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		JLabel label3=new JLabel("Datum roÄ‘enja*");
+		JLabel label3=new JLabel("Datum rodjenja*");
 		this.add(label3,gbc);
 		
 		txtField3=new JTextField();
@@ -171,8 +170,8 @@ public class InformacijeTab extends JPanel {
 		ArrayList<String> valsGS = new ArrayList<String>();
 		valsGS.add("I (prva)");
 		valsGS.add("II (druga)");
-		valsGS.add("III (treÄ‡a)");
-		valsGS.add("IV (ÄŤetvrta)");
+		valsGS.add("III (treća)");
+		valsGS.add("IV (četvrta)");
 		valsGS.add("V (peta)");
 		
 		final JComboBox<String> combo = new JComboBox(valsGS.toArray()) ;
@@ -201,11 +200,11 @@ public class InformacijeTab extends JPanel {
 		this.add(combo,gbc);
 		
 		gbc=new GridBagConstraints(0, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		JLabel label10=new JLabel("NaÄŤin finansiranja*");
+		JLabel label10=new JLabel("Način finansiranja*");
 		this.add(label10,gbc);
 		
 		ArrayList<String> valsStatus = new ArrayList<String>();
-		valsStatus.add("BudĹľet");
+		valsStatus.add("Budžet");
 		valsStatus.add("Samofinansiranje");
 		
 		final JComboBox<String> combo2 = new JComboBox(valsStatus.toArray());
@@ -254,11 +253,11 @@ public class InformacijeTab extends JPanel {
 				{
 					godinaStudiranja = 2;
 				} 
-				else if (combo.getSelectedItem().toString().equals("III (treÄ‡a)"))
+				else if (combo.getSelectedItem().toString().equals("III (treća)"))
 				{
 					godinaStudiranja = 3;
 				}
-				else if (combo.getSelectedItem().toString().equals("IV (ÄŤetvrta)"))
+				else if (combo.getSelectedItem().toString().equals("IV (četvrta)"))
 				{
 					godinaStudiranja = 4;
 				}	 
@@ -268,7 +267,7 @@ public class InformacijeTab extends JPanel {
 				}
 				
 				Status status;
-				if (combo2.getSelectedItem().toString().equals("BudĹľet"))
+				if (combo2.getSelectedItem().toString().equals("Budžet"))
 				{
 					status = Status.B;
 				}		
@@ -311,11 +310,11 @@ public class InformacijeTab extends JPanel {
 				postoji = true;
 		}
 		
-		if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime)) 
+		if(!Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", ime)) 
 		{
 			btnPotvrdi.setEnabled(false);
 		} 
-		else if(!Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime)) 
+		else if(!Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", prezime)) 
 		{
 			btnPotvrdi.setEnabled(false);
 		} 

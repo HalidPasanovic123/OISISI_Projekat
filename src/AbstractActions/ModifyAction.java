@@ -13,7 +13,6 @@ import View.Dialogs.ProfesorEditDialog.ProfesorEditJDialog;
 import View.Dialogs.StudentEditDialog.StudentEditDialog;
 import Controllers.PredmetController;
 import Controllers.ProfesorController;
-import View.Dialogs.PredmetJDialog;
 import View.Dialogs.PredmetEditDialog.PredmetEditJDialog;
 import View.MainWindowWithComponents.MainWindow;
 

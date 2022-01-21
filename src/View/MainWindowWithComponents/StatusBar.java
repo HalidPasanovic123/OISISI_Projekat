@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 public class StatusBar extends JPanel{
 	
 			
-	private String appName = "Studentska Slu�ba-Studenti";
+	private String appName = "Studentska Služba-Studenti";
 	private String time;
 	JLabel appNameLabel = new JLabel(appName);
 	JLabel timeLabel = new JLabel();

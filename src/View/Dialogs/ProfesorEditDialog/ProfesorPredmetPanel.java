@@ -10,8 +10,6 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
-import Controllers.PredmetController;
 import Model.Predmet;
 import Model.Profesor;
 

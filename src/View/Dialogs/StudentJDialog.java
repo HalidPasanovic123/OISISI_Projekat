@@ -12,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -103,7 +102,7 @@ public class StudentJDialog  extends JDialog{
 		this.add(txtField2,gbc);
 		
 		gbc=new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		JLabel label3=new JLabel("Datum roÄ‘enja*");
+		JLabel label3=new JLabel("Datum rodjenja*");
 		this.add(label3,gbc);
 		
 		txtField3=new JTextField();
@@ -176,7 +175,7 @@ public class StudentJDialog  extends JDialog{
 		this.add(label10,gbc);
 		
 		ArrayList<String> valsStatus = new ArrayList<String>();
-		valsStatus.add("Budzet");
+		valsStatus.add("Budžet");
 		valsStatus.add("Samofinansiranje");
 		
 		comboBox2 = new JComboBox(valsStatus.toArray());
@@ -219,11 +218,11 @@ public class StudentJDialog  extends JDialog{
 				{
 					godinaStudiranja = 2;
 				}
-				else if (comboBox1.getSelectedItem().toString().equals("III (treca)"))
+				else if (comboBox1.getSelectedItem().toString().equals("III (treća)"))
 				{
 					godinaStudiranja = 3;
 				}
-				else if (comboBox1.getSelectedItem().toString().equals("IV (cetvrta)"))
+				else if (comboBox1.getSelectedItem().toString().equals("IV (četvrta)"))
 				{
 					godinaStudiranja = 4;
 				}
@@ -233,7 +232,7 @@ public class StudentJDialog  extends JDialog{
 				}
 
 				Status status;
-				if (comboBox2.getSelectedItem().toString().equals("BudĹľet"))
+				if (comboBox2.getSelectedItem().toString().equals("Budžet"))
 				{
 					status = Status.B;
 				}
@@ -260,7 +259,6 @@ public class StudentJDialog  extends JDialog{
 	{
 		String ime=txtField1.getText();
 		String prezime=txtField2.getText();
-		String datum = txtField3.getText();
 		Adresa adresaStanovanja = new Adresa();
 		adresaStanovanja.setGrad(txtField5.getText());
 		String brojTelefona=txtField5.getText();
@@ -279,11 +277,11 @@ public class StudentJDialog  extends JDialog{
 		{
 			godinaStudiranja = 2;
 		}
-		else if (comboBox1.getSelectedItem().toString().equals("III (treca)"))
+		else if (comboBox1.getSelectedItem().toString().equals("III (treća)"))
 		{
 			godinaStudiranja = 3;
 		}
-		else if (comboBox1.getSelectedItem().toString().equals("IV (cetvrta)"))
+		else if (comboBox1.getSelectedItem().toString().equals("IV (četvrta)"))
 		{
 			godinaStudiranja = 4;
 		}
@@ -293,7 +291,7 @@ public class StudentJDialog  extends JDialog{
 		}
 
 		Status status;
-		if (comboBox2.getSelectedItem().toString().equals("BudĹľet"))
+		if (comboBox2.getSelectedItem().toString().equals("Budžet"))
 		{
 			status = Status.B;
 		}
@@ -313,8 +311,8 @@ public class StudentJDialog  extends JDialog{
 		}
 		
 		btnPotvrdi.setEnabled(false);
-		if(Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", ime) &&
-		Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", prezime) && 
+		if(Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", ime) &&
+		Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", prezime) && 
 		Pattern.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}[.]", txtField3.getText()) &&
 		Pattern.matches("[+]?[0-9]+", brojTelefona) && Pattern.matches("^(.+)@(.+)$", emailAdresa) &&
 		Pattern.matches("[0-9]{4}", godinaUpisa) && !postoji) 

@@ -149,9 +149,9 @@ public class ProfesorInfoPanel extends JPanel{
         fieldAdresa.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresa.getText()) || fieldAdresa.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresaBool = false;
-                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresa.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresa.setForeground(Color.RED);
                     check();
                 } else {
@@ -180,9 +180,9 @@ public class ProfesorInfoPanel extends JPanel{
         fieldAdresaK.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, drzava")) {
+                if (!StringCheckers.checkAdresa(fieldAdresaK.getText()) || fieldAdresaK.getText().equals("Neispravna adresa! Treba format - ulica broj, grad, država")) {
                     adresakBool = false;
-                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, drzava");
+                    fieldAdresaK.setText("Neispravna adresa! Treba format - ulica broj, grad, država");
                     fieldAdresaK.setForeground(Color.RED);
                     check();
                 } else {
@@ -217,7 +217,7 @@ public class ProfesorInfoPanel extends JPanel{
                         if(p.getBrojLicneKarte() == brojLicneKarte && brojLicneKarte != prethodniBrojLicne){
                             brojBool = false;
                             fieldLicna.setForeground(Color.RED);
-                            fieldLicna.setText("Broj Licne vec postoji u bazi!");
+                            fieldLicna.setText("Broj Lične vec postoji u bazi!");
                             check();
                             return;
                         }
@@ -228,7 +228,7 @@ public class ProfesorInfoPanel extends JPanel{
                 } catch (NumberFormatException e1) {
                     brojBool = false;
                     fieldLicna.setForeground(Color.RED);
-                    fieldLicna.setText("Nije Broj licne dobro uneto! Treba da je broj");
+                    fieldLicna.setText("Nije Broj lične dobro uneto! Treba da je broj");
                     check();
                     return;
                 }
@@ -292,7 +292,7 @@ public class ProfesorInfoPanel extends JPanel{
                 } catch (NumberFormatException e1) {
                     godineBool = false;
                     fieldStaz.setForeground(Color.RED);
-                    fieldStaz.setText("Nisu godine staza dobro uneto! Treba da je broj");
+                    fieldStaz.setText("Nisu godine staža dobro uneto! Treba da je broj");
                     check();
                     return;
                 }

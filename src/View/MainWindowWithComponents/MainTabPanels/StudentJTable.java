@@ -23,9 +23,9 @@ public class StudentJTable extends JTable {
 		return instance;
 	}
 	
-	private TableRowSorter<AbstractTableModelStudent> sorter;
+	private static TableRowSorter<AbstractTableModelStudent> sorter;
 	private static AbstractTableModelStudent model;
-	
+
 	public StudentJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
@@ -35,14 +35,15 @@ public class StudentJTable extends JTable {
 
 		model = new AbstractTableModelStudent();
 		sorter = new TableRowSorter<AbstractTableModelStudent>(model);
-		this.setRowSorter(sorter);
+        this.setRowSorter(sorter);
 		this.setModel(model);
 
-		sorter.setComparator(1,new Comparator<String>()
-		{
-			public int compare(String o1,String o2)
+		sorter.setComparator(0, new Comparator<String>() {
+			public int compare(String o1, String o2)
 			{
-				return o1.compareTo(o2);
+				String novi1 = o1.substring(3);
+				String novi2 = o2.substring(3);
+				return novi1.compareTo(novi2);
 			}
 		});
 	}

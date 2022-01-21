@@ -6,13 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.awt.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.table.*;
-
-import AbstractTableModels.AbstractModelProfesori;
-import Model.Profesor;
 import View.MainWindowWithComponents.MainWindow;
 
 public class SearchAction extends AbstractAction{

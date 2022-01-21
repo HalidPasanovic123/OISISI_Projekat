@@ -19,8 +19,6 @@ import View.Dialogs.StudentEditDialog.NepolozeniTab.StudentNepolozeniJTable;
 import Model.Adresa;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
-import Model.Profesor;
-import Model.Semestar;
 
 
 public class BazaStudenata {
@@ -55,7 +53,6 @@ public class BazaStudenata {
 	
 	private void initStudente() {
 		this.studenti = new ArrayList<Student>();
-		Adresa adresa =  new Adresa("ulica",32,"grad","drzava");
 
 		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
 

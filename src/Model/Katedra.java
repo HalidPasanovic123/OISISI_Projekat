@@ -56,7 +56,7 @@ public class Katedra implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Katedra [sifraKatedre=" + sifraKatedre + ", nazivKatedre=" + nazivKatedre + ", sefKatedre=" + sefKatedre
+		return "Katedra [sifraKatedre=" + sifraKatedre + ", nazivKatedre=" + nazivKatedre + ", šefKatedre=" + sefKatedre
 				+ ", profesori=" + profesori + "]";
 	}
 		

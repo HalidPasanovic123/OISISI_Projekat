@@ -87,7 +87,7 @@ public class PredmetEditJDialog extends JDialog{
 		
         //Labela za Sifru Predmeta
         GridBagConstraints gridBagConstraints = new GridBagConstraints(0, gridy, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE,new Insets(0, 5, 0, 0), 0, 0);
-        JLabel sifra = new JLabel("Sifra Predmeta*");
+        JLabel sifra = new JLabel("Šifra Predmeta*");
         add(sifra, gridBagConstraints);
 
         //TextField za Sifru Predmeta
@@ -315,7 +315,7 @@ public class PredmetEditJDialog extends JDialog{
     		obrisi.setEnabled(false);
     	}
     	
-		if(!postoji &&  Pattern.matches("([a-zA-ZĹˇÄ‘ÄŤÄ‡ĹľĹ Ä�ÄŚÄ†Ĺ˝]+[\\s]*)+", naziv) &&
+		if(!postoji &&  Pattern.matches("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+", naziv) &&
 		Pattern.matches("[1-4]{1}", godina) && Pattern.matches("[0-9]{1,2}", espb))
 		{
 			potvrdi.setEnabled(true);

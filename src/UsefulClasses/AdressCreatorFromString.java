@@ -10,7 +10,7 @@ import Model.Adresa;
 public class AdressCreatorFromString {
     
     public static Adresa createAdresa(String adresa){
-        final Pattern regexStrings = Pattern.compile("([a-zA-ZÄŤÄŚÄ‡Ä†ĹľĹ˝Ä‘Ä�ĹˇĹ ]+[\\s]*)+");
+        final Pattern regexStrings = Pattern.compile("([a-zA-ZčČćĆžŽđĐšŠ]+[\\s]*)+");
         final Pattern regexNumber = Pattern.compile("[0-9]+");
         final Matcher tempString = regexStrings.matcher(adresa);
         final Matcher stringNumber = regexNumber.matcher(adresa);

@@ -158,17 +158,6 @@ public class Profesor implements Serializable{
 
 	public void izbaciPredmet(Predmet p)
 	{
-		// ArrayList<Predmet> temp = new ArrayList<Predmet>();
-
-		// for (Predmet pp : this.predmeti)
-		// {
-		// 	if(p.getSifraPredmeta() != pp.getSifraPredmeta())
-		// 	{
-		// 		temp.add(pp);
-		// 	}
-		// }
-		// this.setPredmeti(temp);
-
 		this.predmeti.remove(p);
 	}
 
@@ -185,6 +174,6 @@ public class Profesor implements Serializable{
 		return "Profesor [prezime=" + prezime + ", ime=" + ime + ", datumRodjenja=" + datumRodjenja
 				+ ", adresaStanovanja=" + adresaStanovanja + ", kontaktTelefon=" + kontaktTelefon + ", emailAdresa="
 				+ emailAdresa + ", adresaKancelarije=" + adresaKancelarije + ", brojLicneKarte=" + brojLicneKarte
-				+ ", zvanje=" + zvanje + ", godineStaza=" + godineStaza + ", predmeti=" + predmeti + "]";
+				+ ", zvanje=" + zvanje + ", godineStaža=" + godineStaza + ", predmeti=" + predmeti + "]";
 	}
 }

@@ -45,18 +45,18 @@ public class BazaPredmeta {
             e.printStackTrace();
         }
         
-        this.columns.add("Sifra predmeta");
+        this.columns.add("Šifra predmeta");
         this.columns.add("Naziv predmeta");
         this.columns.add("Broj ESPB");
         this.columns.add("Godina studija");
         this.columns.add("Semestar");
 
-        this.columnsForProfesorEdit.add("Sifra predmeta");
+        this.columnsForProfesorEdit.add("Šifra predmeta");
         this.columnsForProfesorEdit.add("Naziv predmeta");
         this.columnsForProfesorEdit.add("Semestar");
         this.columnsForProfesorEdit.add("Godina studija");
 
-        this.columnsForStudentPolozeni.add("Sifra predmeta");
+        this.columnsForStudentPolozeni.add("Šifra predmeta");
         this.columnsForStudentPolozeni.add("Naziv predmeta");
         this.columnsForStudentPolozeni.add("Broj ESPB");
         this.columnsForStudentPolozeni.add("Ocena");

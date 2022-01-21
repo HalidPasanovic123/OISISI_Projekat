@@ -3,14 +3,12 @@ package Controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import Baze.BazaProfesora;
 import Baze.BazaStudenata;
 import Model.Adresa;
 import Model.Status;
 import Model.Student;
 import Model.OcenaNaIspitu;
 import Model.Predmet;
-import Model.Profesor;
 import View.MainWindowWithComponents.MainWindow;
 
 public class StudentController {
