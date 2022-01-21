@@ -175,7 +175,7 @@ public class Student implements Serializable{
 		{
 			s += this.adresa.getUlica() + " ";
 		}
-		if(this.adresa.getBroj() != 0)
+		if(this.adresa.getBroj() != null)
 		{
 			s += this.adresa.getBroj() + " ";
 		}
