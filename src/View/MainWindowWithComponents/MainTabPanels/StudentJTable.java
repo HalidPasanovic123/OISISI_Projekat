@@ -57,17 +57,6 @@ public class StudentJTable extends JTable {
 				{
 					return o1.compareTo(o2);
 				}
-				// String smer1 = o1.substring(0,2);
-				// String smer2 = o2.substring(0,2);
-				// if(smer1.equals(smer2))
-				// {
-				
-				// return result;
-				// }
-				// else
-				// {
-				// 	return smer1.compareTo(smer2);
-				// }
 			}
 		});
 	}
