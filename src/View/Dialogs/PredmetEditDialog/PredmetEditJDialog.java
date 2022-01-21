@@ -125,19 +125,19 @@ public class PredmetEditJDialog extends JDialog{
         godine.add("5");
         comboBox1 = new JComboBox(godine.toArray());
         gridBagConstraints = new GridBagConstraints(1, gridy, 3, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,new Insets(5, 25, 0, 0), 165, 0);
-        if(predmet.getGodinaStudija() == "1")
+        if(predmet.getGodinaStudija().equals("1"))
         {
         	comboBox1.setSelectedIndex(0);
         }
-        else if(predmet.getGodinaStudija() == "2")
+        else if(predmet.getGodinaStudija().equals("2"))
         {
         	comboBox1.setSelectedIndex(1);
         }
-        else if(predmet.getGodinaStudija() == "3")
+        else if(predmet.getGodinaStudija().equals("3"))
         {
         	comboBox1.setSelectedIndex(2);
         }
-        else if(predmet.getGodinaStudija() == "4")
+        else if(predmet.getGodinaStudija().equals("4"))
         {
         	comboBox1.setSelectedIndex(3);
         }
