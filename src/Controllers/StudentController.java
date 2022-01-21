@@ -33,19 +33,18 @@ private static StudentController instance = null;
 	}
 	
 	public void editStudent(String prezime, String ime, String datumRodjenja, Adresa adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String godinaUpisa, int trenutnaGodinaStudija, Status status, int row) {
+			String emailAdresa, String brojIndeksa, String godinaUpisa, int trenutnaGodinaStudija, Status status, Student s) {
 		
-		Student student = BazaStudenata.getInstance().getRow(row);
-		student.setIme(ime);
-		student.setPrezime(prezime);
-		student.setDatumRodjenja(datumRodjenja);
-		student.setAdresa(adresaStanovanja);
-		student.setKontakt(kontaktTelefon);
-		student.seteMail(emailAdresa);
-		student.setIndeks(brojIndeksa);
-		student.setGodinaUpisa(godinaUpisa);
-		student.setGodinaStudija(trenutnaGodinaStudija);
-		student.setStatus(status);
+		s.setIme(ime);
+		s.setPrezime(prezime);
+		s.setDatumRodjenja(datumRodjenja);
+		s.setAdresa(adresaStanovanja);
+		s.setKontakt(kontaktTelefon);
+		s.seteMail(emailAdresa);
+		s.setIndeks(brojIndeksa);
+		s.setGodinaUpisa(godinaUpisa);
+		s.setGodinaStudija(trenutnaGodinaStudija);
+		s.setStatus(status);
 		MainWindow.getInstance().updateShowingOfStudent("Izmena Studenta", -1);
 		
 	}
