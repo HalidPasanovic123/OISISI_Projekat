@@ -64,7 +64,6 @@ public class BazaStudenata {
 
 	 }
 	
-	
 	public List<Student> getStudenti() {
 		return studenti;
 	}
