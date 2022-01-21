@@ -8,6 +8,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
+import Baze.BazaKatedre;
 import Baze.BazaPredmeta;
 import Baze.BazaProfesora;
 import Baze.BazaStudenata;
@@ -26,6 +27,7 @@ public class SaveAction extends AbstractAction {
             BazaPredmeta.getInstance().serialization();
             BazaProfesora.getInstance().serialization();
             BazaStudenata.getInstance().serialization();
+            BazaKatedre.getInstance().serialization();
         } catch (Exception e1) {
             e1.printStackTrace();
         }

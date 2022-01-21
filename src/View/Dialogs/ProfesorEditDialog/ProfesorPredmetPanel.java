@@ -45,9 +45,7 @@ public class ProfesorPredmetPanel extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 int temp = profpredTable.getSelectedRow();
                 Predmet p = profesor.getPredmeti().get(profpredTable.convertRowIndexToModel(temp));
-                //System.out.println(p.toString());
                 profesor.izbaciPredmet(p);
-                profesor.IspisiTabelu();
                 AbstractTableModelPredmeti model = (AbstractTableModelPredmeti) profpredTable.getModel();
             	model.fireTableDataChanged();
         		validate();
