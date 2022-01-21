@@ -2,6 +2,7 @@ package View.MainWindowWithComponents.MainTabPanels;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.Comparator;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -27,6 +28,15 @@ public class PredmetJTable extends JTable {
         this.setModel(new AbstractModelPredmeta());
         sorter = new TableRowSorter<TableModel>(this.getModel());
         this.setRowSorter(sorter);
+
+        sorter.setComparator(2, new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+            
+		});
     }
 
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {

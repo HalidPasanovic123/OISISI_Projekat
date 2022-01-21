@@ -175,7 +175,7 @@ public class BazaPredmeta {
         }
     }
 
-    public String getValueAt(int row, int column){
+    public Object getValueAt(int row, int column){
         Predmet predmet = predmeti.get(row);
         switch (column){
             case 0:
@@ -183,7 +183,7 @@ public class BazaPredmeta {
             case 1:
                 return predmet.getNazivPredmeta();
             case 2:
-                return Long.toString(predmet.getBrojESPB());
+                return predmet.getBrojESPB();
             case 3:
                 return predmet.getGodinaStudija();
             case 4:
